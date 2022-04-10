@@ -1,0 +1,9 @@
+.logo {
+  display: inline-block;
+  width: 25rem;
+  height: 25rem;
+  margin: 0;
+  padding: 0;
+  background-color: tomato;
+  box-sizing: content-box;
+}

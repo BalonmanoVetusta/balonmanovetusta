@@ -1,0 +1,7 @@
+.welcome {
+  --color-goldenrod: #daa520;
+  --color-gold: #ffd700;
+
+  font: bolder 2rem sans-serif;
+  color: var(--color-goldenrod);
+}

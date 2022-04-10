@@ -1,9 +1,41 @@
+/** Dark Theme **/
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background-color: #353131;
+    --text-color-primary: #fceb00;
+  }
+}
+[data-theme="dark"] {
+  --background-color: #353131;
+  --text-color-primary: #fceb00;
+}
+
+/** Light Theme **/
+@media only screen and (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --background-color: #ffeebd;
+    --text-color-primary: #151111;
+  }
+}
+[data-theme="light"] {
+  --background-color: #ffeebd;
+  --text-color-primary: #151111;
+}
+
+/** **/
+
+:root {
+  font-size: 16px;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: var(--text-color-primary);
+  background-color: var(--background-color);
 }
 
 a {
