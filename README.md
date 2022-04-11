@@ -1,38 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+There is an [english version](README.en.md) of this README available.
 
-## About this template
+## Acerca de
 
-This is a template start project for next.js application with jest, prettier and some start configuration.
+Este es el código fuente del Club Balonmano Vetusta de Oviedo. El código es libre por decisión del autor del código. Eres libre de utilizar el código fuente con las restricciones que figuran en el apartado [#Licencia](#licencia)
 
-## Getting Started
+## Licencia
 
-First, run the development server:
+<span id="licencia"></span>
+Licencia del MIT para el código fuente pero no debe aparecer ni el logotipo del club ni ninguna de las marcas que figuren en la web oficial del club si no tienes permiso explicito para ello ya que esta licencia no lo constituye.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Los logotipos incluidos no se ciñen a la misma licencia y son de sus respectivos dueños.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El logotipo de los clubes deportivos que aparezcan incluyendo el del Club Balonmano Vetusta no puede utilizarse sin consentimiento previo del club (respectivamente, es decir, cada club debe dar su consentimiento).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Contacto
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+A través del apartado clubes de la Real Federación Española de balonmano puedes ver los datos de contacto para tratar cualquier tema.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Aviso Legal
 
-## Learn More
+Algunos iconos han sido copiados de los siguients proyectos:
 
-To learn more about Next.js, take a look at the following resources:
+- [Material Desgin](https://github.com/Templarian/MaterialDesign) ([Apache License 2.0 and other](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE))
+- [System UI Icons](https://systemuicons.com) ([Unlicense](https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE))
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Fuentes de texto:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Alumni One](https://github.com/googlefonts/alumni) ([OFL License](http://scripts.sil.org/OFL))
