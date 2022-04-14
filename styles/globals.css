@@ -1,46 +1,114 @@
-/** Dark Theme **/
-@media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --background-color: #353131;
-    --text-color-primary: #fceb00;
-  }
-}
-[data-theme="dark"] {
-  --background-color: #353131;
-  --text-color-primary: #fceb00;
+@font-face {
+  font-family: "Alumni Sans";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/assets/fonts/Alumni_Sans/AlumniSans-VariableFont_wght.ttf)
+    format("truetype-variations");
 }
 
-/** Light Theme **/
-@media only screen and (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --background-color: #ffeebd;
-    --text-color-primary: #151111;
-  }
-}
-[data-theme="light"] {
-  --background-color: #ffeebd;
-  --text-color-primary: #151111;
-}
-
-/** **/
-
-:root {
-  font-size: 16px;
+@font-face {
+  font-family: "Alumni Sans";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/assets/fonts/Alumni_Sans/AlumniSans-Italic-VariableFont_wght.ttf)
+    format("truetype-variations");
 }
 
 html,
 body {
-  padding: 0;
+  padding: 0.2rem;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: var(--text-color-primary);
   background-color: var(--background-color);
+}
+
+
+table,
+input,
+li,
+a,
+label,
+td,
+legend,
+p,
+acronym,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-weight: lighter;
+  font-display: swap;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Alumni Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-style: normal;
+  line-height: normal;
+  font-variant-caps: titling-caps;
+  margin: 0;
+  padding: 0;
+  color: var(--text-title-color-primary);
+  margin: 0.2rem 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bolder;
+}
+
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+h2 {
+  font-size: var(--h2-font-size);
+}
+h3 {
+  font-size: var(--h3-font-size);
+}
+h4 {
+  font-size: var(--h4-font-size);
+}
+h5 {
+  font-size: var(--h5-font-size);
+}
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+p {
+  margin: 0.5rem 0;
+  padding: 0;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  font-weight: bold;
 }
 
 * {

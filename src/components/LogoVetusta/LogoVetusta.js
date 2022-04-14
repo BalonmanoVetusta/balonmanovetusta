@@ -1,5 +1,6 @@
 import Picture from "components/Picture";
 import { Fragment } from "react";
+import convertColors2RGBA from "./lib/convertColors2RGBA";
 
 // red, green, blue
 const LOGO_YELLOW = "#FCEB00"; // 252, 235, 0
@@ -21,8 +22,8 @@ export function LogoVetusta({
 
   let darkFill, lightFill, darkShadow, lightShadow;
   try {
-    darkFill = convertFromHexToRGBA(darkFillColor);
-    lightFill = convertFromHexToRGBA(lightFillColor);
+    darkFill = convertColors2RGBA(darkFillColor);
+    lightFill = convertColors2RGBA(lightFillColor);
 
     darkShadow = convertColors2RGBA(darkFillColor, 0.5);
     lightShadow = convertColors2RGBA(lightFillColor, 0.5);
@@ -83,7 +84,7 @@ export function LogoVetusta({
         svg {
           fill: var(${cssVariableName});
           ${shadow
-            ? `filter: drop-shadow(1rem 1rem 8px var(${cssVariableName}-shadow));`
+            ? `filter: drop-shadow(5px 5px 3px var(${cssVariableName}-shadow));`
             : ""}
         }
       `}</style>

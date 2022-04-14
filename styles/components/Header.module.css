@@ -1,0 +1,79 @@
+/** Portrait phones usually **/
+@media screen and (max-width: 479px) {
+  .header {
+    max-width: 100%;
+    max-height: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    padding-bottom: 0.5rem;
+  }
+
+  .header h1 {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    display: inline-flex;
+    max-width: 3rem;
+    max-height: 3rem;
+  }
+
+  .hidemenu {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+/** Tablets & landscape phones **/
+@media screen and (min-width: 480px) and (max-width: 1023px) {
+  .header {
+    max-height: auto;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: top;
+    margin-left: 0.5rem;
+  }
+
+  .header h1 {
+    display: none;
+  }
+
+  .logo {
+    display: flex;
+    max-width: 4rem;
+    max-height: 4rem;
+  }
+
+  .logo picture {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .hidemenu {
+    display: flex;
+  }
+}
+
+/** Desktop and large screen sizes **/
+@media screen and (min-width: 1024px) {
+  .header {
+    max-width: 100%;
+    max-height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .header h1 {
+    display: none;
+  }
+
+  .logo picture {
+    max-height: 10rem;
+  }
+
+  .hidemenu {
+    display: none;
+    visibility: hidden;
+  }
+}

@@ -29,7 +29,7 @@ export default function useBrowser() {
     setIsDesktop(window.innerWidth > 992);
 
     setIsSystemDarkMode(isSystemDark);
-    setIsDarkMode(isForcedDarkMode ? isForcedDarkMode : isSystemDark);
+    setIsDarkMode(isForcedDarkMode || isSystemDark);
   }, []);
 
   return {

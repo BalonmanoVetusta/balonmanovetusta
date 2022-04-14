@@ -7,59 +7,92 @@
 
 const NO_ALPHA = -1;
 
-function convertFromHexToRGBA(hex, alpha = NO_ALPHA) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
+function convert2AlphaPercentajeUnit(n, radix) {
+  if (n === NO_ALPHA) {
+    return 0;
+  }
+
+  if (Number(n) <= 1) {
+    return Number(n);
+  }
+
+  if (n.contains("%")) {
+    return Number(n.replace("%", "")) / 100;
+  }
+
+  return n / radix;
+}
+
+function splitRGBAHSLAColor(color) {
+  if (color.contains(",") && !color.contains("/")) {
+    return color.split(",");
+  }
+
+  if (color.contains("/") && !color.contains(",")) {
+    const [onlyColor, a] = color.split("/");
+    const [r, g, b] = onlyColor.split(/\s+/);
+
+    return [r, g, b, a];
+  }
+
+  if (color.contains("/") && color.contains(",")) {
+    const [r, g, b, a] = color.split(/[,/]/);
+
+    return [r, g, b, a];
+  }
+}
+
+export function convertFromHexToRGBA(
+  hex,
+  alpha = NO_ALPHA,
+  fallbackColor = null
+) {
+  let r, g, b;
+  hex = hex.replace("#", "");
+  if (hex.length >= 6) {
+    r = parseInt(hex.slice(0, 2), 16);
+    g = parseInt(hex.slice(2, 4), 16);
+    b = parseInt(hex.slice(4, 6), 16);
+  } else if (hex.length === 3) {
+    r = parseInt(hex.slice(0, 1), 16);
+    g = parseInt(hex.slice(1, 2), 16);
+    b = parseInt(hex.slice(2, 3), 16);
+  } else if (fallbackColor) {
+    return convertFromHexToRGBA(fallbackColor, alpha);
+  } else {
+    throw new Error("Invalid hex color");
+  }
+
   let a;
   if (alpha > NO_ALPHA) {
     a = alpha;
   } else {
     try {
-      a = parseInt(hex.slice(7, 9), 16);
+      a = parseInt(hex.slice(6, 8), 16);
+      a = convert2AlphaPercentajeUnit(a, 255);
+      if (isNaN(a))
+        throw new Error(
+          `Invalid alpha ${a} - ${parseInt(hex.slice(6, 8), 16).toString(10)}`
+        );
     } catch (error) {
-      a = 100;
+      a = 1;
     }
   }
 
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
-function convertFromRGBToRGBA(rgb, alpha = NO_ALPHA) {
-  const r = parseInt(rgb.slice(1, 3), 10);
-  const g = parseInt(rgb.slice(3, 5), 10);
-  const b = parseInt(rgb.slice(5, 7), 10);
-  let a;
+export function convertFromRGBToRGBA(rgb, alpha = NO_ALPHA) {
+  const [r, g, b, a = 1] = splitRGBAHSLAColor(rgb);
+
   if (alpha > NO_ALPHA) {
-    a = alpha;
-  } else {
-    try {
-      a = parseInt(rgb.slice(7, 9), 10);
-    } catch (error) {
-      a = 100;
-    }
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   }
 
-  return `rgba(${r}, ${g}, ${b}, ${a})`;
-}
-
-function convertFromHslatoRGBA(color, alpha = NO_ALPHA) {
-  const hsl = color.slice(4, -1).split(",");
-  const h = parseInt(hsl[0], 10);
-  const s = parseInt(hsl[1], 10);
-  const l = parseInt(hsl[2], 10);
-  let a;
-  if (alpha > NO_ALPHA) {
-    a = alpha;
-  } else {
-    try {
-      a = parseInt(hsl[3], 10);
-    } catch (error) {
-      a = 100;
-    }
+  if (rgb.contains("/") || rgb.contains("%")) {
+    return `rgba(${r}, ${g}, ${b}, ${convert2AlphaPercentajeUnit(a, 100)})`;
   }
-
-  return `rgba(${h}, ${s}, ${l}, ${a})`;
+  return `rgba(${r}, ${g}, ${b}, ${convert2AlphaPercentajeUnit(a, 255)})`;
 }
 
 export default function convertColors2RGBA(color, alpha = NO_ALPHA) {
@@ -68,24 +101,16 @@ export default function convertColors2RGBA(color, alpha = NO_ALPHA) {
     return color;
   }
 
-  if (color.startsWith("rgb")) {
-    return convertFromRGBToRGBA(color, alpha);
-  }
-
   if (color.startsWith("#")) {
     return convertFromHexToRGBA(color, alpha);
   }
 
   if (color.startsWith("hsla")) {
-    return convertFromHslatoRGBA(color, alpha);
+    throw new Error("hsla colors are not supported");
   }
 
-  // separated for commas value supposed to be rgb or rgba
-  if (splitedColor.split(",").length >= 3) {
-    splitedColor[3] = splitedColor[3] ? splitedColor[3] : 100;
-    return alpha > NO_ALPHA
-      ? `rgba(${splitedColor.slice(0, 3).join(",")}, ${alpha})`
-      : `${splitedColor.join(",")}`;
+  if (color.startsWith("rgb") || color.contains(",")) {
+    return convertFromRGBToRGBA(color, alpha);
   }
 
   throw new Error(`${color} is not a valid color`);

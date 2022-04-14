@@ -28,3 +28,7 @@ Algunos iconos han sido copiados de los siguients proyectos:
 Text fonts:
 
 - [Alumni One](https://github.com/googlefonts/alumni) ([OFL License](http://scripts.sil.org/OFL))
+
+Used External tools:
+- [Sketchapp](https://www.sketch.com/)
+- [SVGR](https://react-svgr.com/playground) to make some svg as components

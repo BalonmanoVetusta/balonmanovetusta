@@ -1,7 +1,6 @@
-import LogoVetusta from "components/LogoVetusta";
 import Head from "next/head";
 import { Fragment } from "react";
-import { logo } from "styles/Layout.module.css";
+import Header from "components/Header";
 
 export function PageLayout({ children }) {
   return (
@@ -44,12 +43,7 @@ export function PageLayout({ children }) {
         <meta name="theme-color" content="#151111" />
         <link rel="manifest" href="site.webmanifest" />
       </Head>
-      <header>
-        <h1>Club Balonmano Vetusta</h1>
-        <span className={logo}>
-          <LogoVetusta shadow={true} caption="Logo del club" />
-        </span>
-      </header>
+      <Header />
       <main>{children}</main>
     </Fragment>
   );
