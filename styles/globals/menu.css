@@ -252,48 +252,47 @@ Large sizes screens */
     margin-right: auto;
   }
 
+  nav#menu {
+    position: fixed;
+    text-align: center;
+    justify-content: center;
+  }
+
   @media only screen and (max-height: 580px) {
     nav#menu {
-      position: absolute;
       flex-direction: column;
-      text-align: center;
-      justify-content: center;
+      top: 1rem;
     }
 
     :root:not([data-hand="left"]) nav#menu {
-      top: 1rem;
       right: 1rem;
     }
 
     :root([data-hand="left"]) nav#menu {
-      top: 1rem;
       left: 1rem;
     }
   }
 
   @media only screen and (min-height: 581px) {
     nav#menu {
-      position: absolute;
       flex-direction: column-reverse;
-      text-align: center;
-      justify-content: center;
+      bottom: 1rem;
     }
 
     :root:not([data-hand="left"]) nav#menu {
-      bottom: 1rem;
       right: 1rem;
     }
 
     [data-hand="left"] nav#menu {
       left: 1rem;
-      bottom: 1rem;
     }
 
-    #nav > ul:hover > li,
-    #nav > ul > li:hover {
+    nav#menu input[type="checkbox"]:checked ~ ul,
+    nav#menu > ul > li:hover {
       display: flex;
     }
 
+    nav#menu:hover input[type="checkbox"] ~ ul,
     ul > li:hover {
       flex-flow: column-reverse nowrap;
     }
@@ -303,24 +302,19 @@ Large sizes screens */
       flex-flow: column-reverse nowrap;
     }
 
-    nav#menu input[type="checkbox"]:checked ~ ul {
-      display: flex;
-      flex-direction: column-reverse;
-    }
-
     @media only screen and (any-hover: hover) {
+      nav#menu > ul:hover > li,
       nav#menu:hover input[type="checkbox"] ~ ul {
         display: flex;
-        flex-direction: column-reverse;
       }
     }
   }
 
-  #menu > label {
+  nav#menu > label {
     display: flex;
   }
 
-  #menu > label > div {
+  nav#menu > label > div {
     margin-left: auto;
   }
 }
