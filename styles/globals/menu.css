@@ -115,7 +115,6 @@ nav input[type="checkbox"]:checked ~ label .close {
     padding: 1rem;
   }
 
-  nav > label:focus + ul,
   nav input[type="checkbox"]:checked ~ ul {
     display: block;
   }
@@ -127,7 +126,6 @@ nav input[type="checkbox"]:checked ~ label .close {
     cursor: pointer;
   }
 
-  nav > label:focus:before,
   nav > ul > li > input[type="checkbox"]:checked ~ label:before {
     content: " X ";
     cursor: pointer;
@@ -150,8 +148,7 @@ nav input[type="checkbox"]:checked ~ label .close {
       opacity: 0;
     }
 
-    nav > label:focus + ul,
-    li > label:focus + ul,
+    nav:hover > ul,
     nav > label + ul:hover,
     li > input[type="checkbox"] ~ ul:hover,
     input[type="checkbox"]:checked ~ ul,
