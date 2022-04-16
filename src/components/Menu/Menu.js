@@ -41,7 +41,7 @@ const getHrefOrPathName = (itemHref, pathname = "/") => {
     return url.href;
   }
 
-  const fullPath = [pathname, itemHref].join("/");
+  const fullPath = [pathname, itemHref].join("/").replace(/\/\//g, "/");
   return fullPath.startsWith("/") ? fullPath : `/${fullPath}`;
 };
 

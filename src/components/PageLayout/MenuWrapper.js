@@ -51,7 +51,7 @@ export default function MenuWrapper() {
             <MultiAccount title="Acceso a información sobre nuestros equipos de balonmano" />
           ),
           label: "Equipos",
-          href: "equipos",
+          href: "equipo",
           title: "Equipos del club",
           submenu: [
             {
@@ -67,12 +67,12 @@ export default function MenuWrapper() {
             },
             {
               label: "Juvenil maculino",
-              href: "30-primera-nacional",
+              href: "30-juvenil-masculino",
               title: "Equipo de la liga Juvenil masculina de Asturias",
             },
             {
               label: "Cadete masculino",
-              href: "40-cadete",
+              href: "40-cadete-masculino",
               title: "Equipo de la liga Cadete masculina de Asturias",
             },
             {

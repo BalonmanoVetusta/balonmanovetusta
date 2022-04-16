@@ -7,15 +7,25 @@ nav {
   overflow: hidden;
 }
 
+nav ul,
+li label,
+li a,
+li label picture *,
+li a picture * {
+  margin: 0;
+  padding: 0;
+}
+
 /* Items appearance */
-ul {
+nav ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   justify-items: space-between;
 }
 
-li {
+nav ul > li {
+  display: flex;
   position: relative;
   padding: 0.2rem 0;
   background: var(--menu-item-background-color, transparent);
@@ -36,8 +46,6 @@ li a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
-  padding: 0;
 }
 
 li label picture,
@@ -53,40 +61,30 @@ li a picture * {
   height: var(--menu-item-icon-size, 1.5rem);
   stroke: var(--menu-item-icon-color-stroke, inherit);
   fill: var(--menu-item-icon-color-fill, inherit);
-  padding: 0;
-  margin: 0;
 }
 
 /* Icons sizes */
-nav > label div {
+nav label div {
   display: inline-block;
   width: var(--menu-icon-size, 2rem);
 }
 
 /* Drop list appearance */
-nav > ul {
+nav ul {
   padding-left: 0;
   list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav > ul > li:last-child {
-  border-right: none;
+  box-sizing: content-box;
 }
 
 /* Tab sub menus */
-ul > li > ul {
+nav ul li ul {
   padding-left: 1rem;
   list-style: none;
 }
 
 /* Menu Behavior
 Hamburguer Menu Open/Close */
-input[type="checkbox"] {
-  display: none;
-}
-
+nav input[type="checkbox"],
 nav label:focus .open,
 nav input[type="checkbox"] ~ label .close,
 nav input[type="checkbox"]:checked ~ label .open {
@@ -96,7 +94,7 @@ nav input[type="checkbox"]:checked ~ label .open {
 nav label:focus .close,
 nav input[type="checkbox"] ~ label .open,
 nav input[type="checkbox"]:checked ~ label .close {
-  display: block;
+  display: flex;
 }
 
 @media only screen and (max-width: 960px) {
@@ -111,22 +109,22 @@ nav input[type="checkbox"]:checked ~ label .close {
     display: none;
   }
 
-  nav > ul {
+  nav ul {
     padding: 1rem;
   }
 
   nav input[type="checkbox"]:checked ~ ul {
-    display: block;
+    display: flex;
   }
 
   /* Icon + in vertical menu only
   Expandable submenus */
-  nav > ul > li > input[type="checkbox"] ~ label:before {
+  nav ul > li > input[type="checkbox"] ~ label:before {
     content: " + ";
     cursor: pointer;
   }
 
-  nav > ul > li > input[type="checkbox"]:checked ~ label:before {
+  nav ul > li > input[type="checkbox"]:checked ~ label:before {
     content: " X ";
     cursor: pointer;
   }
@@ -141,24 +139,14 @@ nav input[type="checkbox"]:checked ~ label .close {
     nav ul,
     ul li > ul {
       display: none;
-      position: relative;
-      visibility: hidden;
-      height: 0px;
-      width: 0px;
-      opacity: 0;
     }
 
     nav:hover > ul,
     nav > label + ul:hover,
     li > input[type="checkbox"] ~ ul:hover,
-    input[type="checkbox"]:checked ~ ul,
+    nav input[type="checkbox"]:checked ~ ul,
     ul > li:hover > ul {
-      display: block;
-      position: relative;
-      visibility: visible;
-      height: max-content;
-      width: max-content;
-      opacity: 1;
+      display: flex;
     }
 
     nav > ul > li > label:focus:before,
@@ -177,32 +165,31 @@ Large sizes screens */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    overflow: visible;
     border-radius: var(--menu-external-border-radius, 0.5rem);
   }
 
   li {
-    margin: 0.5rem;
+    margin: 0.2rem;
   }
 
+  ul > li ul,
   nav > input[type="checkbox"] ~ label {
     display: none;
   }
 
   nav > label + ul {
-    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     /* justify-items: space-between; */
     margin: auto auto;
   }
 
+  nav > label + ul,
   nav > label + ul li {
     display: flex;
   }
 
   ul > li ul {
-    display: none;
     position: absolute;
   }
 
@@ -258,6 +245,30 @@ Large sizes screens */
     justify-content: center;
   }
 
+  nav#menu ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav#menu li {
+    padding: 0.3rem 0.8rem;
+  }
+
+  nav#menu ul,
+  nav#menu ul li {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav#menu > label {
+    display: flex;
+  }
+
+  nav#menu > label > div {
+    margin-left: auto;
+  }
+
   @media only screen and (max-height: 580px) {
     nav#menu {
       flex-direction: column;
@@ -287,34 +298,28 @@ Large sizes screens */
       left: 1rem;
     }
 
-    nav#menu input[type="checkbox"]:checked ~ ul,
-    nav#menu > ul > li:hover {
+    nav#menu input[type="checkbox"]:checked ~ ul {
       display: flex;
     }
 
-    nav#menu:hover input[type="checkbox"] ~ ul,
-    ul > li:hover {
+    nav#menu ul li,
+    nav#menu ul {
       flex-flow: column-reverse nowrap;
     }
+  }
 
-    ul > li:hover > ul {
+  @media only screen and (any-hover: hover) {
+    nav#menu:hover > input[type="checkbox"] ~ ul,
+    nav#menu > input[type="checkbox"] ~ ul:hover,
+    nav#menu
+      > input[type="checkbox"]
+      ~ label
+      + ul
+      > li:hover
+      > input[type="checkbox"]
+      ~ label
+      ul {
       display: flex;
-      flex-flow: column-reverse nowrap;
     }
-
-    @media only screen and (any-hover: hover) {
-      nav#menu > ul:hover > li,
-      nav#menu:hover input[type="checkbox"] ~ ul {
-        display: flex;
-      }
-    }
-  }
-
-  nav#menu > label {
-    display: flex;
-  }
-
-  nav#menu > label > div {
-    margin-left: auto;
   }
 }

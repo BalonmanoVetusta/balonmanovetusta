@@ -1,7 +1,6 @@
 import Link from "next/link";
 import LogoVetusta from "components/LogoVetusta";
 import { header, logo } from "styles/components/Header.module.css";
-import Menu from "components/Menu";
 import { Fragment } from "react";
 
 export function Header() {
