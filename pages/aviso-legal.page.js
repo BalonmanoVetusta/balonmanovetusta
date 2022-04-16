@@ -78,7 +78,7 @@ export default function AvisoLegalPage() {
                 rel="noopener noreferrer"
               >
                 System UI Icons
-              </a>
+              </a> y un pictograma (<a href="https://es.m.wikipedia.org/wiki/Archivo:Handball_pictogram.svg" rel="noopener noreferrer">pictograma de balonmano</a>) extraído de la wikipedia.
             </p>
             <p>
               Entre las fuentes de texto usadas se encuentra la fuente
