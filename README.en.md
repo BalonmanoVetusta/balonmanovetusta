@@ -24,11 +24,13 @@ Algunos iconos han sido copiados de los siguients proyectos:
 
 - [Material Desgin](https://github.com/Templarian/MaterialDesign) ([Apache License 2.0 and other](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE))
 - [System UI Icons](https://systemuicons.com) ([Unlicense](https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE))
+- [Olympic Handball Pictogram](https://es.m.wikipedia.org/wiki/Archivo:Handball_pictogram.svg) de Wikipedia. ([Dominio público](https://en.wikipedia.org/wiki/Public_domain))
 
 Text fonts:
 
 - [Alumni One](https://github.com/googlefonts/alumni) ([OFL License](http://scripts.sil.org/OFL))
 
 Used External tools:
+
 - [Sketchapp](https://www.sketch.com/)
 - [SVGR](https://react-svgr.com/playground) to make some svg as components

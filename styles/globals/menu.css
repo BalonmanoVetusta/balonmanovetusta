@@ -1,0 +1,329 @@
+/* Menu appearance */
+nav {
+  display: flex;
+  flex-direction: row;
+  background: var(--menu-background, transparent);
+  color: var(--menu-text-color, inherit);
+  overflow: hidden;
+}
+
+/* Items appearance */
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: space-between;
+}
+
+li {
+  position: relative;
+  padding: 0.2rem 0;
+  background: var(--menu-item-background-color, transparent);
+  width: max-content;
+  font-weight: bold;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+li:hover {
+  font-weight: 900;
+  opacity: 1;
+}
+
+li label,
+li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+li label picture,
+li a picture {
+  margin: 0 0.3rem 0 auto;
+  padding: 0;
+}
+
+li label picture *,
+li a picture * {
+  display: flex;
+  width: var(--menu-item-icon-size, 1.5rem);
+  height: var(--menu-item-icon-size, 1.5rem);
+  stroke: var(--menu-item-icon-color-stroke, inherit);
+  fill: var(--menu-item-icon-color-fill, inherit);
+  padding: 0;
+  margin: 0;
+}
+
+/* Icons sizes */
+nav > label div {
+  display: inline-block;
+  width: var(--menu-icon-size, 2rem);
+}
+
+/* Drop list appearance */
+nav > ul {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul > li:last-child {
+  border-right: none;
+}
+
+/* Tab sub menus */
+ul > li > ul {
+  padding-left: 1rem;
+  list-style: none;
+}
+
+/* Menu Behavior
+Hamburguer Menu Open/Close */
+input[type="checkbox"] {
+  display: none;
+}
+
+nav label:focus .open,
+nav input[type="checkbox"] ~ label .close,
+nav input[type="checkbox"]:checked ~ label .open {
+  display: none;
+}
+
+nav label:focus .close,
+nav input[type="checkbox"] ~ label .open,
+nav input[type="checkbox"]:checked ~ label .close {
+  display: block;
+}
+
+@media only screen and (max-width: 960px) {
+  nav {
+    /* Small devices only */
+    margin: 0;
+    max-width: max-content;
+    border-radius: var(--menu-external-border-radius, 0.5rem);
+  }
+
+  nav input[type="checkbox"] ~ ul {
+    display: none;
+  }
+
+  nav > ul {
+    padding: 1rem;
+  }
+
+  nav > label:focus + ul,
+  nav input[type="checkbox"]:checked ~ ul {
+    display: block;
+  }
+
+  /* Icon + in vertical menu only
+  Expandable submenus */
+  nav > ul > li > input[type="checkbox"] ~ label:before {
+    content: " + ";
+    cursor: pointer;
+  }
+
+  nav > label:focus:before,
+  nav > ul > li > input[type="checkbox"]:checked ~ label:before {
+    content: " X ";
+    cursor: pointer;
+  }
+
+  /* Support hover, expandable when hover */
+  @media only screen and (any-hover: hover) {
+    /* Do not show close icon
+    nav input[type="checkbox"] ~ label:hover .close {
+      display: none;
+    } */
+
+    nav ul,
+    ul li > ul {
+      display: none;
+      position: relative;
+      visibility: hidden;
+      height: 0px;
+      width: 0px;
+      opacity: 0;
+    }
+
+    nav > label:focus + ul,
+    li > label:focus + ul,
+    nav > label + ul:hover,
+    li > input[type="checkbox"] ~ ul:hover,
+    input[type="checkbox"]:checked ~ ul,
+    ul > li:hover > ul {
+      display: block;
+      position: relative;
+      visibility: visible;
+      height: max-content;
+      width: max-content;
+      opacity: 1;
+    }
+
+    nav > ul > li > label:focus:before,
+    nav > ul > li > input[type="checkbox"]:checked ~ label:before {
+      content: " X ";
+      cursor: pointer;
+    }
+  }
+}
+
+/* Menu design depending on the screen size
+Large sizes screens */
+@media only screen and (min-width: 961px) {
+  nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: visible;
+    border-radius: var(--menu-external-border-radius, 0.5rem);
+  }
+
+  li {
+    margin: 0.5rem;
+  }
+
+  nav > input[type="checkbox"] ~ label {
+    display: none;
+  }
+
+  nav > label + ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* justify-items: space-between; */
+    margin: auto auto;
+  }
+
+  nav > label + ul li {
+    display: flex;
+  }
+
+  ul > li ul {
+    display: none;
+    position: absolute;
+  }
+
+  li > input[type="checkbox"]:checked ~ label + ul {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-bottom: 1rem;
+    width: max-content;
+    background: var(--menu-submenu-background-color, transparent);
+    border-radius: 0 0 var(--menu-external-border-radius, 0.5rem)
+      var(--menu-external-border-radius, 0.5rem);
+  }
+
+  nav > ul > li > input[type="checkbox"] ~ label:before {
+    content: " ↓ ";
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+
+  nav > ul > li > input[type="checkbox"]:checked ~ label:before {
+    content: " X ";
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+
+  @media only screen and (any-hover: hover) {
+    ul > li:hover > ul {
+      display: inline-block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-bottom: 1rem;
+      width: max-content;
+      background: var(--menu-submenu-background-color, transparent);
+      border-radius: 0 0 var(--menu-external-border-radius, 0.5rem)
+        var(--menu-external-border-radius, 0.5rem);
+    }
+  }
+}
+
+/** Menu behaviour modification to adapte its position **/
+@media only screen and (max-width: 960px) {
+  [data-hand="left"] nav#menu input[type="checkbox"] ~ label {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  @media only screen and (max-height: 580px) {
+    nav#menu {
+      position: absolute;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+    }
+
+    :root:not([data-hand="left"]) nav#menu {
+      top: 1rem;
+      right: 1rem;
+    }
+
+    :root([data-hand="left"]) nav#menu {
+      top: 1rem;
+      left: 1rem;
+    }
+  }
+
+  @media only screen and (min-height: 581px) {
+    nav#menu {
+      position: absolute;
+      flex-direction: column-reverse;
+      text-align: center;
+      justify-content: center;
+    }
+
+    :root:not([data-hand="left"]) nav#menu {
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    [data-hand="left"] nav#menu {
+      left: 1rem;
+      bottom: 1rem;
+    }
+
+    #nav > ul:hover > li,
+    #nav > ul > li:hover {
+      display: flex;
+    }
+
+    ul > li:hover {
+      flex-flow: column-reverse nowrap;
+    }
+
+    ul > li:hover > ul {
+      display: flex;
+      flex-flow: column-reverse nowrap;
+    }
+
+    nav#menu input[type="checkbox"]:checked ~ ul {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    @media only screen and (any-hover: hover) {
+      nav#menu:hover input[type="checkbox"] ~ ul {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  #menu > label {
+    display: flex;
+  }
+
+  #menu > label > div {
+    margin-left: auto;
+  }
+}

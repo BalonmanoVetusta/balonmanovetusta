@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import Header from "components/Header";
+import MenuWrapper from "./MenuWrapper";
 
 export function PageLayout({ children }) {
   return (
@@ -44,6 +45,7 @@ export function PageLayout({ children }) {
         <link rel="manifest" href="site.webmanifest" />
       </Head>
       <Header />
+      <MenuWrapper />
       <main>{children}</main>
     </Fragment>
   );

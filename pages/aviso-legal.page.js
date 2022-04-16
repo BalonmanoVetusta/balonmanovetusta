@@ -25,7 +25,9 @@ export default function AvisoLegalPage() {
           <header>
             <h3>Cookies y/o Archivos temporales</h3>
           </header>
-          <main></main>
+          <main>
+            <p></p>
+          </main>
         </article>
 
         <article id="source-code">

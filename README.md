@@ -23,6 +23,7 @@ Algunos iconos han sido copiados de los siguients proyectos:
 
 - [Material Desgin](https://github.com/Templarian/MaterialDesign) ([Apache License 2.0 and other](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE))
 - [System UI Icons](https://systemuicons.com) ([Unlicense](https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE))
+- [Pictograma de balonmano](https://es.m.wikipedia.org/wiki/Archivo:Handball_pictogram.svg) de Wikipedia. ([Dominio público](https://es.wikipedia.org/wiki/Dominio_p%C3%BAblico))
 
 Fuentes de texto:
 

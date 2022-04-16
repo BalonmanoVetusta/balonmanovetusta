@@ -5,6 +5,14 @@
     --text-title-color-primary: #d05dde;
     --text-title-color-secondary: #ae4eba;
     --text-color-primary: #ffeebd;
+
+    /** Menu **/
+    --menu-item-background-color: transparent;
+    --menu-text-color: var(--background-color);
+    --menu-item-icon-color-stroke: transparent;
+    --menu-item-icon-color-fill: #353131;
+    --menu-background: tomato;
+    --menu-submenu-background-color: tomato;
   }
 }
 [data-theme="dark"] {
@@ -12,6 +20,14 @@
   --text-title-color-primary: #d05dde;
   --text-title-color-secondary: #ae4eba;
   --text-color-primary: #ffeebd;
+
+  /** Menu **/
+  --menu-item-background-color: transparent;
+  --menu-text-color: var(--background-color);
+  --menu-icon-color-stroke: transparent;
+  --menu-icon-color-fill: #353131;
+  --menu-background: tomato;
+  --menu-submenu-background-color: tomato;
 }
 
 /** Light Theme **/
@@ -21,6 +37,14 @@
     --text-title-color-primary: #b14fbd;
     --text-title-color-secondary: #692f70;
     --text-color-primary: #151111;
+
+    /** Menu **/
+    --menu-item-background-color: transparent;
+    --menu-text-color: var(--background-color);
+    --menu-item-icon-color-stroke: transparent;
+    --menu-item-icon-color-fill: var(--background-color);
+    --menu-background: goldenrod;
+    --menu-submenu-background-color: goldenrod;
   }
 }
 [data-theme="light"] {
@@ -28,11 +52,19 @@
   --text-title-color-primary: #b14fbd;
   --text-title-color-secondary: #692f70;
   --text-color-primary: #151111;
+
+  /** Menu **/
+  --menu-item-background-color: transparent;
+  --menu-text-color: var(--background-color);
+  --menu-icon-color-stroke: transparent;
+  --menu-icon-color-fill: var(--background-color);
+  --menu-background: goldenrod;
+  --menu-submenu-background-color: goldenrod;
 }
 
 /** media queries for screen sizes **/
 /** Some small phones in portrait mode **/
-@media screen and (max-width: 319px) {
+@media only screen and (max-width: 319px) {
   :root {
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.3rem;
@@ -42,11 +74,12 @@
     --h6-font-size: 1.1rem;
     --normal-text-size: 1rem;
     --menu-icon-size: 1.5rem;
+    --menu-item-icon-size: 1rem;
   }
 }
 
 /** Some phones in portrait mode **/
-@media screen and (min-width: 320px) and (max-width: 459px) {
+@media only screen and (min-width: 320px) and (max-width: 459px) {
   :root {
     --h1-font-size: 1.8rem;
     --h2-font-size: 1.6rem;
@@ -56,11 +89,12 @@
     --h6-font-size: 1.1rem;
     --normal-text-size: 1rem;
     --menu-icon-size: 2rem;
+    --menu-item-icon-size: 1rem;
   }
 }
 
 /** Tablets and phones in landscape mode **/
-@media screen and (min-width: 460px) and (max-width: 1023px) {
+@media only screen and (min-width: 460px) and (max-width: 1023px) {
   :root {
     --h1-font-size: 2.5rem;
     --h2-font-size: 2.1rem;
@@ -70,11 +104,12 @@
     --h6-font-size: 1.2rem;
     --normal-text-size: 1rem;
     --menu-icon-size: 2rem;
+    --menu-item-icon-size: 1rem;
   }
 }
 
 /** Large screens **/
-@media screen and (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   :root {
     --h1-font-size: 2.5rem;
     --h2-font-size: 2.2rem;
@@ -84,6 +119,7 @@
     --h6-font-size: 1.4rem;
     --normal-text-size: 1.1rem;
     --menu-icon-size: 2rem;
+    --menu-item-icon-size: 1.5rem;
   }
 }
 
@@ -92,4 +128,9 @@
   --vetusta-yellow-rgb: 252, 235, 0;
   --vetusta-black: #151111;
   --vetusta-black-rgb: 21, 17, 17;
+
+  /** Menu **/
+  --menu-text-color: var(--background-color);
+  --menu-item-background-color: transparent;
+  --menu-item-background-color-hover: var(--background-color);
 }

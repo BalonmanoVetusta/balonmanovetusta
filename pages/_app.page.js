@@ -1,7 +1,8 @@
 import PageLayout from "components/PageLayout";
 import { Fragment } from "react";
-import "styles/globals.css";
-import "styles/mediaqueriesandroot.css";
+import "styles/globals/main.css";
+import "styles/globals/mediaqueriesandroot.css";
+import "styles/globals/menu.css";
 
 function MyApp({ Component, pageProps }) {
   return (
