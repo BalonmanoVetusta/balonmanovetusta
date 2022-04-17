@@ -1,14 +1,14 @@
 /** Dark Theme **/
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --background-color: #353131;
+    --background-color: #353535;
     --text-title-color-primary: #d05dde;
     --text-title-color-secondary: #ae4eba;
     --text-color-primary: #ffeebd;
 
     /** Menu **/
     --menu-item-background-color: transparent;
-    --menu-text-color: var(--background-color);
+    --menu-text-color: #353131;
     --menu-item-icon-color-stroke: transparent;
     --menu-item-icon-color-fill: #353131;
     --menu-background: tomato;
@@ -16,7 +16,7 @@
   }
 }
 [data-theme="dark"] {
-  --background-color: #353131;
+  --background-color: #353535;
   --text-title-color-primary: #d05dde;
   --text-title-color-secondary: #ae4eba;
   --text-color-primary: #ffeebd;
@@ -88,8 +88,9 @@
     --h5-font-size: 1.1rem;
     --h6-font-size: 1.1rem;
     --normal-text-size: 1rem;
-    --menu-icon-size: 2rem;
-    --menu-item-icon-size: 1rem;
+    --menu-text-size: 0.8rem;
+    --menu-icon-size: 1.5rem;
+    --menu-item-icon-size: 0.8rem;
   }
 }
 
@@ -103,6 +104,7 @@
     --h5-font-size: 1.4rem;
     --h6-font-size: 1.2rem;
     --normal-text-size: 1rem;
+    --menu-text-size: 1rem;
     --menu-icon-size: 2rem;
     --menu-item-icon-size: 1rem;
   }
@@ -118,6 +120,7 @@
     --h5-font-size: 1.6rem;
     --h6-font-size: 1.4rem;
     --normal-text-size: 1.1rem;
+    --menu-text-size: 1rem;
     --menu-icon-size: 2rem;
     --menu-item-icon-size: 1.5rem;
   }

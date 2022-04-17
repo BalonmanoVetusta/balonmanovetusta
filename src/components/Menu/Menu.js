@@ -1,6 +1,7 @@
 import { Close, MenuHamburger } from "components/Icons";
 import Link from "next/link";
-import { Fragment, useId } from "react";
+import { Fragment, useId, useTransition } from "react";
+import { useAnimation, motion } from "framer-motion";
 
 // Variables for css styles
 // /** Colors **/
@@ -13,6 +14,7 @@ import { Fragment, useId } from "react";
 // --menu-icon-color-stroke
 
 // /** Sizes **/
+// --menu-text-size: 1rem;
 // --menu-icon-size: 2rem;
 // --menu-external-border-radius: 0.5rem;
 
@@ -55,8 +57,32 @@ export function Menu({
   showSubMenuIcon = true,
   ...props
 } = {}) {
+  const tapHoverItem = useAnimation();
+
   const id = useId();
   let drop = 0;
+
+  useTransition(async () => {
+    // whileHover={{ scale: 1.1 }}
+    // whileTap={{ scale: 0.95 }}
+    await tapHoverItem.start(
+      {
+        whileTap: { scale: 0.95 },
+        whileHover: { scale: 1.1 },
+      },
+      { delay: 0.5 }
+    );
+
+    return async () => {
+      await tapHoverItem.start(
+        {
+          whileTap: { scale: 1 },
+          whileHover: { scale: 1 },
+        },
+        { delay: 0.5 }
+      );
+    };
+  }, []);
 
   const renderMenu = (
     menuItems,

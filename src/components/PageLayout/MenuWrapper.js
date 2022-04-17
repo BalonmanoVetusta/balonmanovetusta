@@ -9,6 +9,42 @@ import {
 } from "components/Icons";
 import Menu from "components/Menu";
 
+// const equiposSubmenuLegacy = [
+//   {
+//     label: "Primera Nacional",
+//     href: "10-primera-nacional",
+//     title: "Equipo de la liga Primera Nacional masculina",
+//   },
+//   {
+//     label: "Senior Territorial",
+//     href: "20-segunda-nacional-senior-territorial",
+//     title:
+//       "Equipo de la liga Segunda Nacional masculina o liga territorial masculina de Asturias",
+//   },
+//   {
+//     label: "Juvenil maculino",
+//     href: "30-juvenil-masculino",
+//     title: "Equipo de la liga Juvenil masculina de Asturias",
+//   },
+//   {
+//     label: "Cadete masculino",
+//     href: "40-cadete-masculino",
+//     title: "Equipo de la liga Cadete masculina de Asturias",
+//   },
+//   {
+//     label: "Infantil mixto",
+//     href: "50-infantil-mixto",
+//     title:
+//       "Equipo de la liga Infantil masculina de Asturias en el que contamos con niños y niñas",
+//   },
+//   {
+//     label: "Escuelas deportivas",
+//     href: "100-escuelas-deportivas",
+//     title:
+//       "Equipos de niños y niñas comprendidos entre los 7 y los 11 años de las categorías de Benjamínes a Alevines de los distintos colegios de Oviedo",
+//   },
+// ];
+
 export default function MenuWrapper() {
   return (
     <Menu
@@ -51,43 +87,8 @@ export default function MenuWrapper() {
             <MultiAccount title="Acceso a información sobre nuestros equipos de balonmano" />
           ),
           label: "Equipos",
-          href: "equipo",
+          href: "equipos",
           title: "Equipos del club",
-          submenu: [
-            {
-              label: "Primera Nacional",
-              href: "10-primera-nacional",
-              title: "Equipo de la liga Primera Nacional masculina",
-            },
-            {
-              label: "Senior Territorial",
-              href: "20-segunda-nacional-senior-territorial",
-              title:
-                "Equipo de la liga Segunda Nacional masculina o liga territorial masculina de Asturias",
-            },
-            {
-              label: "Juvenil maculino",
-              href: "30-juvenil-masculino",
-              title: "Equipo de la liga Juvenil masculina de Asturias",
-            },
-            {
-              label: "Cadete masculino",
-              href: "40-cadete-masculino",
-              title: "Equipo de la liga Cadete masculina de Asturias",
-            },
-            {
-              label: "Infantil mixto",
-              href: "50-infantil-mixto",
-              title:
-                "Equipo de la liga Infantil masculina de Asturias en el que contamos con niños y niñas",
-            },
-            {
-              label: "Escuelas deportivas",
-              href: "100-escuelas-deportivas",
-              title:
-                "Equipos de niños y niñas comprendidos entre los 7 y los 11 años de las categorías de Benjamínes a Alevines de los distintos colegios de Oviedo",
-            },
-          ],
         },
         {
           Icon: () => (

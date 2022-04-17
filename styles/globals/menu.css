@@ -5,23 +5,28 @@ nav {
   background: var(--menu-background, transparent);
   color: var(--menu-text-color, inherit);
   overflow: hidden;
+  font-size: var(--menu-text-size, 1rem);
 }
 
 nav ul,
-li label,
-li a,
-li label picture *,
-li a picture * {
+nav li label,
+nav li a,
+nav li label picture *,
+nav li a picture * {
   margin: 0;
   padding: 0;
 }
 
 /* Items appearance */
 nav ul {
+  list-style: none;
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   justify-items: space-between;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
 }
 
 nav ul > li {
@@ -34,28 +39,48 @@ nav ul > li {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s ease-in-out;
 }
 
 li:hover {
   font-weight: 900;
   opacity: 1;
+  font-size: calc(var(--menu-text-size, 1rem) * 1.1);
+  transition-duration: 0.1s;
 }
 
-li label,
-li a {
+li:focus {
+  font-size: calc(var(--menu-text-size, 1rem) * 0.9);
+}
+
+li:hover label picture *,
+li:hover a picture * {
+  width: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
+  height: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
+  transition-duration: 0.1s;
+}
+
+nav li:focus label picture *,
+nav li:focus a picture * {
+  width: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
+  height: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
+}
+
+nav li label,
+nav li a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-li label picture,
-li a picture {
+nav li label picture,
+nav li a picture {
   margin: 0 0.3rem 0 auto;
   padding: 0;
 }
 
-li label picture *,
-li a picture * {
+nav li label picture *,
+nav li a picture * {
   display: flex;
   width: var(--menu-item-icon-size, 1.5rem);
   height: var(--menu-item-icon-size, 1.5rem);
@@ -67,13 +92,6 @@ li a picture * {
 nav label div {
   display: inline-block;
   width: var(--menu-icon-size, 2rem);
-}
-
-/* Drop list appearance */
-nav ul {
-  padding-left: 0;
-  list-style: none;
-  box-sizing: content-box;
 }
 
 /* Tab sub menus */
