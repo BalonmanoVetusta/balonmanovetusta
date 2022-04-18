@@ -5,6 +5,7 @@
     --text-title-color-primary: #d05dde;
     --text-title-color-secondary: #ae4eba;
     --text-color-primary: #ffeebd;
+    --focus-shadow-color: #00b4f2;
 
     /** Menu **/
     --menu-item-background-color: transparent;
@@ -20,6 +21,7 @@
   --text-title-color-primary: #d05dde;
   --text-title-color-secondary: #ae4eba;
   --text-color-primary: #ffeebd;
+  --focus-shadow-color: #00b4f2;
 
   /** Menu **/
   --menu-item-background-color: transparent;
@@ -33,33 +35,35 @@
 /** Light Theme **/
 @media only screen and (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --background-color: #fffae8;
+    --background-color: papayawhip; /* oldlace */
     --text-title-color-primary: #b14fbd;
     --text-title-color-secondary: #692f70;
     --text-color-primary: #151111;
+    --focus-shadow-color: #4169e1; /* royalblue */
 
     /** Menu **/
     --menu-item-background-color: transparent;
     --menu-text-color: var(--background-color);
     --menu-item-icon-color-stroke: transparent;
     --menu-item-icon-color-fill: var(--background-color);
-    --menu-background: goldenrod;
-    --menu-submenu-background-color: goldenrod;
+    --menu-background: #daa520; /* goldenrod */
+    --menu-submenu-background-color: #daa520;
   }
 }
 [data-theme="light"] {
-  --background-color: #fffae8;
+  --background-color: #fff5ee;
   --text-title-color-primary: #b14fbd;
   --text-title-color-secondary: #692f70;
   --text-color-primary: #151111;
+  --focus-shadow-color: #4169e1;
 
   /** Menu **/
   --menu-item-background-color: transparent;
   --menu-text-color: var(--background-color);
   --menu-icon-color-stroke: transparent;
   --menu-icon-color-fill: var(--background-color);
-  --menu-background: goldenrod;
-  --menu-submenu-background-color: goldenrod;
+  --menu-background: #daa520;
+  --menu-submenu-background-color: #daa520;
 }
 
 /** media queries for screen sizes **/
@@ -138,6 +142,7 @@
   --vetusta-yellow-rgb: 252, 235, 0;
   --vetusta-black: #151111;
   --vetusta-black-rgb: 21, 17, 17;
+  --custom-blue: #0099ff;
 
   /** Menu **/
   --menu-text-color: var(--background-color);

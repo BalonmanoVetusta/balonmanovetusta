@@ -50,7 +50,7 @@ h4,
 h5,
 h6,
 button {
-  font-weight: lighter;
+  font-weight: 300;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -118,13 +118,16 @@ a:hover {
   font-weight: bold;
 }
 
+a:focus {
+  font-weight: bold;
+}
+
 * {
   box-sizing: border-box;
 }
 
 /** TODO: Remove this on production */
-/* *:focus {
-  outline: 3pt;
-  box-shadow: 0 0 0.5rem 0.5rem var(--text-color-primary);
-  box-sizing: content-box;
-} */
+*:focus {
+  outline: 2pt;
+  box-shadow: 0 0 0.3rem 0.3rem var(--focus-shadow-color, #0099ff);
+}

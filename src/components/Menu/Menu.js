@@ -138,7 +138,7 @@ export function Menu({
 
   return (
     <Fragment>
-      <nav {...props}>
+      <nav aria-label="Menú" {...props}>
         <input
           type="checkbox"
           name={`drop-${++drop}`}

@@ -19,7 +19,7 @@ export function Header() {
           </Link>
         </div>
         <Link href="/">
-          <a title="Ir a la página principal" tabIndex={1}>
+          <a title="Ir a la página principal" tabIndex={0}>
             <h1>Club Balonmano Vetusta</h1>
           </a>
         </Link>
