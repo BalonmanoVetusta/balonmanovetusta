@@ -14,5 +14,5 @@ export default function PracticaBalonmano() {
     return capitalizedWords.join(" ");
   };
 
-  return <h1>Plantilla de: {teamFormatted(id)}!</h1>;
+  return <h1>Plantilla de: {id ? teamFormatted(id) : "Sin plantilla 🤔"}!</h1>;
 }

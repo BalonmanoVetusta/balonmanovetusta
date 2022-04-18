@@ -1,7 +1,14 @@
 import { Close, MenuHamburger } from "components/Icons";
 import Link from "next/link";
-import { Fragment, useId, useTransition } from "react";
-import { useAnimation, motion } from "framer-motion";
+import {
+  Fragment,
+  useId,
+  useRef,
+  useState,
+  useTransition,
+  useCallback,
+} from "react";
+import useKeyboardShortcut from "hooks/useKeyboard";
 
 // Variables for css styles
 // /** Colors **/
@@ -29,6 +36,8 @@ import { useAnimation, motion } from "framer-motion";
 //   submenu: []
 // }]
 
+const EVENT_DISTANCE_TO_BE_CLOSE = 50;
+
 const getHrefOrPathName = (itemHref, pathname = "/") => {
   if (itemHref === "/") {
     return pathname;
@@ -55,34 +64,123 @@ export function Menu({
   showLabel = true,
   showSubMenuLabel = true,
   showSubMenuIcon = true,
+  hideOnScroll = true,
   ...props
 } = {}) {
-  const tapHoverItem = useAnimation();
+  const menuRef = useRef(null);
+  const [menuShouldBeViewed, setMenuShoulBeViewed] = useState(true);
+
+  const { addShortcut, removeShortcut } = useKeyboardShortcut();
 
   const id = useId();
   let drop = 0;
 
-  useTransition(async () => {
-    // whileHover={{ scale: 1.1 }}
-    // whileTap={{ scale: 0.95 }}
-    await tapHoverItem.start(
-      {
-        whileTap: { scale: 0.95 },
-        whileHover: { scale: 1.1 },
-      },
-      { delay: 0.5 }
-    );
-
-    return async () => {
-      await tapHoverItem.start(
-        {
-          whileTap: { scale: 1 },
-          whileHover: { scale: 1 },
-        },
-        { delay: 0.5 }
-      );
-    };
+  const hideMenu = useCallback(() => {
+    setMenuShoulBeViewed(false);
   }, []);
+
+  const showMenu = useCallback(() => {
+    setMenuShoulBeViewed(true);
+  }, []);
+
+  const isEventCloseOrInsideMenu = useCallback(
+    (event) => {
+      console.log({ event });
+      const { target } = event;
+      const { current } = menuRef;
+
+      if (target === current) {
+        return true;
+      }
+
+      // if (target.closest(`nav[aria-label="Menú"]`)) {
+      //   return true;
+      // }
+
+      const { top, left, bottom, right } =
+        menuRef.current.getBoundingClientRect();
+      const { x, y } = event;
+      if (
+        x > left - EVENT_DISTANCE_TO_BE_CLOSE &&
+        x < right + EVENT_DISTANCE_TO_BE_CLOSE &&
+        y > top - EVENT_DISTANCE_TO_BE_CLOSE &&
+        y < bottom + EVENT_DISTANCE_TO_BE_CLOSE
+      ) {
+        return true;
+      }
+
+      return false;
+    },
+    [menuRef]
+  );
+
+  const showHoverMenu = useCallback(
+    (event) => {
+      if (
+        menuRef.current === event.target ||
+        menuRef.current.contains(event.target)
+      ) {
+        return showMenu();
+      }
+
+      if (isEventCloseOrInsideMenu(event)) {
+        return showMenu();
+      }
+    },
+    [showMenu, isEventCloseOrInsideMenu]
+  );
+
+  const hideNotHoverMenu = useCallback(
+    (event) => {
+      if (
+        menuRef.current !== event.target ||
+        !menuRef.current.contains(event.target)
+      ) {
+        return hideMenu();
+      }
+
+      const { top, left, bottom, right } =
+        menuRef.current.getBoundingClientRect();
+      const { x, y } = event;
+
+      if (!isEventCloseOrInsideMenu(event)) {
+        return hideMenu();
+      }
+    },
+    [hideMenu, isEventCloseOrInsideMenu]
+  );
+
+  const tapHoverCallback = useCallback(
+    (event) => {
+      showHoverMenu(event);
+      hideNotHoverMenu(event);
+    },
+    [showHoverMenu, hideNotHoverMenu]
+  );
+
+  useTransition(() => {
+    if (!hideOnScroll || !menuRef) return;
+
+    const selfWindow = globalThis || window;
+
+    addShortcut("esc", hideMenu);
+    ["scroll", "touchmove", "wheel"].forEach((event) => {
+      selfWindow.addEventListener(event, hideMenu);
+    });
+    selfWindow.addEventListener("click", showMenu);
+    selfWindow.addEventListener("touchstart", tapHoverCallback);
+    selfWindow.addEventListener("mouseover", tapHoverCallback);
+
+    return () => {
+      removeShortcut("esc", hideMenu);
+      ["scroll", "touchmove", "wheel"].forEach((event) => {
+        selfWindow.removeEventListener(event, hideMenu);
+      });
+      selfWindow.removeEventListener("click", showMenu);
+      selfWindow.removeEventListener("touchstart", tapHoverCallback);
+      selfWindow.removeEventListener("mouseover", tapHoverCallback);
+    };
+  }, [hideOnScroll, menuRef]);
 
   const renderMenu = (
     menuItems,
@@ -136,9 +234,9 @@ export function Menu({
     );
   };
 
-  return (
+  return menuShouldBeViewed ? (
     <Fragment>
-      <nav aria-label="Menú" {...props}>
+      <nav aria-label="Menú" {...props} ref={menuRef}>
         <input
           type="checkbox"
           name={`drop-${++drop}`}
@@ -177,5 +275,5 @@ export function Menu({
         }
       `}</style>
     </Fragment>
-  );
+  ) : null;
 }

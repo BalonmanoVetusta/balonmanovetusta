@@ -20,12 +20,16 @@ export default function useKeyboardShortcut() {
     ]);
   }, []);
 
-  const removeShortcut = useCallback((keys) => {
+  const removeShortcut = useCallback((keys, callback = null) => {
     setShortcuts((prev) => {
       return [
-        ...prev.filter((shortcut) =>
-          shortcut.keys.every((key) => keys.includes(key))
-        ),
+        ...prev.filter((shortcut) => {
+          if (callback) {
+            return shortcut.keys !== keys && shortcut.callback !== callback;
+          }
+
+          return shortcut.keys !== keys;
+        }),
       ];
     });
   }, []);
