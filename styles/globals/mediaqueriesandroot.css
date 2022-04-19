@@ -77,7 +77,7 @@
     --h5-font-size: 1.1rem;
     --h6-font-size: 1.1rem;
     --normal-text-size: 1rem;
-    --menu-icon-size: 1.5rem;
+    --menu-icon-size: 2rem;
     --menu-item-icon-size: 1rem;
   }
 }
@@ -92,9 +92,9 @@
     --h5-font-size: 1.1rem;
     --h6-font-size: 1.1rem;
     --normal-text-size: 1rem;
-    --menu-text-size: 0.8rem;
-    --menu-icon-size: 1.5rem;
-    --menu-item-icon-size: 0.8rem;
+    --menu-text-size: 1rem;
+    --menu-icon-size: 2rem;
+    --menu-item-icon-size: 1rem;
   }
 }
 
@@ -109,7 +109,7 @@
     --h6-font-size: 1.2rem;
     --normal-text-size: 1rem;
     --menu-text-size: 1rem;
-    --menu-icon-size: 2rem;
+    --menu-icon-size: 2.5rem;
     --menu-item-icon-size: 1rem;
   }
 }
@@ -125,7 +125,7 @@
     --h6-font-size: 1.4rem;
     --normal-text-size: 1.1rem;
     --menu-text-size: 1rem;
-    --menu-icon-size: 2rem;
+    --menu-icon-size: 3rem;
     --menu-item-icon-size: 1.5rem;
   }
 }
