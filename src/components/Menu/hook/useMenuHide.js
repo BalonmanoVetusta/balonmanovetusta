@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-const PIXELS_TO_BE_CLOSE = 50;
 const IGNORE_SCREEN_SIZE = -1;
 
 const addEventListener = (event, callback) => {
@@ -19,68 +18,49 @@ const removeEventListener = (event, callback) => {
   }
 };
 
-const checkIfEventIsClose = (event, ref) => {
-  if (!ref?.current) {
-    return false;
-  }
-
-  const { clientX, clientY } = event;
-  const { left, top, width, height } =
-    ref.current.getBoundingClientRect() || {};
-
-  const right = left + width;
-  const bottom = top + height;
-
-  const sideIsInOrClose =
-    clientX > left - PIXELS_TO_BE_CLOSE || right + PIXELS_TO_BE_CLOSE > clientX;
-
-  const heightIsInOrClose =
-    clientY > top - PIXELS_TO_BE_CLOSE || bottom + PIXELS_TO_BE_CLOSE > clientY;
-
-  return sideIsInOrClose && heightIsInOrClose;
-};
-
 export default function useMenuHide({
   ref = null,
   maxWidth = IGNORE_SCREEN_SIZE,
   maxHeight = IGNORE_SCREEN_SIZE,
+  touchMovePersistMs = 125,
 } = {}) {
   const [shouldBeViewed, setShouldBeViewed] = useState(true);
 
   useEffect(() => {
     const selfWindow = globalThis || window;
 
-    const updateStateByTouchEvent = (event) => {
-      if (!ref) return;
-
-      if (checkIfEventIsClose(event, ref)) {
-        setShouldBeViewed(false);
-      }
-
-      if (!checkIfEventIsClose(event)) {
-        setShouldBeViewed(true);
-      }
-    };
+    // To detect if touchmove was previously lanunched
+    let touchMove = false;
 
     const updateStateByTouchMoveOrScroll = (event) => {
       if (!ref.current) return;
 
+      touchMove = true;
       setShouldBeViewed(false);
     };
 
-    const updateScreenSize = (event) => {
-      const {
-        window: {
-          screen: { width, height },
-        },
-      } = window;
+    const updateStateByTapEvent = (event) => {
+      if (!ref) return;
 
-      if (
-        (maxWidth !== IGNORE_SCREEN_SIZE && width > maxWidth) ||
-        (maxHeight !== IGNORE_SCREEN_SIZE && height > maxHeight)
-      ) {
-        setShouldBeViewed(true);
+      if (touchMove) {
+        setTimeout(() => {
+          touchMove = false;
+        }, touchMovePersistMs);
+        return;
       }
+
+      // FIXME Use react instead of native events by using a context
+      if (!shouldBeViewed) {
+        setShouldBeViewed(true);
+      } else if (
+        !(ref.current.contains(event.target) || ref.current === event.target)
+      ) {
+        setShouldBeViewed((prev) => !prev);
+      }
+    };
+
+    const updateScreenSize = (event) => {
+      setShouldBeViewed(true);
     };
 
     const {
@@ -103,15 +83,13 @@ export default function useMenuHide({
       };
     }
 
-    addEventListener("touchstart", updateStateByTouchEvent);
-    addEventListener("touchend", updateStateByTouchEvent);
+    addEventListener("touchend", updateStateByTapEvent);
     addEventListener("touchmove", updateStateByTouchMoveOrScroll);
     addEventListener("scroll", updateStateByTouchMoveOrScroll);
     addEventListener("wheel", updateStateByTouchMoveOrScroll);
 
     return () => {
-      removeEventListener("touchstart", updateStateByTouchEvent);
-      removeEventListener("touchend", updateStateByTouchEvent);
+      removeEventListener("touchend", updateStateByTapEvent);
       removeEventListener("touchmove", updateStateByTouchMoveOrScroll);
       removeEventListener("scroll", updateStateByTouchMoveOrScroll);
       removeEventListener("wheel", updateStateByTouchMoveOrScroll);
