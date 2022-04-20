@@ -1,16 +1,9 @@
 import { Close, MenuHamburger } from "components/Icons";
 import Link from "next/link";
-import {
-  Fragment,
-  useId,
-  useRef,
-  useState,
-  useTransition,
-  useCallback,
-  useEffect,
-} from "react";
-import useKeyboardShortcut from "hooks/useKeyboard";
-import useMenuHide from "./hook/useMenuHide";
+import { Fragment, useId, useRef, useEffect } from "react";
+// import useKeyboardShortcut from "hooks/useKeyboard";
+
+import useVisibleMenu from "./context/ScrollTapOutsideElementContext";
 
 // Variables for css styles
 // /** Colors **/
@@ -40,6 +33,7 @@ import useMenuHide from "./hook/useMenuHide";
 
 const EVENT_DISTANCE_TO_BE_CLOSE = 50;
 
+// Helper to set href in nested menus
 const getHrefOrPathName = (itemHref, pathname = "/") => {
   if (itemHref === "/") {
     return pathname;
@@ -69,15 +63,21 @@ export function Menu({
   hideOnScroll = true,
   ...props
 } = {}) {
+  let drop = 0; // Counter to set checkbox id
+
+  // State
+  const id = useId();
   const menuRef = useRef(null);
-  const [menuShouldBeViewed, setMenuShoulBeViewed] = useState(true);
+  const { isElementVisible: isMenuVisible, setRef: setMenuRef } =
+    useVisibleMenu();
 
   // const { addShortcut, removeShortcut } = useKeyboardShortcut();
 
-  const id = useId();
-  let drop = 0;
-
-  const viewMenu = useMenuHide({ ref: menuRef, maxWidth: 960 });
+  useEffect(() => {
+    if (!menuRef) return;
+    setMenuRef(menuRef);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [menuRef]);
 
   const renderMenu = (
     menuItems,
@@ -162,7 +162,7 @@ export function Menu({
         {renderMenu(items, pathnameNamespace, "menubar", { id: "appmenu" })}
       </nav>
       <style jsx>{`
-        ${viewMenu
+        ${isMenuVisible
           ? "nav {visibility: visible;}"
           : "nav { visibility: collapse; }"}
         picture {
