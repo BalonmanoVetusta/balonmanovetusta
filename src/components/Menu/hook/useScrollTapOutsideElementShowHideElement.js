@@ -1,5 +1,5 @@
 import { useState } from "react";
-const WAIT_TIME_TO_END_TOUCHMOVE = 150; // ms
+const WAIT_TIME_TO_END_TOUCHMOVE = 100; // ms
 
 export default function useScrollTapOutsideElementShowHideElement({
   outside = true,
