@@ -1,6 +1,7 @@
 import { Close, MenuHamburger } from "components/Icons";
 import Link from "next/link";
 import { Fragment, useId, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 // import useKeyboardShortcut from "hooks/useKeyboard";
 
 import useVisibleMenu from "./context/ScrollTapOutsideElementContext";
@@ -32,6 +33,17 @@ import useVisibleMenu from "./context/ScrollTapOutsideElementContext";
 // }]
 
 const EVENT_DISTANCE_TO_BE_CLOSE = 50;
+
+const variants = {
+  hidden: {
+    opacity: 0,
+    transition: { duration: 0.5, delay: 1 },
+  },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.5, staggerChildren: 0.15 },
+  },
+};
 
 // Helper to set href in nested menus
 const getHrefOrPathName = (itemHref, pathname = "/") => {
@@ -86,13 +98,26 @@ export function Menu({
     { ...props } = {}
   ) => {
     return (
-      <ul role={ulRole} {...props}>
+      <motion.ul
+        layout
+        variants={variants}
+        initial="visible"
+        animate={isMenuVisible ? "visible" : "hidden"}
+        exit="hidden"
+        role={ulRole}
+        {...props}
+      >
         {menuItems.map(
           (
             { label, href, title, Icon = () => null, submenu = null },
             index
           ) => (
-            <li key={`${id}-${href}`} role="menuitem">
+            <motion.li
+              key={`${id}-${href}`}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              role="menuitem"
+            >
               {submenu ? (
                 <Fragment>
                   <input
@@ -124,16 +149,25 @@ export function Menu({
                   </a>
                 </Link>
               )}
-            </li>
+            </motion.li>
           )
         )}
-      </ul>
+      </motion.ul>
     );
   };
 
   return (
     <Fragment>
-      <nav aria-label="Menú" {...props} ref={menuRef}>
+      <motion.nav
+        layout
+        variants={variants}
+        initial="visible"
+        animation="visible"
+        exit="hidden"
+        aria-label="Menú"
+        {...props}
+        ref={menuRef}
+      >
         <input
           type="checkbox"
           name={`drop-${++drop}`}
@@ -142,25 +176,25 @@ export function Menu({
         />
         <label htmlFor={`drop-${drop}`} aria-hidden="true">
           <div className="menu-icon">
-            <span className="open">
+            <motion.span layout className="open">
               <MenuHamburger
                 id={`icon-open-menu-${idIcon}`}
                 width="100%"
                 height="100%"
               />
-            </span>
-            <span className="close">
+            </motion.span>
+            <motion.span layout className="close">
               <Close
                 id={`icon-close-menu-${idIcon}`}
                 width="100%"
                 height="100%"
               />
-            </span>
+            </motion.span>
           </div>
         </label>
 
         {renderMenu(items, pathnameNamespace, "menubar", { id: "appmenu" })}
-      </nav>
+      </motion.nav>
       <style jsx>{`
         ${isMenuVisible
           ? "nav {visibility: visible;}"

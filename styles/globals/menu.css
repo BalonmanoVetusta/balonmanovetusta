@@ -26,7 +26,8 @@ nav ul {
   justify-content: space-between;
   justify-items: space-between;
   overflow: hidden;
-  transition: all 0.5s ease-in-out;
+  gap: 5px;
+  /* transition: all 0.5s ease-in-out; */
 }
 
 nav ul > li {
@@ -39,14 +40,14 @@ nav ul > li {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
 }
 
 li:hover {
   font-weight: 900;
   opacity: 1;
-  font-size: calc(var(--menu-text-size, 1rem) * 1.1);
-  transition-duration: 0.1s;
+  /* font-size: calc(var(--menu-text-size, 1rem) * 1.1); */
+  /* transition-duration: 0.1s; */
 }
 
 li:focus {
@@ -57,7 +58,7 @@ li:hover label picture *,
 li:hover a picture * {
   width: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
   height: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
-  transition-duration: 0.1s;
+  /* transition-duration: 0.1s; */
 }
 
 nav li:focus label picture *,
