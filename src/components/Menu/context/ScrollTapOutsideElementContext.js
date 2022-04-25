@@ -46,7 +46,7 @@ export function ScrollTapOutsideElementContext({ children }) {
 }
 
 // Hook
-export default function useVisibleMenu() {
+export function useVisibleMenu() {
   const context = useContext(Context);
 
   if (!context)

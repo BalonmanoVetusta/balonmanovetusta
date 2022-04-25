@@ -6,6 +6,21 @@ import convertColors2RGBA from "./lib/convertColors2RGBA";
 const LOGO_YELLOW = "#FCEB00"; // 252, 235, 0
 const LOGO_BLACK = "#151111"; // 21, 17, 17
 
+const draw = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: (i) => {
+    const delay = 1 + i * 0.5;
+    return {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
+        opacity: { delay, duration: 0.01 },
+      },
+    };
+  },
+};
+
 export function LogoVetusta({
   cssVariableName = "--logo-vetusta-no-shadow-fill",
   titleId = "club-balonmano-vetustaTitleId",

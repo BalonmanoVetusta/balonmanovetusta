@@ -1,5 +1,6 @@
 import { ScrollTapOutsideElementContext } from "components/Menu";
 import PageLayout from "components/PageLayout";
+import { AnimatePresence } from "framer-motion";
 import { Fragment } from "react";
 import "styles/globals/main.css";
 import "styles/globals/mediaqueriesandroot.css";
@@ -9,9 +10,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
       <ScrollTapOutsideElementContext>
-        <PageLayout>
-          <Component {...pageProps} />
-        </PageLayout>
+        <AnimatePresence>
+          <Component
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+            {...pageProps}
+          />
+        </AnimatePresence>
       </ScrollTapOutsideElementContext>
     </Fragment>
   );

@@ -1,9 +1,7 @@
 import { useState } from "react";
 const WAIT_TIME_TO_END_TOUCHMOVE = 100; // ms
 
-export default function useScrollTapOutsideElementShowHideElement({
-  outside = true,
-} = {}) {
+export default function useScrollTapOutsideElementShowHideElement() {
   const [isElementVisible, setIsElementVisible] = useState(true);
   const [ref, setRef] = useState(null);
   const [touchMove, setTouchMove] = useState(false);
@@ -18,6 +16,7 @@ export default function useScrollTapOutsideElementShowHideElement({
     if (!ref?.current) return;
 
     if (touchMove) {
+      console.log({ touchMove });
       setIsElementVisible(false);
       handleOnTouchCancel();
       return;

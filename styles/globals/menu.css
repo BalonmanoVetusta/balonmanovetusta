@@ -1,5 +1,5 @@
 /* Menu appearance */
-nav {
+nav#menu {
   display: flex;
   flex-direction: row;
   background: var(--menu-background, transparent);
@@ -8,17 +8,17 @@ nav {
   font-size: var(--menu-text-size, 1rem);
 }
 
-nav ul,
-nav li label,
-nav li a,
-nav li label picture *,
-nav li a picture * {
+nav#menu ul,
+nav#menu li label,
+nav#menu li a,
+nav#menu li label picture *,
+nav#menu li a picture * {
   margin: 0;
   padding: 0;
 }
 
 /* Items appearance */
-nav ul {
+nav#menu ul {
   list-style: none;
   padding-left: 0;
   display: flex;
@@ -30,7 +30,7 @@ nav ul {
   /* transition: all 0.5s ease-in-out; */
 }
 
-nav ul > li {
+nav#menu ul > li {
   display: flex;
   position: relative;
   padding: 0.2rem 0;
@@ -43,45 +43,45 @@ nav ul > li {
   /* transition: all 0.5s ease-in-out; */
 }
 
-li:hover {
+nav#menu li:hover {
   font-weight: 900;
   opacity: 1;
   /* font-size: calc(var(--menu-text-size, 1rem) * 1.1); */
   /* transition-duration: 0.1s; */
 }
 
-li:focus {
+nav#menu li:focus {
   font-size: calc(var(--menu-text-size, 1rem) * 0.9);
 }
 
-li:hover label picture *,
-li:hover a picture * {
+nav#menu li:hover label picture *,
+nav#menu li:hover a picture * {
   width: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
   height: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
   /* transition-duration: 0.1s; */
 }
 
-nav li:focus label picture *,
-nav li:focus a picture * {
+nav#menu li:focus label picture *,
+nav#menu li:focus a picture * {
   width: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
   height: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
 }
 
-nav li label,
-nav li a {
+nav#menu li label,
+nav#menu li a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-nav li label picture,
-nav li a picture {
+nav#menu li label picture,
+nav#menu li a picture {
   margin: 0 0.3rem 0 auto;
   padding: 0;
 }
 
-nav li label picture *,
-nav li a picture * {
+nav#menu li label picture *,
+nav#menu li a picture * {
   display: flex;
   width: var(--menu-item-icon-size, 1.5rem);
   height: var(--menu-item-icon-size, 1.5rem);
@@ -90,60 +90,60 @@ nav li a picture * {
 }
 
 /* Icons sizes */
-nav label div {
+nav#menu label div {
   display: inline-block;
   width: var(--menu-icon-size, 2rem);
 }
 
 /* Tab sub menus */
-nav ul li ul {
+nav#menu ul li ul {
   padding-left: 1rem;
   list-style: none;
 }
 
 /* Menu Behavior
 Hamburguer Menu Open/Close */
-nav input[type="checkbox"],
-nav label:focus .open,
-nav input[type="checkbox"] ~ label .close,
-nav input[type="checkbox"]:checked ~ label .open {
+nav#menu input[type="checkbox"],
+nav#menu label:focus .open,
+nav#menu input[type="checkbox"] ~ label .close,
+nav#menu input[type="checkbox"]:checked ~ label .open {
   display: none;
 }
 
-nav label:focus .close,
-nav input[type="checkbox"] ~ label .open,
-nav input[type="checkbox"]:checked ~ label .close {
+nav#menu label:focus .close,
+nav#menu input[type="checkbox"] ~ label .open,
+nav#menu input[type="checkbox"]:checked ~ label .close {
   display: flex;
 }
 
 @media only screen and (max-width: 960px) {
-  nav {
+  nav#menu {
     /* Small devices only */
     margin: 0;
     max-width: max-content;
     border-radius: var(--menu-external-border-radius, 0.5rem);
   }
 
-  nav input[type="checkbox"] ~ ul {
+  nav#menu input[type="checkbox"] ~ ul {
     display: none;
   }
 
-  nav ul {
+  nav#menu ul {
     padding: 1rem;
   }
 
-  nav input[type="checkbox"]:checked ~ ul {
+  nav#menu input[type="checkbox"]:checked ~ ul {
     display: flex;
   }
 
   /* Icon + in vertical menu only
   Expandable submenus */
-  nav ul > li > input[type="checkbox"] ~ label:before {
+  nav#menu ul > li > input[type="checkbox"] ~ label:before {
     content: " + ";
     cursor: pointer;
   }
 
-  nav ul > li > input[type="checkbox"]:checked ~ label:before {
+  nav#menu ul > li > input[type="checkbox"]:checked ~ label:before {
     content: " X ";
     cursor: pointer;
   }
@@ -151,25 +151,25 @@ nav input[type="checkbox"]:checked ~ label .close {
   /* Support hover, expandable when hover */
   @media only screen and (any-hover: hover) {
     /* Do not show close icon
-    nav input[type="checkbox"] ~ label:hover .close {
+    nav#menu input[type="checkbox"] ~ label:hover .close {
       display: none;
     } */
 
-    nav ul,
-    ul li > ul {
+    nav#menu ul,
+    nav#menu ul li > ul {
       display: none;
     }
 
     nav:hover > ul,
-    nav > label + ul:hover,
-    li > input[type="checkbox"] ~ ul:hover,
-    nav input[type="checkbox"]:checked ~ ul,
-    ul > li:hover > ul {
+    nav#menu > label + ul:hover,
+    nav#menu li > input[type="checkbox"] ~ ul:hover,
+    nav#menu input[type="checkbox"]:checked ~ ul,
+    nav#menu ul > li:hover > ul {
       display: flex;
     }
 
-    nav > ul > li > label:focus:before,
-    nav > ul > li > input[type="checkbox"]:checked ~ label:before {
+    nav#menu > ul > li > label:focus:before,
+    nav#menu > ul > li > input[type="checkbox"]:checked ~ label:before {
       content: " X ";
       cursor: pointer;
     }
@@ -179,7 +179,7 @@ nav input[type="checkbox"]:checked ~ label .close {
 /* Menu design depending on the screen size
 Large sizes screens */
 @media only screen and (min-width: 961px) {
-  nav {
+  nav#menu {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -187,32 +187,32 @@ Large sizes screens */
     border-radius: var(--menu-external-border-radius, 0.5rem);
   }
 
-  li {
+  nav#menu li {
     margin: 0.2rem;
   }
 
-  ul > li ul,
-  nav > input[type="checkbox"] ~ label {
+  nav#menu ul > li ul,
+  nav#menu > input[type="checkbox"] ~ label {
     display: none;
   }
 
-  nav > label + ul {
+  nav#menu > label + ul {
     flex-direction: row;
     justify-content: space-evenly;
     /* justify-items: space-between; */
     margin: auto auto;
   }
 
-  nav > label + ul,
-  nav > label + ul li {
+  nav#menu > label + ul,
+  nav#menu > label + ul li {
     display: flex;
   }
 
-  ul > li ul {
+  nav#menu ul > li ul {
     position: absolute;
   }
 
-  li > input[type="checkbox"]:checked ~ label + ul {
+  nav#menu li > input[type="checkbox"]:checked ~ label + ul {
     display: inline-block;
     position: absolute;
     top: 100%;
@@ -224,20 +224,20 @@ Large sizes screens */
       var(--menu-external-border-radius, 0.5rem);
   }
 
-  nav > ul > li > input[type="checkbox"] ~ label:before {
+  nav#menu > ul > li > input[type="checkbox"] ~ label:before {
     content: " ↓ ";
     margin-right: 0.5rem;
     cursor: pointer;
   }
 
-  nav > ul > li > input[type="checkbox"]:checked ~ label:before {
+  nav#menu > ul > li > input[type="checkbox"]:checked ~ label:before {
     content: " X ";
     margin-right: 0.5rem;
     cursor: pointer;
   }
 
   @media only screen and (any-hover: hover) {
-    ul > li:hover > ul {
+    nav#menu ul > li:hover > ul {
       display: inline-block;
       position: absolute;
       top: 100%;

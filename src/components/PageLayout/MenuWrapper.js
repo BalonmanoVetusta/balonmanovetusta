@@ -45,7 +45,7 @@ import Menu from "components/Menu";
 //   },
 // ];
 
-export default function MenuWrapper() {
+export default function MenuWrapper({ ...props }) {
   return (
     <Menu
       id="menu"
@@ -108,6 +108,7 @@ export default function MenuWrapper() {
           title: "Contacta con el club de forma personalizada",
         },
       ]}
+      {...props}
     />
   );
 }

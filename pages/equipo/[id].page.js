@@ -1,3 +1,4 @@
+import PageLayout from "components/PageLayout";
 import { useRouter } from "next/router";
 
 export default function PracticaBalonmano() {
@@ -14,5 +15,9 @@ export default function PracticaBalonmano() {
     return capitalizedWords.join(" ");
   };
 
-  return <h1>Plantilla de: {id ? teamFormatted(id) : "Sin plantilla 🤔"}!</h1>;
+  return (
+    <PageLayout>
+      <h1>Plantilla de: {id ? teamFormatted(id) : "Sin plantilla 🤔"}!</h1>
+    </PageLayout>
+  );
 }

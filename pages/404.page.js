@@ -1,8 +1,8 @@
-import { Fragment } from "react";
+import PageLayout from "components/PageLayout";
 
 export default function Error404Page() {
   return (
-    <Fragment>
+    <PageLayout>
       <h1>Error 404</h1>
       <h2>¡Hemos perdido el balón de juego!</h2>
       <p>La página no existe.</p>
@@ -28,6 +28,6 @@ export default function Error404Page() {
           text-align: center;
         }
       `}</style>
-    </Fragment>
+    </PageLayout>
   );
 }

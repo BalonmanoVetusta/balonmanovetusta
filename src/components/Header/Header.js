@@ -1,12 +1,31 @@
 import Link from "next/link";
 import LogoVetusta from "components/LogoVetusta";
+import { motion } from "framer-motion";
 import { header, logo } from "styles/components/Header.module.css";
 import { Fragment } from "react";
+
+const variants = {
+  hidden: {
+    x: -100,
+    opacity: 0,
+  },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 1 },
+  },
+};
 
 export function Header() {
   return (
     <Fragment>
-      <header className={header}>
+      <motion.header
+        variants={variants}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+        className={header}
+      >
         <div className={logo} aria-hidden="true">
           <Link href="/">
             <a title="Ir a la página principal" tabIndex={0} aria-hidden="true">
@@ -14,6 +33,7 @@ export function Header() {
                 shadow={false}
                 title="Logo del Club Balonamno Vetusta"
                 aria-hidden="true"
+                width="100%"
               />
             </a>
           </Link>
@@ -23,7 +43,7 @@ export function Header() {
             <h1>Club Balonmano Vetusta</h1>
           </a>
         </Link>
-      </header>
+      </motion.header>
     </Fragment>
   );
 }

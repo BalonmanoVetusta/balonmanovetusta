@@ -3,6 +3,25 @@ import { Fragment } from "react";
 import Header from "components/Header";
 import MenuWrapper from "./MenuWrapper";
 
+import { motion } from "framer-motion";
+
+const variants = {
+  hidden: {
+    x: "200",
+    opacity: 0,
+  },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 1 },
+  },
+  exit: {
+    x: "-200",
+    opacity: 0,
+    transition: { duration: 1 },
+  },
+};
+
 export function PageLayout({ children }) {
   return (
     <Fragment>
@@ -44,9 +63,17 @@ export function PageLayout({ children }) {
         <meta name="theme-color" content="#151111" />
         <link rel="manifest" href="site.webmanifest" />
       </Head>
-      <Header />
-      <MenuWrapper />
-      <main>{children}</main>
+      <Header key="header" />
+      <MenuWrapper key="menuwrapper" />
+      <motion.main
+        variants={variants}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+        key="main-content"
+      >
+        {children}
+      </motion.main>
     </Fragment>
   );
 }

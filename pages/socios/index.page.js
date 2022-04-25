@@ -1,3 +1,9 @@
+import PageLayout from "components/PageLayout";
+
 export default function PartnersPage() {
-  return <h1>Socios</h1>;
+  return (
+    <PageLayout>
+      <h1>Socios</h1>
+    </PageLayout>
+  );
 }
