@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import Header from "components/Header";
-import MenuWrapper from "./MenuWrapper";
-
 import { motion } from "framer-motion";
+import MenuWrapper from "./MenuWrapper";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 const variants = {
   hidden: {
@@ -74,6 +74,7 @@ export function PageLayout({ children }) {
       >
         {children}
       </motion.main>
+      <Footer key="footer" />
     </Fragment>
   );
 }

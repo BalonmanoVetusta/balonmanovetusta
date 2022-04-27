@@ -160,7 +160,7 @@ nav#menu input[type="checkbox"]:checked ~ label .close {
       display: none;
     }
 
-    nav:hover > ul,
+    nav#menu:hover > ul,
     nav#menu > label + ul:hover,
     nav#menu li > input[type="checkbox"] ~ ul:hover,
     nav#menu input[type="checkbox"]:checked ~ ul,

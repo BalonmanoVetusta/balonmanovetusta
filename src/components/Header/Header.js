@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoVetusta from "components/LogoVetusta";
+import { LogoVetusta } from "components/Vetusta";
 import { motion } from "framer-motion";
 import { header, logo } from "styles/components/Header.module.css";
 import { Fragment } from "react";
@@ -31,7 +31,6 @@ export function Header() {
             <a title="Ir a la página principal" tabIndex={0} aria-hidden="true">
               <LogoVetusta
                 shadow={false}
-                title="Logo del Club Balonamno Vetusta"
                 aria-hidden="true"
                 width="100%"
               />

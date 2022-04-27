@@ -4,7 +4,6 @@ import { Fragment, useId, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useVisibleMenu } from "./context/ScrollTapOutsideElementContext";
-import { useMediaQuery } from "./hook/useMediaQuery";
 
 // Variables for css styles
 // /** Colors **/
@@ -75,8 +74,6 @@ export function Menu({
   const { isElementVisible: isMenuVisible, setRef: setMenuRef } =
     useVisibleMenu();
 
-  const isMenuBarScreenSize = useMediaQuery("(min-width: 960px)");
-
   useEffect(() => {
     if (!menuRef) return;
     setMenuRef(menuRef);
@@ -114,6 +111,7 @@ export function Menu({
       hover: { scale: 1.1 },
     },
     whileHover: "hover",
+    whileFocus: "hover",
     whileTap: "tap",
   };
 
@@ -154,7 +152,10 @@ export function Menu({
                   {renderMenu(submenu, `${pathname}${href}`)}
                 </Fragment>
               ) : (
-                <Link href={`${getHrefOrPathName(href, pathname)}`}>
+                <Link
+                  scroll={false}
+                  href={`${getHrefOrPathName(href, pathname)}`}
+                >
                   <a title={title} tabIndex={index + 1}>
                     {showIcon && Icon ? (
                       <picture>

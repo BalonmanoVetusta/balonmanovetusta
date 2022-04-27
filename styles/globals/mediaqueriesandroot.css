@@ -6,6 +6,8 @@
     --text-title-color-secondary: #ae4eba;
     --text-color-primary: #ffeebd;
     --focus-shadow-color: #00b4f2;
+    --footer-border-color: papayawhip;
+    --instagram-icon-fill: #d05dde;
 
     /** Menu **/
     --menu-item-background-color: transparent;
@@ -22,6 +24,8 @@
   --text-title-color-secondary: #ae4eba;
   --text-color-primary: #ffeebd;
   --focus-shadow-color: #00b4f2;
+  --footer-border-color: papayawhip;
+  --instagram-icon-fill: #d05dde;
 
   /** Menu **/
   --menu-item-background-color: transparent;
@@ -40,6 +44,8 @@
     --text-title-color-secondary: #692f70;
     --text-color-primary: #151111;
     --focus-shadow-color: #4169e1; /* royalblue */
+    --footer-border-color: #353535;
+    --instagram-icon-fill: #d05dde;
 
     /** Menu **/
     --menu-item-background-color: transparent;
@@ -56,6 +62,8 @@
   --text-title-color-secondary: #692f70;
   --text-color-primary: #151111;
   --focus-shadow-color: #4169e1;
+  --footer-border-color: #353535;
+  --instagram-icon-fill: #d05dde;
 
   /** Menu **/
   --menu-item-background-color: transparent;

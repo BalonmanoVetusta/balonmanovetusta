@@ -125,8 +125,28 @@ a:focus {
   box-sizing: border-box;
 }
 
-/** TODO: Remove this on production */
-*:focus {
-  outline: 2pt;
-  box-shadow: 0 0 0.3rem 0.3rem var(--focus-shadow-color, #0099ff);
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 1rem;
+  border: 1pt solid var(--footer-border-color, #ccc);
+  border-top: none;
+  border-bottom: none;
+  border-radius: 2rem;
+  padding: 1rem 0;
+}
+
+footer div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+footer section .logo-footer {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

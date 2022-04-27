@@ -96,7 +96,7 @@ export default function WhoAreYouPage() {
               </a>
               &nsbp; y &nsbp; y{" "}
               <a
-                href="https://facebook.com/Balonmano_Vetusta"
+                href="https://www.facebook.com/Balonmano-Vetusta-109903584064001"
                 rel="nofollow noreferrer"
                 title="Balonmano Vetusta en Facebook"
               >
