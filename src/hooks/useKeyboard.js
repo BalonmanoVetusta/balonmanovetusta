@@ -8,6 +8,7 @@ const commonEvent = (event) => {
 
 export default function useKeyboardShortcut() {
   const [shortcuts, setShortcuts] = useState([]);
+  // FIXME setPressedKeys must be a useReducer instead of useState
   const [pressedKeys, setPressedKeys] = useState({});
 
   const addShortcut = useCallback((keys, callback) => {
@@ -75,7 +76,6 @@ export default function useKeyboardShortcut() {
     ) {
       shortcuts.forEach((shortcut) => {
         const { keys, callback } = shortcut;
-        const currentKeysStatus = Object.values(pressedKeys);
         if (keys.every((key) => pressedKeys[key] === true)) {
           callback();
         }

@@ -23,7 +23,7 @@
   },
   "plugins": ["react", "react-hooks"],
   "rules": {
-    "no-unused-vars": "off",
+    // "no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/forbid-prop-types": "off",

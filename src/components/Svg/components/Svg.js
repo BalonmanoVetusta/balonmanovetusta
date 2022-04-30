@@ -1,5 +1,7 @@
-import { useId } from "react";
+import { useId, useState } from "react";
 import convertColors2RGBA from "../lib/colors";
+import { motion } from "framer-motion";
+import renderStyledSvgStylesForThemes from "../lib/renderSvgStylesForThemes";
 
 // cssVariableName scope will be global so should be a unique value or name,
 // if you provide color values as props the css colors will be added to
@@ -20,7 +22,7 @@ export function Svg({
   fillDark = undefined,
   stroke = undefined,
   strokeDark = undefined,
-  shadow = true,
+  shadow = false,
   shadowLightColor = undefined, // if null the shadow color if enabled will be the same as fill
   shadowDarkColor = undefined, // if null the shadow color if enabled will be the same as fillDark
   safeLightFillColor = "#000000",
@@ -29,20 +31,24 @@ export function Svg({
   safeDarkStrokeColor = undefined,
   safeLightShadowColor = "rgba(0, 0, 0, 0.5)",
   safeDarkShadowColor = "rgba(0, 0, 0, 0.5)",
+  motion: shouldBeMotionSvg = false,
   ...props
 } = {}) {
   // ids & default css variable name
   const id = useId();
   titleId = titleId || `${id}-title`;
   descriptionId = descriptionId || `${id}-description`;
-  const cssVariablePrefix =
-    cssVariableNamePrefix || `--svg-${id.match(/\w/gi).join("-")}`;
+  const [cssVariablePrefix] = useState(
+    cssVariableNamePrefix || `--svg-${id.match(/\w/gi).join("-")}`
+  );
 
   // Default color values
-  const lightFillColor = fill || safeLightFillColor;
-  const darkFillColor = fillDark || fill || safeDarkFillColor;
-  const lightStrokeColor = stroke || safeLightStrokeColor;
-  const darkStrokeColor = strokeDark || stroke || safeDarkStrokeColor;
+  const [lightFillColor] = useState(fill || safeLightFillColor);
+  const [darkFillColor] = useState(fillDark || fill || safeDarkFillColor);
+  const [lightStrokeColor] = useState(stroke || safeLightStrokeColor);
+  const [darkStrokeColor] = useState(
+    strokeDark || stroke || safeDarkStrokeColor
+  );
 
   // Default values reduce the size of SVG files
   props.xmlns = props.xmlns || "http://www.w3.org/2000/svg";
@@ -51,14 +57,20 @@ export function Svg({
   props.preserveAspectRatio = props.preserveAspectRatio || "xMidYMid meet";
 
   // Use rgba colors for shadows
-  let lightShadow, darkShadow;
-  try {
-    lightShadow = convertColors2RGBA(shadowLightColor || lightFillColor, 0.5);
-    darkShadow = convertColors2RGBA(shadowDarkColor || darkFillColor, 0.5);
-  } catch (error) {
-    lightShadow = safeLightShadowColor;
-    darkShadow = safeDarkShadowColor;
-  }
+  const [lightShadow] = useState(() => {
+    try {
+      return convertColors2RGBA(shadowLightColor || lightFillColor, 0.5);
+    } catch (error) {
+      return safeLightShadowColor;
+    }
+  });
+  const [darkShadow] = useState(() => {
+    try {
+      return convertColors2RGBA(shadowDarkColor || darkFillColor, 0.5);
+    } catch (error) {
+      return safeDarkShadowColor;
+    }
+  });
 
   // Title and description
   if (!props["aria-labelledby"] && (title || description)) {
@@ -67,50 +79,34 @@ export function Svg({
     props["aria-labelledby"] = props["aria-labelledby"] || labelledby;
   }
 
-  const renderStyledSvgStylesForThemes = () => {
-    if (
-      typeof cssVariableNamePrefix === typeof undefined ||
-      cssVariableNamePrefix === null
-    ) {
-      return (
-        <style global jsx>{`
-          @media only screen and (prefers-color-scheme: light) {
-            :root:not([data-theme="dark"]) {
-              ${cssVariablePrefix}-fill: ${lightFillColor};
-              ${cssVariablePrefix}-stroke: ${lightStrokeColor};
-              ${cssVariablePrefix}-shadow: ${lightShadow};
-            }
-          }
-          [data-theme="light"] {
-            ${cssVariablePrefix}-fill: ${lightFillColor};
-            ${cssVariablePrefix}-stroke: ${lightStrokeColor};
-            ${cssVariablePrefix}-shadow: ${lightShadow};
-          }
-          @media only screen and (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) {
-              ${cssVariablePrefix}-fill: ${darkFillColor};
-              ${cssVariablePrefix}-stroke: ${darkStrokeColor};
-              ${cssVariablePrefix}-shadow: ${darkShadow};
-            }
-          }
-          [data-theme="dark"] {
-            ${cssVariablePrefix}-fill: ${darkFillColor};
-            ${cssVariablePrefix}-stroke: ${darkStrokeColor};
-            ${cssVariablePrefix}-shadow: ${darkShadow};
-          }
-        `}</style>
-      );
-    }
-
-    return null;
+  const conditionalSylesForThemes = () => {
+    return typeof cssVariableNamePrefix === typeof undefined ||
+      (cssVariableNamePrefix === null && cssVariablePrefix)
+      ? renderStyledSvgStylesForThemes({
+          cssVariablePrefix,
+          lightFillColor,
+          lightStrokeColor,
+          lightShadow,
+          darkFillColor,
+          darkStrokeColor,
+          darkShadow,
+        })
+      : null;
   };
 
+  const ConditionalSvg = ({ children, ...props }) =>
+    shouldBeMotionSvg ? (
+      <motion.svg {...props}>{children}</motion.svg>
+    ) : (
+      <svg {...props}>{children}</svg>
+    );
+
   return (
-    <svg {...props}>
+    <ConditionalSvg {...props}>
       <title id={titleId}>{title}</title>
       <desc id={descriptionId}>{description}</desc>
       {children}
-      {renderStyledSvgStylesForThemes()}
+      {conditionalSylesForThemes}
       <style jsx>{`
         svg {
           fill: var(${cssVariablePrefix}-fill);
@@ -120,6 +116,11 @@ export function Svg({
             : ""}
         }
       `}</style>
-    </svg>
+    </ConditionalSvg>
   );
+}
+
+export function MotionSvg({ children, ...props }) {
+  props.motion = true;
+  return <Svg {...props}>{children}</Svg>;
 }

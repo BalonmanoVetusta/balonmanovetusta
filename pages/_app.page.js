@@ -1,5 +1,4 @@
 import { ScrollTapOutsideElementContext } from "components/Menu";
-import PageLayout from "components/PageLayout";
 import { AnimatePresence } from "framer-motion";
 import { Fragment } from "react";
 import "styles/globals/main.css";

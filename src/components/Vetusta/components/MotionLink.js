@@ -6,7 +6,6 @@ const linkVariants = {
   onHoverFocus: { scale: 1.1, opacity: 1 },
   initial: { scale: 1, opacity: 0.9 },
 };
-const CustomLink = motion(Link);
 
 export function MotionLink({
   children,
@@ -38,7 +37,7 @@ export function MotionLink({
         prefetch={prefetch}
         locale={locale}
       >
-        <a {...props}>{children}</a>
+        <motion.a {...props}>{children}</motion.a>
       </Link>
     </motion.span>
   );

@@ -16,7 +16,6 @@ export default function useScrollTapOutsideElementShowHideElement() {
     if (!ref?.current) return;
 
     if (touchMove) {
-      console.log({ touchMove });
       setIsElementVisible(false);
       handleOnTouchCancel();
       return;
@@ -28,7 +27,11 @@ export default function useScrollTapOutsideElementShowHideElement() {
     } else {
       setIsElementVisible(true);
     }
-    if (!prevStatus) {
+
+    if (
+      !prevStatus &&
+      (ref.current.contains(event.target) || ref.current === event.target)
+    ) {
       event.preventDefault();
     }
   };

@@ -47,6 +47,7 @@ export default function AvisoLegalPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                {" "}
                 web del proyecto en Github
               </a>
               .
@@ -58,6 +59,7 @@ export default function AvisoLegalPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                {" "}
                 NextJS
               </a>
             </p>
@@ -69,9 +71,10 @@ export default function AvisoLegalPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                {" "}
                 Material Design
               </a>
-              . También hay iconos sin licencia del proyecto
+              . También hay iconos sin licencia del proyecto{" "}
               <a
                 href="https://systemuicons.com"
                 target="_blank"
@@ -89,15 +92,15 @@ export default function AvisoLegalPage() {
               ) extraído de la wikipedia.
             </p>
             <p>
-              Entre las fuentes de texto usadas se encuentra la fuente
+              Entre las fuentes de texto usadas se encuentra la fuente{" "}
               <a
                 href="https://github.com/googlefonts/alumni"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Alumni One
-              </a>
-              con licencia
+              </a>{" "}
+              con licencia{" "}
               <a
                 href="http://scripts.sil.org/OFL"
                 target="_blank"

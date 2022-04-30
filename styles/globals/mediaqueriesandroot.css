@@ -6,7 +6,7 @@
     --text-title-color-secondary: #ae4eba;
     --text-color-primary: #ffeebd;
     --focus-shadow-color: #00b4f2;
-    --footer-border-color: papayawhip;
+    --footer-border-color: #ffeebd;
     --instagram-icon-fill: #d05dde;
 
     /** Menu **/
@@ -14,8 +14,8 @@
     --menu-text-color: #353131;
     --menu-item-icon-color-stroke: transparent;
     --menu-item-icon-color-fill: #353131;
-    --menu-background: tomato;
-    --menu-submenu-background-color: tomato;
+    --menu-background: #d05dde;
+    --menu-submenu-background-color: #d05dde;
   }
 }
 [data-theme="dark"] {
@@ -24,7 +24,7 @@
   --text-title-color-secondary: #ae4eba;
   --text-color-primary: #ffeebd;
   --focus-shadow-color: #00b4f2;
-  --footer-border-color: papayawhip;
+  --footer-border-color: #ffeebd;
   --instagram-icon-fill: #d05dde;
 
   /** Menu **/
@@ -32,8 +32,8 @@
   --menu-text-color: var(--background-color);
   --menu-icon-color-stroke: transparent;
   --menu-icon-color-fill: #353131;
-  --menu-background: tomato;
-  --menu-submenu-background-color: tomato;
+  --menu-background: #d05dde;
+  --menu-submenu-background-color: #d05dde;
 }
 
 /** Light Theme **/
@@ -166,4 +166,9 @@
   --menu-text-color: var(--background-color);
   --menu-item-background-color: transparent;
   --menu-item-background-color-hover: var(--background-color);
+
+  /** Other stuff **/
+  font-size: 16px;
+  min-height: 100vh;
+  min-width: 100vw;
 }

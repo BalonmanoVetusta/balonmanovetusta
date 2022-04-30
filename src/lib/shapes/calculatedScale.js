@@ -1,8 +1,8 @@
-const calculateScale = (
+export default function calculateScale(
   originalWidth,
   originalHeight,
   { width = 0, height = 0, precission = 0 } = {}
-) => {
+) {
   const scaleX = width / originalWidth;
   const scaleY = height / originalHeight;
 
@@ -33,4 +33,4 @@ const calculateScale = (
     width: Number(originalWidth.toFixed(precission)),
     height: Number(originalHeight.toFixed(precission)),
   };
-};
+}

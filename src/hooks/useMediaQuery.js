@@ -6,13 +6,14 @@ export function useMediaQuery(media) {
   );
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia(media);
-    const listener = (e) => setMatches(e.matches);
+    const { matchMedia } = globalThis || window || global;
+    const mediaQueryList = matchMedia(media);
 
+    const listener = ({ matches = false } = {}) => setMatches(matches);
     mediaQueryList.addListener(listener);
-
     return () => mediaQueryList.removeListener(listener);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [media]);
 
-  return matches;
+  return Boolean(matches);
 }

@@ -1,7 +1,7 @@
 import { Close, MenuHamburger } from "components/Icons";
 import Link from "next/link";
 import { Fragment, useId, useRef, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { useVisibleMenu } from "./context/ScrollTapOutsideElementContext";
 
@@ -30,8 +30,6 @@ import { useVisibleMenu } from "./context/ScrollTapOutsideElementContext";
 //   href: "/page-1",
 //   submenu: []
 // }]
-
-const EVENT_DISTANCE_TO_BE_CLOSE = 50;
 
 // Helper to set href in nested menus
 const getHrefOrPathName = (itemHref, pathname = "/") => {
@@ -87,17 +85,17 @@ export function Menu({
     variants: {
       hidden: {
         opacity: 0,
+        scale: 0,
         transition: { duration: 1 },
-        rotate: 0,
       },
       show: {
         visibility: "visible",
+        scale: 1,
         opacity: 1,
         zIndex: 1,
         transition: {
           duration: 0.5,
         },
-        rotate: 360,
       },
     },
     initial: "hidden",
@@ -122,7 +120,7 @@ export function Menu({
     { ...props } = {}
   ) => {
     return (
-      <ul role={ulRole} key={`${id}-${ulRole}-${pathname}`} {...props}>
+      <motion.ul role={ulRole} key={`${id}-${ulRole}-${pathname}`} {...props}>
         {menuItems.map(
           (
             { label, href, title, Icon = () => null, submenu = null },
@@ -141,14 +139,14 @@ export function Menu({
                     name={`drop-${++drop}`}
                     id={`drop-${drop}`}
                   />
-                  <label htmlFor={`drop-${drop}`} tabIndex={index + 1}>
+                  <motion.label htmlFor={`drop-${drop}`} tabIndex={index + 1}>
                     {showSubMenuIcon && Icon ? (
-                      <picture>
+                      <motion.picture>
                         <Icon width="1rem" height="1rem" />
-                      </picture>
+                      </motion.picture>
                     ) : null}
                     {showSubMenuLabel ? label : null}
-                  </label>
+                  </motion.label>
                   {renderMenu(submenu, `${pathname}${href}`)}
                 </Fragment>
               ) : (
@@ -158,12 +156,12 @@ export function Menu({
                 >
                   <a title={title} tabIndex={index + 1}>
                     {showIcon && Icon ? (
-                      <picture>
+                      <motion.picture>
                         <Icon width="1rem" height="1rem" aria-hidden="true" />
-                      </picture>
+                      </motion.picture>
                     ) : null}
                     {showLabel ? (
-                      <span className="menulabel">{label}</span>
+                      <motion.span className="menulabel">{label}</motion.span>
                     ) : null}
                   </a>
                 </Link>
@@ -171,7 +169,7 @@ export function Menu({
             </motion.li>
           )
         )}
-      </ul>
+      </motion.ul>
     );
   };
 

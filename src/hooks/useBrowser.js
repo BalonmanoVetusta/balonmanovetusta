@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import useSSR from "./useSSR";
 
 export default function useBrowser() {
-  const [isBrowser, setIsBrowser] = useState(false);
+  const isBrowser = !useSSR();
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -21,8 +22,6 @@ export default function useBrowser() {
     const isForcedDarkMode = Boolean(
       document.querySelector(":root").getAttribute("data-theme")
     );
-
-    setIsBrowser(true);
 
     setIsMobile(window.innerWidth < 768);
     setIsTablet(window.innerWidth < 992);

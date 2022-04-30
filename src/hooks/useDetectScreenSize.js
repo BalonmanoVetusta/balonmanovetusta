@@ -18,8 +18,8 @@ export function useDetectScreenSize({
       const isMaxWidth = maxWidth === 0 || innerWidth <= maxWidth;
       const isScreenSizeWidth = isMinWidth && isMaxWidth;
 
-      const isMinHeight = minHeight === 0 || window.innerHeight >= minHeight;
-      const isMaxHeight = maxHeight === 0 || window.innerHeight <= maxHeight;
+      const isMinHeight = minHeight === 0 || innerHeight >= minHeight;
+      const isMaxHeight = maxHeight === 0 || innerHeight <= maxHeight;
       const isScreenSizeHeight = isMinHeight && isMaxHeight;
       setIsScreenSize(isScreenSizeWidth && isScreenSizeHeight);
     };

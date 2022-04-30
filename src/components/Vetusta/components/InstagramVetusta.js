@@ -1,17 +1,32 @@
-import { Instagram } from "components/Icons";
-import { Fragment } from "react";
+import { MotionInstagram } from "components/Icons";
 import { MotionLink } from "./MotionLink";
+import { Fragment } from "react";
+import { motion } from "framer-motion";
+
+const animateProps = {
+  variants: {
+    onTap: { scale: 0.85, opacity: 1 },
+    onHoverFocus: { scale: 1.1, opacity: 1 },
+    initial: { scale: 1, opacity: 0.9 },
+  },
+  initial: "initial",
+  whileHover: "onHoverFocus",
+  whileTap: "onTap",
+};
 
 export function InstagramVetusta({
   text = false,
   icon = true,
-  width = "48",
-  height = "48",
   iconClassName = "instagram-icon",
   textClassName = "instagram-text",
-  fillColorVariable = "--instagram-icon-fill",
-  fillColorDefaultColor = "#febf2e",
+  fill = "#febf2e",
+  pathProps = animateProps,
 }) {
+  pathProps.variants ??= animateProps.variants;
+  pathProps.initial ??= animateProps.initial;
+  pathProps.whileHover ??= animateProps.whileHover;
+  pathProps.whileTap ??= animateProps.whileTap;
+
   return (
     <Fragment>
       <MotionLink
@@ -21,25 +36,22 @@ export function InstagramVetusta({
         aria-label="Instagram del Club Balonamno Vetusta de Oviedo"
       >
         {icon ? (
-          <Instagram
+          <MotionInstagram
             width="100%"
             height="100%"
             aria-hidden="true"
             className={iconClassName}
+            pathProps={pathProps}
+            fill={fill}
           />
         ) : null}
 
         {text ? (
-          <span className={textClassName}>
+          <motion.span className={textClassName}>
             Instagram del Club Balonmano Vetusta
-          </span>
+          </motion.span>
         ) : null}
       </MotionLink>
-      <style jsx>{`
-        svg path {
-          fill: var(${fillColorVariable}, ${fillColorDefaultColor});
-        }
-      `}</style>
     </Fragment>
   );
 }
