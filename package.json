@@ -12,19 +12,20 @@
     "test:dev": "jest --watchAll --verbose --passWithNoTests"
   },
   "dependencies": {
-    "framer-motion": "6.3.0",
-    "next": "12.1.5",
-    "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "framer-motion": "6.3.3",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "13.1.1",
+    "@testing-library/react": "13.2.0",
     "@testing-library/react-hooks": "8.0.0",
-    "eslint": "8.13.0",
-    "eslint-config-next": "12.1.5",
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.5.0",
-    "eslint-config-standard": "16.0.3",
+    "eslint-config-standard": "17.0.0",
     "eslint-config-standard-react": "11.0.1",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-next": "0.0.0",
@@ -32,9 +33,9 @@
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-react": "7.29.4",
     "husky": "7.0.4",
-    "jest": "27.5.1",
-    "lint-staged": "12.3.8",
+    "jest": "28.0.3",
+    "lint-staged": "12.4.1",
     "prettier": "2.6.2",
-    "react-test-renderer": "18.0.0"
+    "react-test-renderer": "18.1.0"
   }
 }
