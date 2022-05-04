@@ -95,7 +95,7 @@ const ConditionalSvg = ({
               5px 5px 3px
                 var(${cssVariablePrefix}-shadow, rgba(0, 0, 0, 0.8))
             );`
-              : null}
+              : ""}
           }
         `}
       </style>

@@ -1,4 +1,5 @@
-import { LogoVetusta } from "components/Vetusta";
+import { Instagram } from "components/Icons";
+import { InstagramVetusta, LogoVetusta } from "components/Vetusta";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -58,7 +59,16 @@ export function Footer() {
           </section>
           <section>
             <ul>
-              <li>{/* <!--- Instagram ---> */}</li>
+              <li>
+                <Instagram
+                  fill="#febf2e"
+                  width="100%"
+                  height="100%"
+                  aria-hidden="true"
+                  fillDark="#ccc"
+                  motion={true}
+                />
+              </li>
             </ul>
           </section>
         </div>

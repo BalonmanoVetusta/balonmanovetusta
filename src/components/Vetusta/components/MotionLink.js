@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const linkVariants = {
   onTap: { scale: 0.85, opacity: 1 },
@@ -20,7 +20,7 @@ export function MotionLink({
   ...props
 }) {
   return (
-    <motion.span
+    <m.span
       variants={linkVariants}
       initial="initial"
       whileHover="onHoverFocus"
@@ -37,8 +37,8 @@ export function MotionLink({
         prefetch={prefetch}
         locale={locale}
       >
-        <motion.a {...props}>{children}</motion.a>
+        <m.a {...props}>{children}</m.a>
       </Link>
-    </motion.span>
+    </m.span>
   );
 }

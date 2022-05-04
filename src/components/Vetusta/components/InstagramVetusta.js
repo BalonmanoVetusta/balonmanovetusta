@@ -1,18 +1,7 @@
-import { MotionInstagram } from "components/Icons";
-import { MotionLink } from "./MotionLink";
 import { Fragment } from "react";
-import { motion } from "framer-motion";
-
-const animateProps = {
-  variants: {
-    onTap: { scale: 0.85, opacity: 1 },
-    onHoverFocus: { scale: 1.1, opacity: 1 },
-    initial: { scale: 1, opacity: 0.9 },
-  },
-  initial: "initial",
-  whileHover: "onHoverFocus",
-  whileTap: "onTap",
-};
+import { m } from "framer-motion";
+import { Instagram } from "components/Icons";
+import { MotionLink } from "./MotionLink";
 
 export function InstagramVetusta({
   text = false,
@@ -20,13 +9,16 @@ export function InstagramVetusta({
   iconClassName = "instagram-icon",
   textClassName = "instagram-text",
   fill = "#febf2e",
-  pathProps = animateProps,
+  variants = {
+    onTap: { scale: 0.85, opacity: 1 },
+    onHoverFocus: { scale: 1.1, opacity: 1 },
+    initial: { scale: 1, opacity: 0.9 },
+  },
+  initial = "initial",
+  whileHover = "onHoverFocus",
+  whileTap = "onTap",
+  ...props
 }) {
-  pathProps.variants ??= animateProps.variants;
-  pathProps.initial ??= animateProps.initial;
-  pathProps.whileHover ??= animateProps.whileHover;
-  pathProps.whileTap ??= animateProps.whileTap;
-
   return (
     <Fragment>
       <MotionLink
@@ -36,20 +28,25 @@ export function InstagramVetusta({
         aria-label="Instagram del Club Balonamno Vetusta de Oviedo"
       >
         {icon ? (
-          <MotionInstagram
+          <Instagram
             width="100%"
             height="100%"
             aria-hidden="true"
-            className={iconClassName}
-            pathProps={pathProps}
             fill={fill}
+            fillDark="#ccc"
+            motion={true}
+            variants={variants}
+            initial={initial}
+            whileHover={whileHover}
+            whileTap={whileTap}
+            {...props}
           />
         ) : null}
 
         {text ? (
-          <motion.span className={textClassName}>
+          <m.span className={textClassName}>
             Instagram del Club Balonmano Vetusta
-          </motion.span>
+          </m.span>
         ) : null}
       </MotionLink>
     </Fragment>

@@ -22,17 +22,14 @@ const variants = {
 
 export function LogoVetusta({
   cssVariableNamePrefix = null,
-  fill = null,
-  fillDark = null,
+  fill = LOGO_BLACK,
+  fillDark = LOGO_YELLOW,
   shadow = true,
   title = "Club Balonmano Vetusta",
   description = "Logotipo oficial del Club Balonmano Vetusta",
   motion = true,
   ...props
 }) {
-  const lightFillColor = fill || LOGO_BLACK;
-  const darkFillColor = fillDark || fill || LOGO_YELLOW;
-
   return (
     <Picture {...props}>
       <Svg
@@ -42,8 +39,8 @@ export function LogoVetusta({
         title={title}
         description={description}
         viewBox="0 0 346 477"
-        fill={lightFillColor}
-        fillDark={darkFillColor}
+        fill={fill}
+        fillDark={fillDark}
         shadow={shadow}
         motion={motion}
       >
