@@ -1,9 +1,10 @@
 // This is copied from Material Design Icons, see:
 //   - https://systemuicons.com/
+import Svg, { Path } from "components/Svg";
 
-export function Home({ ...props }) {
+export function Home({ motion = false, ...props }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21" {...props}>
+    <Svg viewBox="0 0 21 21" motion={motion} {...props}>
       <g
         fill="none"
         fillRule="evenodd"
@@ -11,9 +12,9 @@ export function Home({ ...props }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="m1.5 10.5 9-9 9 9" />
-        <path d="M3.5 8.5v8a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-8" />
+        <Path d="m1.5 10.5 9-9 9 9" />
+        <Path d="M3.5 8.5v8a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-8" />
       </g>
-    </svg>
+    </Svg>
   );
 }

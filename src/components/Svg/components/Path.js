@@ -1,16 +1,12 @@
 import { motion } from "framer-motion";
+import useSvgMotionElement from "../context/SvgMotionContext";
 
-const ConditionalPath = ({ children, shouldUseMotion = false, ...props }) =>
-  shouldUseMotion ? (
+export function Path({ children, ...props }) {
+  const isMotionSvg = useSvgMotionElement();
+
+  return isMotionSvg ? (
     <motion.path {...props}>{children}</motion.path>
   ) : (
     <path {...props}>{children}</path>
-  );
-
-export function Path({ motion: shouldUseMotion = false, children, ...props }) {
-  return (
-    <ConditionalPath shouldUseMotion={shouldUseMotion} {...props}>
-      {children}
-    </ConditionalPath>
   );
 }

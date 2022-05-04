@@ -1,6 +1,7 @@
 import { Fragment, useId } from "react";
 import convertColors2RGBA from "../lib/colors";
 import { motion } from "framer-motion";
+import { MotionContextProvider } from "../context/SvgMotionContext";
 
 // It will create a global css style scope to support dark and light mode
 // the css variable prefix will be based on the id, so it must be unique
@@ -134,7 +135,8 @@ export function Svg({
     <ConditionalSvg shouldBeMotionSvg={shouldBeMotionSvg} id={id} {...props}>
       <title id={titleId}>{title}</title>
       <desc id={descriptionId}>{description}</desc>
-      {children}
+      {/* // Context to propagate if svg elements must be also motion elements or not */}
+      <MotionContextProvider motion={motion}>{children}</MotionContextProvider>
     </ConditionalSvg>
   );
 }

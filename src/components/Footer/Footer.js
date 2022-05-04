@@ -1,4 +1,4 @@
-import { LogoVetusta, InstagramVetusta } from "components/Vetusta";
+import { LogoVetusta } from "components/Vetusta";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -58,9 +58,7 @@ export function Footer() {
           </section>
           <section>
             <ul>
-              <li>
-                <InstagramVetusta />
-              </li>
+              <li>{/* <!--- Instagram ---> */}</li>
             </ul>
           </section>
         </div>
