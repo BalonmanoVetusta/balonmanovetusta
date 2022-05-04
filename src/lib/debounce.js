@@ -3,7 +3,7 @@ export default function debounce(callback, waitTime, ...args) {
   return (...args) => {
     clearTimeout(timerId);
     timerId = setTimeout(() => {
-      // eslint-disable-next-line node/no-callback-literal
+      // eslint-disable-next-line n/no-callback-literal
       callback(...args);
     }, waitTime);
   };

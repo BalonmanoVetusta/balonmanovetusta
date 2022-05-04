@@ -33,6 +33,7 @@ export function Header() {
                 shadow={false}
                 aria-hidden="true"
                 width="100%"
+                motion={false}
               />
             </a>
           </Link>

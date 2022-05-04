@@ -1,23 +1,17 @@
-import { useId, useState } from "react";
+import { Fragment, useId } from "react";
 import convertColors2RGBA from "../lib/colors";
 import { motion } from "framer-motion";
-import renderStyledSvgStylesForThemes from "../lib/renderSvgStylesForThemes";
 
-// cssVariableName scope will be global so should be a unique value or name,
-// if you provide color values as props the css colors will be added to
-// support dark mode in the svg component.
-// If you provide css variable name dark/light mode color definition must be
-// added by you in your css code. If the value is null the variable will be
-// created by using "useId" function and add automatically the css in the
-// component but it will be added with global scope to make dark/light mode
-// works.
-export function Svg({
+// It will create a global css style scope to support dark and light mode
+// the css variable prefix will be based on the id, so it must be unique
+// if you define cssVariableNamePrefix you must define css variables and
+// do the light/dark logic in your global css. Useful for reusable svgs
+// Css variables are provided with fallback colors
+const ConditionalSvg = ({
   children,
-  title,
-  description,
+  id,
+  shouldBeMotionSvg = false,
   cssVariableNamePrefix = undefined,
-  titleId = undefined,
-  descriptionId = undefined,
   fill = undefined,
   fillDark = undefined,
   stroke = undefined,
@@ -27,10 +21,94 @@ export function Svg({
   shadowDarkColor = undefined, // if null the shadow color if enabled will be the same as fillDark
   safeLightFillColor = "#000000",
   safeDarkFillColor = "#FFFFFF",
-  safeLightStrokeColor = undefined,
-  safeDarkStrokeColor = undefined,
+  safeLightStrokeColor = "transparent",
+  safeDarkStrokeColor = "transparent",
   safeLightShadowColor = "rgba(0, 0, 0, 0.5)",
   safeDarkShadowColor = "rgba(0, 0, 0, 0.5)",
+  ...props
+}) => {
+  // Default color values
+  const lightFillColor = fill || safeLightFillColor;
+  const darkFillColor = fillDark || fill || safeDarkFillColor;
+  const lightStrokeColor = stroke || safeLightStrokeColor;
+  const darkStrokeColor = strokeDark || stroke || safeDarkStrokeColor;
+
+  // Use rgba colors for shadows
+  let lightShadow, darkShadow;
+  try {
+    lightShadow = convertColors2RGBA(shadowLightColor || lightFillColor, 0.8);
+    darkShadow = convertColors2RGBA(shadowDarkColor || darkFillColor, 0.8);
+  } catch (error) {
+    lightShadow = safeLightShadowColor;
+    darkShadow = safeDarkShadowColor;
+  }
+
+  const cssVariablePrefix = `--${id.replace(/[^\w\d]/gi, "-")}`;
+
+  return (
+    <Fragment>
+      {shouldBeMotionSvg ? (
+        <motion.svg id={id} {...props}>
+          {children}
+        </motion.svg>
+      ) : (
+        <svg id={id} {...props}>
+          {children}
+        </svg>
+      )}
+      <style global jsx>
+        {`
+          @media only screen and (prefers-color-scheme: light) {
+            :root:not([data-theme="dark"]) {
+              ${cssVariablePrefix}-fill: ${lightFillColor};
+              ${cssVariablePrefix}-stroke: ${lightStrokeColor};
+              ${cssVariablePrefix}-shadow: ${lightShadow};
+            }
+          }
+          [data-theme="light"] {
+            ${cssVariablePrefix}-fill: ${lightFillColor};
+            ${cssVariablePrefix}-stroke: ${lightStrokeColor};
+            ${cssVariablePrefix}-shadow: ${lightShadow};
+          }
+          @media only screen and (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+              ${cssVariablePrefix}-fill: ${darkFillColor};
+              ${cssVariablePrefix}-stroke: ${darkStrokeColor};
+              ${cssVariablePrefix}-shadow: ${darkShadow};
+            }
+          }
+          [data-theme="dark"] {
+            ${cssVariablePrefix}-fill: ${darkFillColor};
+            ${cssVariablePrefix}-stroke: ${darkStrokeColor};
+            ${cssVariablePrefix}-shadow: ${darkShadow};
+          }
+        `}
+      </style>
+      <style jsx>
+        {`
+          svg {
+            fill: var(${cssVariablePrefix}-fill, #000);
+            stroke: var(${cssVariablePrefix}-stroke, transparent);
+            ${shadow
+              ? `filter: drop-shadow(
+              5px 5px 3px
+                var(${cssVariablePrefix}-shadow, rgba(0, 0, 0, 0.8))
+            );`
+              : null}
+          }
+        `}
+      </style>
+    </Fragment>
+  );
+};
+
+export function Svg({
+  children,
+  title,
+  description,
+  cssVariableNamePrefix = undefined,
+  titleId = undefined,
+  descriptionId = undefined,
   motion: shouldBeMotionSvg = false,
   ...props
 } = {}) {
@@ -38,39 +116,12 @@ export function Svg({
   const id = useId();
   titleId = titleId || `${id}-title`;
   descriptionId = descriptionId || `${id}-description`;
-  const [cssVariablePrefix] = useState(
-    cssVariableNamePrefix || `--svg-${id.match(/\w/gi).join("-")}`
-  );
-
-  // Default color values
-  const [lightFillColor] = useState(fill || safeLightFillColor);
-  const [darkFillColor] = useState(fillDark || fill || safeDarkFillColor);
-  const [lightStrokeColor] = useState(stroke || safeLightStrokeColor);
-  const [darkStrokeColor] = useState(
-    strokeDark || stroke || safeDarkStrokeColor
-  );
 
   // Default values reduce the size of SVG files
   props.xmlns = props.xmlns || "http://www.w3.org/2000/svg";
   props.xmlnsXlink = props.xmlnsXlink || "http://www.w3.org/1999/xlink";
   props.role = props.role || "img";
   props.preserveAspectRatio = props.preserveAspectRatio || "xMidYMid meet";
-
-  // Use rgba colors for shadows
-  const [lightShadow] = useState(() => {
-    try {
-      return convertColors2RGBA(shadowLightColor || lightFillColor, 0.5);
-    } catch (error) {
-      return safeLightShadowColor;
-    }
-  });
-  const [darkShadow] = useState(() => {
-    try {
-      return convertColors2RGBA(shadowDarkColor || darkFillColor, 0.5);
-    } catch (error) {
-      return safeDarkShadowColor;
-    }
-  });
 
   // Title and description
   if (!props["aria-labelledby"] && (title || description)) {
@@ -79,43 +130,11 @@ export function Svg({
     props["aria-labelledby"] = props["aria-labelledby"] || labelledby;
   }
 
-  const conditionalSylesForThemes = () => {
-    return typeof cssVariableNamePrefix === typeof undefined ||
-      (cssVariableNamePrefix === null && cssVariablePrefix)
-      ? renderStyledSvgStylesForThemes({
-          cssVariablePrefix,
-          lightFillColor,
-          lightStrokeColor,
-          lightShadow,
-          darkFillColor,
-          darkStrokeColor,
-          darkShadow,
-        })
-      : null;
-  };
-
-  const ConditionalSvg = ({ children, ...props }) =>
-    shouldBeMotionSvg ? (
-      <motion.svg {...props}>{children}</motion.svg>
-    ) : (
-      <svg {...props}>{children}</svg>
-    );
-
   return (
-    <ConditionalSvg {...props}>
+    <ConditionalSvg shouldBeMotionSvg={shouldBeMotionSvg} id={id} {...props}>
       <title id={titleId}>{title}</title>
       <desc id={descriptionId}>{description}</desc>
       {children}
-      {conditionalSylesForThemes}
-      <style jsx>{`
-        svg {
-          fill: var(${cssVariablePrefix}-fill);
-          stroke: var(${cssVariablePrefix}-stroke, transparent);
-          ${shadow
-            ? `filter: drop-shadow(5px 5px 3px var(${cssVariablePrefix}-shadow, rgba(0, 0, 0, 0, 0.9)));`
-            : ""}
-        }
-      `}</style>
     </ConditionalSvg>
   );
 }
