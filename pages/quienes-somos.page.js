@@ -37,7 +37,6 @@ export default function WhoAreYouPage() {
               asentar una sólida base económica, deportiva y social, que
               permiten al Club Balonmano Vetusta asegurar{" "}
               <strong>
-                {" "}
                 un próspero futuro y seguir creciendo para fomentar el balonmano
                 en la ciudad de Oviedo
               </strong>
@@ -76,8 +75,7 @@ export default function WhoAreYouPage() {
               socios simpatizantes, esto supone un importante apoyo económico
               por parte de nuestros seguidores, sobre el cual se aposentan
               nuestros cimientos. En las Redes Sociales también se cuenta con un
-              gran apoyo, llegando a superar la cifra de 3.000 seguidores entre
-              &nsbp;
+              gran apoyo, llegando a superar la cifra de 3.000 seguidores entre{" "}
               <a
                 href="https://twitter.com/BM_Vetusta"
                 rel="nofollow noreferrer"
@@ -85,21 +83,13 @@ export default function WhoAreYouPage() {
               >
                 Twitter (@BM_Vetusta)
               </a>
-              ,&nsbp;
+              {" e "}
               <a
                 href="https://instagram.com/balonmanovetusta"
                 rel="nofollow noreferrer"
                 title="Balonmano Vetusta en Instagram"
               >
                 Instagram (@balonmanovetusta)
-              </a>
-              &nsbp; y &nsbp; y{" "}
-              <a
-                href="https://www.facebook.com/Balonmano-Vetusta-109903584064001"
-                rel="nofollow noreferrer"
-                title="Balonmano Vetusta en Facebook"
-              >
-                Facebook (Balonmano Vetusta)
               </a>
               .
             </p>

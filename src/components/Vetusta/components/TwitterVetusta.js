@@ -1,9 +1,9 @@
 import { Fragment } from "react";
-import { motion } from "framer-motion";
-import { Instagram } from "components/Icons";
+import { m } from "framer-motion";
+import { Twitter } from "components/Icons";
 import { MotionLink } from "./MotionLink";
 
-export function InstagramVetusta({
+export function TwitterVetusta({
   text = false,
   icon = true,
   variants = {
@@ -19,13 +19,13 @@ export function InstagramVetusta({
   return (
     <Fragment>
       <MotionLink
-        href="https://instagram.com/BalonmanoVetusta"
-        title="Instagram del Club Balonamno Vetusta de Oviedo"
+        href="https://twitter.com/BM_Vetusta"
+        title="Club Balonamno Vetusta de Oviedo en Twitter"
         rel="nofollow noreferrer"
-        aria-label="Instagram del Club Balonamno Vetusta de Oviedo"
+        aria-label="Twitter del Club Balonamno Vetusta de Oviedo"
       >
         {icon ? (
-          <Instagram
+          <Twitter
             width="100%"
             height="100%"
             aria-hidden="true"
@@ -38,9 +38,9 @@ export function InstagramVetusta({
         ) : null}
 
         {text ? (
-          <motion.span aria-hidden="false">
-            Instagram del Club Balonmano Vetusta
-          </motion.span>
+          <m.span aria-hidden="false">
+            Twitter del Club Balonmano Vetusta
+          </m.span>
         ) : null}
       </MotionLink>
     </Fragment>

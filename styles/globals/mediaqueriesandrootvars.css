@@ -1,3 +1,8 @@
+/** Default values **/
+:root {
+  --footer-icon-size: 2rem;
+}
+
 /** Dark Theme **/
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -79,6 +84,7 @@
     --h4-font-size: 1.6rem;
     --h5-font-size: 1.4rem;
     --h6-font-size: 1.2rem;
+    --footer-icon-size: 2.5rem;
   }
 }
 @media only screen and (min-width: 460px) and (max-width: 959px) {
@@ -109,6 +115,7 @@
     --normal-text-size: 1.2rem;
     --menu-text-size: 1.2rem;
     --menu-item-icon-size: 1.2rem;
+    --footer-icon-size: 2.5rem;
   }
 }
 

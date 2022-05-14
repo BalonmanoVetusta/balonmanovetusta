@@ -6,6 +6,7 @@ import {
   Home,
   MultiAccount,
   Pencil,
+  Store,
 } from "components/Icons";
 import Menu from "components/Menu";
 
@@ -53,7 +54,7 @@ export default function MenuWrapper({ ...props }) {
       items={[
         {
           Icon: () => <Home title="Ir a la página principal" />,
-          label: "Página principal",
+          label: "Inicio",
           href: "/",
           title: "Página principal",
         },
@@ -98,6 +99,15 @@ export default function MenuWrapper({ ...props }) {
           href: "colabora",
           title:
             "Como colaborar de forma directa e indirecta con el Club Balonmano Vetusta",
+        },
+        {
+          Icon: () => (
+            <Store title="Acceso a la tienda del Club Balonmano Vetusta" />
+          ),
+          label: "Tienda",
+          href: "tienda",
+          title:
+            "Tienda de entradas, socios y artículos del Club Balonmano Vetusta",
         },
         {
           Icon: () => (

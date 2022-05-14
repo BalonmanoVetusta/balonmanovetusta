@@ -1,13 +1,11 @@
 import Link from "next/link";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 
 const linkVariants = {
   onTap: { scale: 0.85, opacity: 1 },
   onHoverFocus: { scale: 1.1, opacity: 1 },
   initial: { scale: 1, opacity: 0.9 },
 };
-
-const MLink = m(Link);
 
 export function MotionLink({
   children,
@@ -22,14 +20,14 @@ export function MotionLink({
   ...props
 }) {
   return (
-    <m.span
+    <motion.span
       variants={linkVariants}
       initial="initial"
       whileHover="onHoverFocus"
       whileTap="onTap"
       whileFocus="onHoverFocus"
     >
-      <MLink
+      <Link
         href={href}
         as={as}
         replace={replace}
@@ -39,8 +37,8 @@ export function MotionLink({
         prefetch={prefetch}
         locale={locale}
       >
-        <m.a {...props}>{children}</m.a>
-      </MLink>
-    </m.span>
+        <motion.a {...props}>{children}</motion.a>
+      </Link>
+    </motion.span>
   );
 }

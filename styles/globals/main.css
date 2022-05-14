@@ -199,6 +199,22 @@ footer section article main {
   display: flex;
 }
 
+footer section article.social-networks main {
+  flex-direction: column;
+  align-items: center;
+}
+
+footer section article.social-networks main * {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+footer section article header * {
+  margin: 0;
+  padding: 0;
+}
+
 footer ul,
 footer ol {
   list-style: none;
@@ -216,10 +232,6 @@ footer ol.social-networks li {
   padding: 0;
 }
 
-/*
-  TODO: Use picture instead of svg directly after adding right
-    components with the links to social networks
-*/
 footer li svg {
   width: var(--footer-icon-size, 1.5rem);
 }

@@ -1,4 +1,6 @@
 import { Facebook, Instagram, Twitter } from "components/Icons";
+import { FacebookVetusta, InstagramVetusta } from "components/Vetusta";
+import { TwitterVetusta } from "components/Vetusta/components/TwitterVetusta";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -55,20 +57,17 @@ export function Footer() {
             </nav>
           </main>
         </article>
-        <article>
+        <article className="social-networks">
           <header>
             <h4>¡Siguenos!</h4>
           </header>
           <main>
             <ul className="social-networks">
               <li>
-                <Instagram width="100%" height="100%" aria-hidden="true" />
+                <InstagramVetusta text={false} />
               </li>
               <li>
-                <Facebook width="100%" height="100%" aria-hidden="true" />
-              </li>
-              <li>
-                <Twitter width="100%" height="100%" aria-hidden="true" />
+                <TwitterVetusta text={false} />
               </li>
             </ul>
           </main>
