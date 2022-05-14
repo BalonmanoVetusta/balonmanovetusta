@@ -8,12 +8,37 @@ This is the source code for the website of Club Balonmano Vetusta from Oviedo (V
 
 <span id="roadmap"></span>
 
-- [ ] Complete the design layout and elemental styles like menu, header, footer and regular text.
+- [x] Complete the design layout and elemental styles like menu, header, footer and regular text.
 - [ ] Add static content to the pages: Who we are, Legal content, Train handball, Under construction page for "members" and "shop".
+  - [ ] 404 Error Page
+  - [ ] Legal content
+  - [ ] Who we are
+  - [ ] Train handball with us
+  - [ ] Under construction page
+  - [ ] Collaboration
+  - [ ] Contact
 - [ ] Teams pages.
+  - [ ] First Team
+  - [ ] Second Team
+  - [ ] All others (for Under-18 just mention them).
 - [ ] Home page images and dinamic content.
+  - [ ] Banner 2022/23 membership.
+  - [ ] Latest twits
+  - [ ] Latest Instagram posts.
 - [ ] Shop & Ticket system for matches and members.
+  - [ ] Authentication
+  - [ ] Main page
+  - [ ] Basket
+  - [ ] Checkout
+  - [ ] After payment page
+  - [ ] View your tickets page (probably the best idea is by email receiving the user a code in the email)
+  - [ ] Scan ticket process
+  - [ ] View current number of people in the court
+  - [ ] Private events based on the people inside the event (jackpots).
 - [ ] Automate the task to twit results and matches of the week with Github Actions.
+  - [ ] Read the rfebm page.
+  - [ ] Schedule a task to deploy with the new information.
+  - [ ] Post that information to Twitter (inside the Github actior or by webhook).
 - [ ] Github action that should be executed manually to generate updated results and twit results of the week.
 - [ ] Check if twits can be program throught the API and do program twits for the next week. Have in consideration when the season has finished or stop by some weeks. **This should be done with previous Github Action as well.**
 - [ ] Automate Twits while in match? For this I need to check if I can automate Github actions based on other Github actions just to fetch the data from rfebm and twit in seconds every 5 minutes until the match has ended.
