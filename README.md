@@ -1,5 +1,7 @@
 There is an [english version](README.en.md) of this README available.
 
+El [plan a seguir](README.en.md#roadmap) hasta completar la web está en la versión inglés.
+
 ## Acerca de
 
 Este es el código fuente del Club Balonmano Vetusta de Oviedo. El código es libre por decisión del autor del código. Eres libre de utilizar el código fuente con las restricciones que figuran en el apartado [#Licencia](#licencia)
