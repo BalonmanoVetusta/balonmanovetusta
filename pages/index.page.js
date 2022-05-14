@@ -1,9 +1,8 @@
 import PageLayout from "components/PageLayout";
-import { Fragment } from "react";
 
 export default function Home() {
   return (
-    <Fragment>
+    <PageLayout>
       <h1>H1. Contenido principal</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -73,6 +72,6 @@ export default function Home() {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum
       </p>
-    </Fragment>
+    </PageLayout>
   );
 }

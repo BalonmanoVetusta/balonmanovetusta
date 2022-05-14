@@ -1,0 +1,32 @@
+/** Dark Theme **/
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --logo-vetusta-fill-color: #fceb00;
+    --facebook-fill-color: #1778f2;
+    --twitter-fill-color: #1da1f2;
+    --instagram-fill-color: #c13584;
+  }
+}
+[data-theme="dark"] {
+  --logo-vetusta-fill-color: #fceb00;
+  --facebook-fill-color: #e6e6e6;
+  --facebook-stroke-color: #1778f2;
+  --twitter-fill-color: #1da1f2;
+  --instagram-fill-color: #c13584;
+}
+
+/** Light Theme **/
+@media only screen and (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --logo-vetusta-fill-color: #151111;
+    --facebook-fill-color: #1778f2;
+    --twitter-fill-color: #1da1f2;
+    --instagram-fill-color: #e1306c;
+  }
+}
+[data-theme="light"] {
+  --logo-vetusta-fill-color: #151111;
+  --facebook-fill-color: #1778f2;
+  --twitter-fill-color: #1da1f2;
+  --instagram-fill-color: #e1306c;
+}

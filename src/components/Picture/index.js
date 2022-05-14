@@ -1,3 +1,3 @@
-import { Picture } from "./Picture";
+import { Picture } from "./components/Picture";
 
 export default Picture;

@@ -4,6 +4,20 @@ Hay una [versión en español](README.md) de este README disponible.
 
 This is the source code for the website of Club Balonmano Vetusta from Oviedo (Vetusta Olympic Handball Club). This source code is free by the author decision. You are free to use it with the restrictions in the [#License](#license) chapter.
 
+## Roadmap (Tasklist)
+
+<span id="roadmap"></span>
+
+- [ ] Complete the design layout and elemental styles like menu, header, footer and regular text.
+- [ ] Add static content to the pages: Who we are, Legal content, Train handball, Under construction page for "members" and "shop".
+- [ ] Teams pages.
+- [ ] Home page images and dinamic content.
+- [ ] Shop & Ticket system for matches and members.
+- [ ] Automate the task to twit results and matches of the week with Github Actions.
+- [ ] Github action that should be executed manually to generate updated results and twit results of the week.
+- [ ] Check if twits can be program throught the API and do program twits for the next week. Have in consideration when the season has finished or stop by some weeks. **This should be done with previous Github Action as well.**
+- [ ] Automate Twits while in match? For this I need to check if I can automate Github actions based on other Github actions just to fetch the data from rfebm and twit in seconds every 5 minutes until the match has ended.
+
 ## Licese
 
 <span id="license">MIT License for the source code only. This means that the Club logo and brands logos, banners or metions should not appear in the Club Balonmano Vetusta website should not appear in your copied/inspired site unless you have explicit allowance from the Club to do it. This license does not attribute to you that allowance.</span>
@@ -24,11 +38,13 @@ Algunos iconos han sido copiados de los siguients proyectos:
 
 - [Material Desgin](https://github.com/Templarian/MaterialDesign) ([Apache License 2.0 and other](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE))
 - [System UI Icons](https://systemuicons.com) ([Unlicense](https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE))
+- [Olympic Handball Pictogram](https://es.m.wikipedia.org/wiki/Archivo:Handball_pictogram.svg) de Wikipedia. ([Dominio público](https://en.wikipedia.org/wiki/Public_domain))
 
 Text fonts:
 
 - [Alumni One](https://github.com/googlefonts/alumni) ([OFL License](http://scripts.sil.org/OFL))
 
 Used External tools:
+
 - [Sketchapp](https://www.sketch.com/)
 - [SVGR](https://react-svgr.com/playground) to make some svg as components

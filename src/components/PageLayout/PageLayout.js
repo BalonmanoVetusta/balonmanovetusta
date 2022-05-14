@@ -1,6 +1,26 @@
 import Head from "next/head";
 import { Fragment } from "react";
+import { motion } from "framer-motion";
+import MenuWrapper from "./MenuWrapper";
 import Header from "components/Header";
+import Footer from "components/Footer";
+
+const variants = {
+  hidden: {
+    x: "200",
+    opacity: 0,
+  },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 1 },
+  },
+  exit: {
+    x: "-200",
+    opacity: 0,
+    transition: { duration: 1 },
+  },
+};
 
 export function PageLayout({ children }) {
   return (
@@ -43,8 +63,18 @@ export function PageLayout({ children }) {
         <meta name="theme-color" content="#151111" />
         <link rel="manifest" href="site.webmanifest" />
       </Head>
-      <Header />
-      <main>{children}</main>
+      <Header key="header" />
+      <MenuWrapper key="menuwrapper" />
+      <motion.main
+        variants={variants}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+        key="main-content"
+      >
+        {children}
+      </motion.main>
+      <Footer key="footer" />
     </Fragment>
   );
 }

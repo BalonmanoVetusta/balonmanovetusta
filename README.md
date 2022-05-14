@@ -1,5 +1,7 @@
 There is an [english version](README.en.md) of this README available.
 
+El [plan a seguir](README.en.md#roadmap) hasta completar la web está en la versión inglés.
+
 ## Acerca de
 
 Este es el código fuente del Club Balonmano Vetusta de Oviedo. El código es libre por decisión del autor del código. Eres libre de utilizar el código fuente con las restricciones que figuran en el apartado [#Licencia](#licencia)
@@ -23,6 +25,7 @@ Algunos iconos han sido copiados de los siguients proyectos:
 
 - [Material Desgin](https://github.com/Templarian/MaterialDesign) ([Apache License 2.0 and other](https://github.com/Templarian/MaterialDesign/blob/master/LICENSE))
 - [System UI Icons](https://systemuicons.com) ([Unlicense](https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE))
+- [Pictograma de balonmano](https://es.m.wikipedia.org/wiki/Archivo:Handball_pictogram.svg) de Wikipedia. ([Dominio público](https://es.wikipedia.org/wiki/Dominio_p%C3%BAblico))
 
 Fuentes de texto:
 

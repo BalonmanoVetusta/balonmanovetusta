@@ -1,0 +1,145 @@
+/** Default values **/
+:root {
+  --footer-icon-size: 2rem;
+}
+
+/** Dark Theme **/
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background-color: #353535;
+    --text-title-color-primary: #d05dde;
+    --text-title-color-secondary: #ae4eba;
+    --text-color-primary: #ffeebd;
+    --focus-shadow-color: #00b4f2;
+    --footer-border-color: #ffeebd;
+  }
+}
+[data-theme="dark"] {
+  --background-color: #353535;
+  --text-title-color-primary: #d05dde;
+  --text-title-color-secondary: #ae4eba;
+  --text-color-primary: #ffeebd;
+  --focus-shadow-color: #00b4f2;
+  --footer-border-color: #ffeebd;
+}
+
+/** Light Theme **/
+@media only screen and (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --background-color: papayawhip; /* oldlace */
+    --text-title-color-primary: #b14fbd;
+    --text-title-color-secondary: #692f70;
+    --text-color-primary: #151111;
+    --focus-shadow-color: #4169e1; /* royalblue */
+    --footer-border-color: #353535;
+  }
+}
+[data-theme="light"] {
+  --background-color: #fff5ee;
+  --text-title-color-primary: #b14fbd;
+  --text-title-color-secondary: #692f70;
+  --text-color-primary: #151111;
+  --focus-shadow-color: #4169e1;
+  --footer-border-color: #353535;
+}
+
+/** media queries for screen sizes **/
+/** Some small phones in portrait mode **/
+@media only screen and (max-width: 319px) {
+  :root {
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.3rem;
+    --h3-font-size: 1.2rem;
+    --h4-font-size: 1.2rem;
+    --h5-font-size: 1.1rem;
+    --h6-font-size: 1.1rem;
+    --normal-text-size: 1rem;
+    --menu-icon-size: 2.5rem;
+    --menu-item-icon-size: 1rem;
+  }
+}
+
+/** Some phones in portrait mode **/
+@media only screen and (min-width: 320px) and (max-width: 459px) {
+  :root {
+    --h1-font-size: 1.8rem;
+    --h2-font-size: 1.6rem;
+    --h3-font-size: 1.4rem;
+    --h4-font-size: 1.2rem;
+    --h5-font-size: 1.1rem;
+    --h6-font-size: 1.1rem;
+    --normal-text-size: 1rem;
+    --menu-text-size: 1.1rem;
+    --menu-icon-size: 3rem;
+    --menu-item-icon-size: 1.2rem;
+  }
+}
+
+/** Tablets and phones in landscape mode **/
+@media only screen and (min-width: 460px) and (max-width: 1023px) {
+  :root {
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2.1rem;
+    --h3-font-size: 1.8rem;
+    --h4-font-size: 1.6rem;
+    --h5-font-size: 1.4rem;
+    --h6-font-size: 1.2rem;
+    --footer-icon-size: 2.5rem;
+  }
+}
+@media only screen and (min-width: 460px) and (max-width: 959px) {
+  :root {
+    --normal-text-size: 1rem;
+    --menu-text-size: 1.3rem;
+    --menu-icon-size: 3.5rem;
+    --menu-item-icon-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 960px) and (max-width: 1023px) {
+  :root {
+    --normal-text-size: 1rem;
+    --menu-text-size: 1rem;
+    --menu-item-icon-size: 1rem;
+  }
+}
+
+/** Large screens **/
+@media only screen and (min-width: 1024px) {
+  :root {
+    --h1-font-size: 2.8rem;
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 2.2rem;
+    --h4-font-size: 1.8rem;
+    --h5-font-size: 1.6rem;
+    --h6-font-size: 1.4rem;
+    --normal-text-size: 1.2rem;
+    --menu-text-size: 1.2rem;
+    --menu-item-icon-size: 1.2rem;
+    --footer-icon-size: 2.5rem;
+  }
+}
+
+/** Divider **/
+/* @media only screen and (max-width: 960px) {
+  main {
+    border-top: 2pt solid var(--menu-background, tomato);
+  }
+} */
+
+:root {
+  --vetusta-yellow: #fceb00;
+  --vetusta-yellow-rgb: 252, 235, 0;
+  --vetusta-black: #151111;
+  --vetusta-black-rgb: 21, 17, 17;
+  --custom-blue: #0099ff;
+
+  /** Menu **/
+  --menu-text-color: var(--background-color);
+  --menu-item-background-color: transparent;
+  --menu-item-background-color-hover: var(--background-color);
+
+  /** Other stuff **/
+  font-size: 16px;
+  min-height: 100vh;
+  min-width: 100vw;
+}

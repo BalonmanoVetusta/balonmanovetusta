@@ -1,22 +1,30 @@
-import { Fragment } from "react";
+import PageLayout from "components/PageLayout";
 
 export default function AvisoLegalPage() {
   return (
-    <Fragment>
+    <PageLayout>
       <section>
         <header>
           <h1>Aviso Legal</h1>
           <nav>
             <h2>Índice</h2>
             <ol>
+              <li>Datos identificativos</li>
+              <li>Derechos de propiedad intelectual</li>
+              <li>Exención de responsabilidades</li>
+              <li>Contenido de la web</li>
+              <li>Política de Privacidad</li>
               <li>
-                <a href="#cookies">Cookies y/o Archivos temporales</a>
+                <a href="#cookies">
+                  Política de Cookies y/o Archivos temporales
+                </a>
               </li>
               <li>
                 <a href="#source-code">
                   Código fuente, iconos y fuente de texto
                 </a>
               </li>
+              <li>Datos para ejercer sus derechos</li>
             </ol>
           </nav>
         </header>
@@ -25,7 +33,9 @@ export default function AvisoLegalPage() {
           <header>
             <h3>Cookies y/o Archivos temporales</h3>
           </header>
-          <main></main>
+          <main>
+            <p></p>
+          </main>
         </article>
 
         <article id="source-code">
@@ -45,6 +55,7 @@ export default function AvisoLegalPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                {" "}
                 web del proyecto en Github
               </a>
               .
@@ -56,6 +67,7 @@ export default function AvisoLegalPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                {" "}
                 NextJS
               </a>
             </p>
@@ -67,27 +79,36 @@ export default function AvisoLegalPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                {" "}
                 Material Design
               </a>
-              . También hay iconos sin licencia del proyecto
+              . También hay iconos sin licencia del proyecto{" "}
               <a
                 href="https://systemuicons.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 System UI Icons
+              </a>{" "}
+              y un pictograma (
+              <a
+                href="https://es.m.wikipedia.org/wiki/Archivo:Handball_pictogram.svg"
+                rel="noopener noreferrer"
+              >
+                pictograma de balonmano
               </a>
+              ) extraído de la wikipedia.
             </p>
             <p>
-              Entre las fuentes de texto usadas se encuentra la fuente
+              Entre las fuentes de texto usadas se encuentra la fuente{" "}
               <a
                 href="https://github.com/googlefonts/alumni"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Alumni One
-              </a>
-              con licencia
+              </a>{" "}
+              con licencia{" "}
               <a
                 href="http://scripts.sil.org/OFL"
                 target="_blank"
@@ -99,6 +120,6 @@ export default function AvisoLegalPage() {
           </main>
         </article>
       </section>
-    </Fragment>
+    </PageLayout>
   );
 }

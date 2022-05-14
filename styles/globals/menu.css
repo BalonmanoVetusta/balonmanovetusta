@@ -1,0 +1,391 @@
+/* Menu appearance */
+nav#menu {
+  display: flex;
+  flex-direction: row;
+  background: var(--menu-background, transparent);
+  color: var(--menu-text-color, inherit);
+  overflow: hidden;
+  font-size: var(--menu-text-size, 1rem);
+}
+
+nav#menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav#menu ul,
+nav#menu li label,
+nav#menu li a,
+nav#menu li label picture *,
+nav#menu li a picture * {
+  margin: 0;
+  padding: 0;
+}
+
+/* Items appearance */
+nav#menu ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: space-between;
+  overflow: hidden;
+  gap: 5px;
+  /* transition: all 0.5s ease-in-out; */
+}
+
+nav#menu ul > li {
+  display: flex;
+  position: relative;
+  padding: 0.2rem 0;
+  background: var(--menu-item-background-color, transparent);
+  width: max-content;
+  font-weight: bold;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* transition: all 0.5s ease-in-out; */
+}
+
+nav#menu li:hover {
+  font-weight: 900;
+  opacity: 1;
+  /* font-size: calc(var(--menu-text-size, 1rem) * 1.1); */
+  /* transition-duration: 0.1s; */
+}
+
+nav#menu li:focus {
+  font-size: calc(var(--menu-text-size, 1rem) * 0.9);
+}
+
+nav#menu li:hover label picture *,
+nav#menu li:hover a picture * {
+  width: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
+  height: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
+  /* transition-duration: 0.1s; */
+}
+
+nav#menu li:focus label picture *,
+nav#menu li:focus a picture * {
+  width: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
+  height: calc(var(--menu-item-icon-size, 1.5rem) * 1.1);
+}
+
+nav#menu li label,
+nav#menu li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav#menu li label picture,
+nav#menu li a picture {
+  margin: 0 0.3rem 0 auto;
+  padding: 0;
+}
+
+nav#menu li label picture *,
+nav#menu li a picture * {
+  display: flex;
+  width: var(--menu-item-icon-size, 1.5rem);
+  height: var(--menu-item-icon-size, 1.5rem);
+  stroke: var(--menu-item-icon-color-stroke, inherit);
+  fill: var(--menu-item-icon-color-fill, inherit);
+}
+
+/* Icons sizes */
+nav#menu label div {
+  display: inline-block;
+  width: var(--menu-icon-size, 2rem);
+}
+
+/* Tab sub menus */
+nav#menu ul li ul {
+  padding-left: 1rem;
+  list-style: none;
+}
+
+/* Menu Behavior
+Hamburguer Menu Open/Close */
+nav#menu input[type="checkbox"],
+nav#menu label:focus .open,
+nav#menu input[type="checkbox"] ~ label .close,
+nav#menu input[type="checkbox"]:checked ~ label .open {
+  display: none;
+}
+
+nav#menu label:focus .close,
+nav#menu input[type="checkbox"] ~ label .open,
+nav#menu input[type="checkbox"]:checked ~ label .close {
+  display: flex;
+}
+
+@media only screen and (max-width: 960px) {
+  nav#menu {
+    /* Small devices only */
+    margin: 0;
+    max-width: max-content;
+    border-radius: var(--menu-external-border-radius, 0.5rem);
+  }
+
+  nav#menu input[type="checkbox"] ~ ul {
+    display: none;
+  }
+
+  nav#menu ul {
+    padding: 1rem;
+  }
+
+  nav#menu input[type="checkbox"]:checked ~ ul {
+    display: flex;
+  }
+
+  /* Icon + in vertical menu only
+  Expandable submenus */
+  nav#menu ul > li > input[type="checkbox"] ~ label:before {
+    content: " + ";
+    cursor: pointer;
+  }
+
+  nav#menu ul > li > input[type="checkbox"]:checked ~ label:before {
+    content: " X ";
+    cursor: pointer;
+  }
+
+  /* Support hover, expandable when hover */
+  @media only screen and (any-hover: hover) {
+    /* Do not show close icon
+    nav#menu input[type="checkbox"] ~ label:hover .close {
+      display: none;
+    } */
+
+    nav#menu ul,
+    nav#menu ul li > ul {
+      display: none;
+    }
+
+    nav#menu:hover > ul,
+    nav#menu > label + ul:hover,
+    nav#menu li > input[type="checkbox"] ~ ul:hover,
+    nav#menu input[type="checkbox"]:checked ~ ul,
+    nav#menu ul > li:hover > ul {
+      display: flex;
+    }
+
+    nav#menu > ul > li > label:focus:before,
+    nav#menu > ul > li > input[type="checkbox"]:checked ~ label:before {
+      content: " X ";
+      cursor: pointer;
+    }
+  }
+}
+
+/* Menu design depending on the screen size
+Large sizes screens */
+@media only screen and (min-width: 961px) {
+  nav#menu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: var(--menu-external-border-radius, 0.5rem);
+    margin: 0;
+    padding: 0;
+  }
+
+  nav#menu li {
+    margin: 0.2rem;
+  }
+
+  nav#menu ul > li ul,
+  nav#menu > input[type="checkbox"] ~ label {
+    display: none;
+  }
+
+  nav#menu > label + ul {
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* justify-items: space-between; */
+    margin: auto auto;
+  }
+
+  nav#menu > label + ul,
+  nav#menu > label + ul li {
+    display: flex;
+  }
+
+  nav#menu ul > li ul {
+    position: absolute;
+  }
+
+  nav#menu li > input[type="checkbox"]:checked ~ label + ul {
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-bottom: 1rem;
+    width: max-content;
+    background: var(--menu-submenu-background-color, transparent);
+    border-radius: 0 0 var(--menu-external-border-radius, 0.5rem)
+      var(--menu-external-border-radius, 0.5rem);
+  }
+
+  nav#menu > ul > li > input[type="checkbox"] ~ label:before {
+    content: " ↓ ";
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+
+  nav#menu > ul > li > input[type="checkbox"]:checked ~ label:before {
+    content: " X ";
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+
+  @media only screen and (any-hover: hover) {
+    nav#menu ul > li:hover > ul {
+      display: inline-block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-bottom: 1rem;
+      width: max-content;
+      background: var(--menu-submenu-background-color, transparent);
+      border-radius: 0 0 var(--menu-external-border-radius, 0.5rem)
+        var(--menu-external-border-radius, 0.5rem);
+    }
+  }
+}
+
+/** Menu behaviour modification to adapte its position **/
+@media only screen and (max-width: 960px) {
+  [data-hand="left"] nav#menu input[type="checkbox"] ~ label {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  nav#menu {
+    position: fixed;
+    text-align: center;
+    justify-content: center;
+  }
+
+  nav#menu ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav#menu li {
+    padding: 0.3rem 0.8rem;
+  }
+
+  nav#menu ul,
+  nav#menu ul li {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav#menu > label {
+    display: flex;
+  }
+
+  nav#menu > label > div {
+    margin-left: auto;
+  }
+
+  @media only screen and (max-height: 580px) {
+    nav#menu {
+      flex-direction: column;
+      top: 1rem;
+    }
+
+    :root:not([data-hand="left"]) nav#menu {
+      right: 1rem;
+    }
+
+    :root([data-hand="left"]) nav#menu {
+      left: 1rem;
+    }
+  }
+
+  @media only screen and (min-height: 581px) {
+    nav#menu {
+      flex-direction: column-reverse;
+      bottom: 1rem;
+    }
+
+    :root:not([data-hand="left"]) nav#menu {
+      right: 1rem;
+    }
+
+    [data-hand="left"] nav#menu {
+      left: 1rem;
+    }
+
+    nav#menu input[type="checkbox"]:checked ~ ul {
+      display: flex;
+    }
+
+    nav#menu ul li,
+    nav#menu ul {
+      flex-flow: column-reverse nowrap;
+    }
+  }
+
+  @media only screen and (any-hover: hover) {
+    nav#menu:hover > input[type="checkbox"] ~ ul,
+    nav#menu > input[type="checkbox"] ~ ul:hover,
+    nav#menu
+      > input[type="checkbox"]
+      ~ label
+      + ul
+      > li:hover
+      > input[type="checkbox"]
+      ~ label
+      ul {
+      display: flex;
+    }
+  }
+}
+
+/** Dark Theme **/
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --menu-item-background-color: transparent;
+    --menu-text-color: #353131;
+    --menu-item-icon-color-stroke: transparent;
+    --menu-item-icon-color-fill: #353131;
+    --menu-background: #d05dde;
+    --menu-submenu-background-color: #d05dde;
+  }
+}
+[data-theme="dark"] {
+  --menu-item-background-color: transparent;
+  --menu-text-color: var(--background-color);
+  --menu-icon-color-stroke: transparent;
+  --menu-icon-color-fill: #353131;
+  --menu-background: #d05dde;
+  --menu-submenu-background-color: #d05dde;
+}
+
+/** Light Theme **/
+@media only screen and (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --menu-item-background-color: transparent;
+    --menu-text-color: var(--background-color);
+    --menu-item-icon-color-stroke: transparent;
+    --menu-item-icon-color-fill: var(--background-color);
+    --menu-background: #daa520; /* goldenrod */
+    --menu-submenu-background-color: #daa520;
+  }
+}
+[data-theme="light"] {
+  --menu-item-background-color: transparent;
+  --menu-text-color: var(--background-color);
+  --menu-icon-color-stroke: transparent;
+  --menu-icon-color-fill: var(--background-color);
+  --menu-background: #daa520;
+  --menu-submenu-background-color: #daa520;
+}
