@@ -1,4 +1,4 @@
-name: 'Run all tests'
+name: "Run all tests"
 
 on:
   push:
@@ -8,10 +8,10 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'docs/**'
-      - '*.md'
-      - '**/*.md'
-      - 'config/*'
+      - "docs/**"
+      - "*.md"
+      - "**/*.md"
+      - "config/*"
 
 jobs:
   tests:
@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: 'NodeJS'
+      - name: "NodeJS"
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
-      - run: npx yarn install
+          node-version: "14"
+      - run: npm install --force
       - run: npm run test
