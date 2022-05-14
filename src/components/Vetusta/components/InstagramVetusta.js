@@ -6,9 +6,6 @@ import { MotionLink } from "./MotionLink";
 export function InstagramVetusta({
   text = false,
   icon = true,
-  iconClassName = "instagram-icon",
-  textClassName = "instagram-text",
-  fill = "#febf2e",
   variants = {
     onTap: { scale: 0.85, opacity: 1 },
     onHoverFocus: { scale: 1.1, opacity: 1 },
@@ -32,9 +29,6 @@ export function InstagramVetusta({
             width="100%"
             height="100%"
             aria-hidden="true"
-            fill={fill}
-            fillDark="#ccc"
-            motion={true}
             variants={variants}
             initial={initial}
             whileHover={whileHover}
@@ -43,11 +37,9 @@ export function InstagramVetusta({
           />
         ) : null}
 
-        {text ? (
-          <m.span className={textClassName}>
-            Instagram del Club Balonmano Vetusta
-          </m.span>
-        ) : null}
+        <m.span aria-hidden={false}>
+          Instagram del Club Balonmano Vetusta
+        </m.span>
       </MotionLink>
     </Fragment>
   );

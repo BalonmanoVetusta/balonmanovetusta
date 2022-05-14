@@ -1,14 +1,16 @@
-import { Instagram } from "components/Icons";
-import { InstagramVetusta, LogoVetusta } from "components/Vetusta";
+import { Facebook, Instagram, Twitter } from "components/Icons";
 import Link from "next/link";
 import { Fragment } from "react";
 
 export function Footer() {
   return (
-    <Fragment>
-      <footer>
-        <div>
-          <section>
+    <footer>
+      <section>
+        <article>
+          <header>
+            <h4>Mapa del sitio</h4>
+          </header>
+          <main>
             <nav>
               <ul>
                 <li>
@@ -51,38 +53,46 @@ export function Footer() {
                 </li>
               </ul>
             </nav>
-          </section>
-          <section>
-            <div className="logo-footer log">
-              <LogoVetusta />
-            </div>
-          </section>
-          <section>
-            <ul>
+          </main>
+        </article>
+        <article>
+          <header>
+            <h4>¡Siguenos!</h4>
+          </header>
+          <main>
+            <ul className="social-networks">
               <li>
-                <Instagram
-                  fill="#febf2e"
-                  width="100%"
-                  height="100%"
-                  aria-hidden="true"
-                  fillDark="#ccc"
-                  motion={true}
-                />
+                <Instagram width="100%" height="100%" aria-hidden="true" />
+              </li>
+              <li>
+                <Facebook width="100%" height="100%" aria-hidden="true" />
+              </li>
+              <li>
+                <Twitter width="100%" height="100%" aria-hidden="true" />
               </li>
             </ul>
-          </section>
-        </div>
-        <summary>
-          <p>
-            Club Balonmano Vetusta es una entidad deportiva localizada en Oviedo
-            con NIF XXXX, puede consultar todos los datos legales en la página
-            <Link href="/aviso-legal">
-              <a title="Información legal"> Aviso Legal</a>
-            </Link>
-            .
-          </p>
-        </summary>
-      </footer>
-    </Fragment>
+          </main>
+        </article>
+      </section>
+
+      <section>
+        <header>
+          <h4>Legal</h4>
+        </header>
+        <main>
+          <summary>
+            <p>
+              Club Balonmano Vetusta es una entidad deportiva localizada en
+              Oviedo con NIF XXXX, puede consultar todos los datos legales en la
+              página
+              <Link href="/aviso-legal">
+                <a title="Información legal"> Aviso Legal</a>
+              </Link>
+              .
+            </p>
+          </summary>
+        </main>
+      </section>
+    </footer>
   );
 }

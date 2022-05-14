@@ -7,15 +7,6 @@
     --text-color-primary: #ffeebd;
     --focus-shadow-color: #00b4f2;
     --footer-border-color: #ffeebd;
-    --instagram-icon-fill: #d05dde;
-
-    /** Menu **/
-    --menu-item-background-color: transparent;
-    --menu-text-color: #353131;
-    --menu-item-icon-color-stroke: transparent;
-    --menu-item-icon-color-fill: #353131;
-    --menu-background: #d05dde;
-    --menu-submenu-background-color: #d05dde;
   }
 }
 [data-theme="dark"] {
@@ -25,15 +16,6 @@
   --text-color-primary: #ffeebd;
   --focus-shadow-color: #00b4f2;
   --footer-border-color: #ffeebd;
-  --instagram-icon-fill: #d05dde;
-
-  /** Menu **/
-  --menu-item-background-color: transparent;
-  --menu-text-color: var(--background-color);
-  --menu-icon-color-stroke: transparent;
-  --menu-icon-color-fill: #353131;
-  --menu-background: #d05dde;
-  --menu-submenu-background-color: #d05dde;
 }
 
 /** Light Theme **/
@@ -45,15 +27,6 @@
     --text-color-primary: #151111;
     --focus-shadow-color: #4169e1; /* royalblue */
     --footer-border-color: #353535;
-    --instagram-icon-fill: #d05dde;
-
-    /** Menu **/
-    --menu-item-background-color: transparent;
-    --menu-text-color: var(--background-color);
-    --menu-item-icon-color-stroke: transparent;
-    --menu-item-icon-color-fill: var(--background-color);
-    --menu-background: #daa520; /* goldenrod */
-    --menu-submenu-background-color: #daa520;
   }
 }
 [data-theme="light"] {
@@ -63,15 +36,6 @@
   --text-color-primary: #151111;
   --focus-shadow-color: #4169e1;
   --footer-border-color: #353535;
-  --instagram-icon-fill: #d05dde;
-
-  /** Menu **/
-  --menu-item-background-color: transparent;
-  --menu-text-color: var(--background-color);
-  --menu-icon-color-stroke: transparent;
-  --menu-icon-color-fill: var(--background-color);
-  --menu-background: #daa520;
-  --menu-submenu-background-color: #daa520;
 }
 
 /** media queries for screen sizes **/

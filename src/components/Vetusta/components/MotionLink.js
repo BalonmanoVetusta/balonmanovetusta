@@ -7,6 +7,8 @@ const linkVariants = {
   initial: { scale: 1, opacity: 0.9 },
 };
 
+const MLink = m(Link);
+
 export function MotionLink({
   children,
   href,
@@ -27,7 +29,7 @@ export function MotionLink({
       whileTap="onTap"
       whileFocus="onHoverFocus"
     >
-      <Link
+      <MLink
         href={href}
         as={as}
         replace={replace}
@@ -38,7 +40,7 @@ export function MotionLink({
         locale={locale}
       >
         <m.a {...props}>{children}</m.a>
-      </Link>
+      </MLink>
     </m.span>
   );
 }

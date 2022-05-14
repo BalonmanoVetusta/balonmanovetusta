@@ -8,6 +8,11 @@ nav#menu {
   font-size: var(--menu-text-size, 1rem);
 }
 
+nav#menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
 nav#menu ul,
 nav#menu li label,
 nav#menu li a,
@@ -185,6 +190,8 @@ Large sizes screens */
     flex-direction: row;
     flex-wrap: wrap;
     border-radius: var(--menu-external-border-radius, 0.5rem);
+    margin: 0;
+    padding: 0;
   }
 
   nav#menu li {
@@ -341,4 +348,44 @@ Large sizes screens */
       display: flex;
     }
   }
+}
+
+/** Dark Theme **/
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --menu-item-background-color: transparent;
+    --menu-text-color: #353131;
+    --menu-item-icon-color-stroke: transparent;
+    --menu-item-icon-color-fill: #353131;
+    --menu-background: #d05dde;
+    --menu-submenu-background-color: #d05dde;
+  }
+}
+[data-theme="dark"] {
+  --menu-item-background-color: transparent;
+  --menu-text-color: var(--background-color);
+  --menu-icon-color-stroke: transparent;
+  --menu-icon-color-fill: #353131;
+  --menu-background: #d05dde;
+  --menu-submenu-background-color: #d05dde;
+}
+
+/** Light Theme **/
+@media only screen and (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --menu-item-background-color: transparent;
+    --menu-text-color: var(--background-color);
+    --menu-item-icon-color-stroke: transparent;
+    --menu-item-icon-color-fill: var(--background-color);
+    --menu-background: #daa520; /* goldenrod */
+    --menu-submenu-background-color: #daa520;
+  }
+}
+[data-theme="light"] {
+  --menu-item-background-color: transparent;
+  --menu-text-color: var(--background-color);
+  --menu-icon-color-stroke: transparent;
+  --menu-icon-color-fill: var(--background-color);
+  --menu-background: #daa520;
+  --menu-submenu-background-color: #daa520;
 }

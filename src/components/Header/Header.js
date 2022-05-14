@@ -29,12 +29,7 @@ export function Header() {
         <div className={logo} aria-hidden="true">
           <Link href="/">
             <a title="Ir a la página principal" tabIndex={0} aria-hidden="true">
-              <LogoVetusta
-                shadow={false}
-                aria-hidden="true"
-                width="100%"
-                motion={false}
-              />
+              <LogoVetusta aria-hidden="true" width="100%" />
             </a>
           </Link>
         </div>

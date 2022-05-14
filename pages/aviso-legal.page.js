@@ -9,14 +9,22 @@ export default function AvisoLegalPage() {
           <nav>
             <h2>Índice</h2>
             <ol>
+              <li>Datos identificativos</li>
+              <li>Derechos de propiedad intelectual</li>
+              <li>Exención de responsabilidades</li>
+              <li>Contenido de la web</li>
+              <li>Política de Privacidad</li>
               <li>
-                <a href="#cookies">Cookies y/o Archivos temporales</a>
+                <a href="#cookies">
+                  Política de Cookies y/o Archivos temporales
+                </a>
               </li>
               <li>
                 <a href="#source-code">
                   Código fuente, iconos y fuente de texto
                 </a>
               </li>
+              <li>Datos para ejercer sus derechos</li>
             </ol>
           </nav>
         </header>
