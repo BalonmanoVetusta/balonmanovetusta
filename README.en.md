@@ -26,6 +26,7 @@ This is the source code for the website of Club Balonmano Vetusta from Oviedo (V
   - [ ] Latest twits
   - [ ] Latest Instagram posts.
 - [ ] Shop & Ticket system for matches and members.
+  - [ ] Authentication
   - [ ] Main page
   - [ ] Basket
   - [ ] Checkout
