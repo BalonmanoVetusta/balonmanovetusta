@@ -37,7 +37,7 @@ export function MotionLink({
         prefetch={prefetch}
         locale={locale}
       >
-        <motion.a {...props}>{children}</motion.a>
+        <a {...props}>{children}</a>
       </Link>
     </motion.span>
   );
