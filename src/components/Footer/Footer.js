@@ -82,8 +82,8 @@ export function Footer() {
           <summary>
             <p>
               Club Balonmano Vetusta es una entidad deportiva localizada en
-              Oviedo con NIF XXXX, puede consultar todos los datos legales en la
-              página
+              Oviedo con CIF G74174277, puede consultar todos los datos legales
+              así como el acuerdo de uso y otros datos legales en la página
               <Link href="/aviso-legal">
                 <a title="Información legal"> Aviso Legal</a>
               </Link>

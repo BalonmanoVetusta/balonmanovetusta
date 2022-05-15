@@ -4,7 +4,9 @@ El [plan a seguir](README.en.md#roadmap) hasta completar la web está en la vers
 
 ## Acerca de
 
-Este es el código fuente del Club Balonmano Vetusta de Oviedo. El código es libre por decisión del autor del código. Eres libre de utilizar el código fuente con las restricciones que figuran en el apartado [#Licencia](#licencia)
+Este es el código fuente de la web del Club Balonmano Vetusta de Oviedo. Eres libre de utilizar el código fuente con las restricciones que figuran en el apartado [#Licencia](#licencia)
+
+El código ha sido cedido por el autor [Gabriel Trabanco](https://github.com/gtrabanco).
 
 ## Licencia
 
@@ -14,6 +16,10 @@ Licencia del MIT para el código fuente pero no debe aparecer ni el logotipo del
 Los logotipos incluidos no se ciñen a la misma licencia y son de sus respectivos dueños.
 
 El logotipo de los clubes deportivos que aparezcan incluyendo el del Club Balonmano Vetusta no puede utilizarse sin consentimiento previo del club (respectivamente, es decir, cada club debe dar su consentimiento).
+
+## Garantía
+
+Este software se proporciona
 
 ## Contacto
 
