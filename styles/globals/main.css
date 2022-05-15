@@ -128,8 +128,26 @@ h6 {
 
 p {
   padding: 0;
-  margin: 0.5rem 0;
+  margin: 0.5rem 1.5rem;
   max-width: max-content;
+  word-break: keep-all;
+  word-wrap: normal;
+  text-anchor: start;
+}
+
+p::first-letter {
+  text-transform: capitalize;
+  font-size: var(--h6-font-size, 1.5rem);
+}
+
+p ol,
+p ul {
+  margin-left: 1rem;
+}
+
+p ol li,
+p ul li {
+  text-indent: 1rem;
 }
 
 a {

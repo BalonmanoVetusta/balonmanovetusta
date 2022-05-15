@@ -23,23 +23,30 @@ export default function AvisoLegalPage({
       ""
     )}`;
 
-    return emailAddress ? (
-      <a href={`mailto:${email}`} rel="noindex">
-        {email}
-      </a>
-    ) : (
+    return (
       <Fragment>
-        <button onClick={handleClick}>Click para ver la dirección</button>
-        <style jsx>{`
-          button {
-            background-color: transparent;
-            border: none;
-            color: var(--text-color-primary);
-            cursor: pointer;
-            font-weight: bolder;
-            font-size: 1.2rem;
-          }
-        `}</style>
+        {" "}
+        {emailAddress ? (
+          <a href={`mailto:${email}`} rel="noindex">
+            <code>{email}</code>
+          </a>
+        ) : (
+          <Fragment>
+            <button onClick={handleClick} aria-hidden="false">
+              Click para ver la dirección de correo electrónico
+            </button>
+            <style jsx>{`
+              button {
+                background-color: transparent;
+                border: none;
+                color: var(--text-color-primary);
+                cursor: pointer;
+                font-weight: bolder;
+                font-size: 1.2rem;
+              }
+            `}</style>
+          </Fragment>
+        )}{" "}
       </Fragment>
     );
   };
@@ -101,7 +108,7 @@ export default function AvisoLegalPage({
               documento, con el que pretende dar cumplimiento a las obligaciones
               dispuestas en la Ley 34/2002, de 11 de julio, de Servicios de la
               Sociedad de la Información y de Comercio Electrónico (LSSICE), BOE
-              N º 166, así como informar a todos los usuarios del sitio web
+              Nº 166, así como informar a todos los usuarios del sitio web
               respecto a cuáles son las condiciones de uso.
             </p>
 
@@ -129,13 +136,22 @@ export default function AvisoLegalPage({
           <main>
             <ul>
               <li>
-                Nombre de dominio: <strong>{domain}</strong>
+                Nombre de dominio:{" "}
+                <code>
+                  <strong>{domain}</strong>
+                </code>
               </li>
               <li>
-                Nombre comercial: <strong>{legalName}</strong>
+                Nombre comercial:{" "}
+                <code>
+                  <strong>{legalName}</strong>
+                </code>
               </li>
               <li>
-                Denominación Social: <strong>{socialName}</strong>
+                Denominación Social:{" "}
+                <code>
+                  <strong>{socialName}</strong>
+                </code>
               </li>
               <li>NIF/CIF: {cif}</li>
               <li>Correo electrónico: {renderEmail()}</li>
