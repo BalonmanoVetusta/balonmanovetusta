@@ -8,7 +8,10 @@ export default function Error404Page() {
       <p>La página no existe.</p>
       <p>
         Si el error persiste puede notificarlo{" "}
-        <a href="https://github.com/gtrabanco/balonmanovetusta" rel="nofollow">
+        <a
+          href="https://github.com/BalonmanoVetusta/balonmanovetusta/issues/new"
+          rel="nofollow noopener"
+        >
           a nuestro equipo de desarrollo
         </a>
         .
