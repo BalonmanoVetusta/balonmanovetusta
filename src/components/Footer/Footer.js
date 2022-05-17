@@ -1,8 +1,5 @@
-import { Facebook, Instagram, Twitter } from "components/Icons";
-import { FacebookVetusta, InstagramVetusta } from "components/Vetusta";
-import { TwitterVetusta } from "components/Vetusta/components/TwitterVetusta";
+import { TwitterVetusta, InstagramVetusta } from "components/Vetusta";
 import Link from "next/link";
-import { Fragment } from "react";
 
 export function Footer() {
   return (

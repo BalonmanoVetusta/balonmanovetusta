@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { motion } from "framer-motion";
 import { Instagram } from "components/Icons";
-import { MotionLink } from "./MotionLink";
+import { MotionLink } from "components/MyLink";
 
 export function InstagramVetusta({
   text = false,

@@ -114,8 +114,9 @@ export default function MenuWrapper({ ...props }) {
             <Pencil title="Acceso a los datos y página de contacto" />
           ),
           label: "Contacto",
-          href: "contacto",
+          href: "https://forms.gle/hoFNc4ijVAqUxv7P9",
           title: "Contacta con el club de forma personalizada",
+          rel: "nofollow noreferrer noopener noindex",
         },
       ]}
       {...props}

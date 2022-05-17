@@ -1,6 +1,11 @@
+import Image from "next/image";
 import PageLayout from "components/PageLayout";
+import imgAscenso from "assets/images/FotoAscenso.jpeg";
+import imgTerritorial from "assets/images/Senior_Territorial.jpeg";
+import imgPrimeraNacional from "assets/images/Primera_Nacional.jpeg";
+import { image as imageClass } from "styles/pages/QuienesSomos.module.css";
 
-export default function WhoAreYouPage() {
+export default function QuienesSomosPage() {
   return (
     <PageLayout>
       <section>
@@ -22,10 +27,17 @@ export default function WhoAreYouPage() {
               decir, de categorías inferiores: juvenil, cadete, infantil, alevín
               y benjamín.
             </p>
-            {/* <Image
-            src={Season2021}
-            alt="Equipo que logró el ascenso a Primera Nacional en la temporada 2020/2021"
-          /> */}
+            <div className={imageClass}>
+              <Image
+                src={imgAscenso}
+                alt="Equipo que logró el ascenso a Primera Nacional en la temporada 2020/2021"
+                layout="intrinsic"
+                placeholder="blur"
+                loading="lazy"
+                objectFit="cover"
+                quality={75}
+              />
+            </div>
             <p>
               Gracias a un acuerdo alcanzado en el año 2016 con el Colegio
               Maristas Auseva el Club Balonmano Vetusta gestiona la sección de
@@ -77,6 +89,17 @@ export default function WhoAreYouPage() {
               a nivel nacional, consiguiendo un total de dieciséis victorias a
               lo largo de la temporada y dos empates.
             </p>
+            <div className={imageClass}>
+              <Image
+                src={imgPrimeraNacional}
+                alt="Equipo que debutó en la categoría de Primera Nacional en la temporada 2021/22"
+                layout="intrinsic"
+                placeholder="blur"
+                loading="lazy"
+                objectFit="cover"
+                quality={75}
+              />
+            </div>
 
             <p>
               El apoyo social está siendo fundamental para la construcción de
@@ -160,6 +183,18 @@ export default function WhoAreYouPage() {
               independientemente de las diferencias de género, de las
               capacidades, o del objetivo individual que busquen en el deporte.
             </p>
+
+            <div className={imageClass}>
+              <Image
+                src={imgTerritorial}
+                alt="Equipo Senior de la categoría de Segunda Nacional en la temporada 2021/22"
+                layout="intrinsic"
+                placeholder="blur"
+                loading="lazy"
+                objectFit="cover"
+                quality={75}
+              />
+            </div>
           </main>
         </article>
       </section>

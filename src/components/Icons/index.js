@@ -1,4 +1,4 @@
-export { Instagram, MotionInstagram } from "./components/Instagram";
+export { Instagram } from "./components/Instagram";
 export { Twitter } from "./components/Twitter";
 export { Web } from "./components/Web";
 export { MenuHamburger } from "./components/MenuHamburger";

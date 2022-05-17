@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { m } from "framer-motion";
 import { Twitter } from "components/Icons";
-import { MotionLink } from "./MotionLink";
+import { MotionLink } from "components/MyLink";
 
 export function TwitterVetusta({
   text = false,

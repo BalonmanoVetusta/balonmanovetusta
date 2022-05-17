@@ -27,7 +27,7 @@ export default function AvisoLegalPage({
       <Fragment>
         {" "}
         {emailAddress ? (
-          <a href={`mailto:${email}`} rel="noindex">
+          <a href={`mailto:${email}`} rel="noindex noopener">
             <code>{email}</code>
           </a>
         ) : (

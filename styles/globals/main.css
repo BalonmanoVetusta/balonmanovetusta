@@ -24,6 +24,11 @@ body {
   background-image: var(--background-image, none);
 }
 
+div {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   width: fit-content;
   padding: 0 0.5rem;
@@ -33,8 +38,8 @@ body {
     or framer motion it exceed some little pixels the
     screen width
   */
-  min-width: 100%;
-  max-width: 100%;
+  min-width: 99%;
+  max-width: 99%;
   overflow-x: hidden;
 }
 
@@ -137,7 +142,7 @@ p {
 
 p::first-letter {
   text-transform: capitalize;
-  font-size: var(--h6-font-size, 1.5rem);
+  /* font-size: var(--h6-font-size, 1.5rem); */
 }
 
 p ol,
