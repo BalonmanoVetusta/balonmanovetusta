@@ -81,6 +81,7 @@ export default function ColaboraPage() {
               <div className="member-card">
                 <AbonoCarnet memberName="Contamos Contigo" />
               </div>
+
               <p>
                 La información más actualizada de los partidos siempre estará en
                 la web de la Real Federación Española de Balonmano, en el{" "}
@@ -92,11 +93,13 @@ export default function ColaboraPage() {
                 </a>
                 .
               </p>
+
               {/* <p>
                 También actualizamos los enlaces en la parte de equipos para que
                 acceda directamente a la competición que debe ver para saber
                 cuando es el siguiente partido.
               </p> */}
+
               <p>
                 Tenga en cuenta que el acceso a los partidos es gratis salvo los
                 encuentros del equipo de Primera Nacional que tienen coste{" "}
@@ -104,7 +107,7 @@ export default function ColaboraPage() {
               </p>
 
               <div>
-                {/* TODO: Actualizar precios */}
+                {/* TODO: Update prices */}
                 <ul>
                   <li>Adultos (mayores de 15 años): 10 €</li>
                   <li>
@@ -207,7 +210,7 @@ export default function ColaboraPage() {
               float: right;
               width: 22rem;
               max-width: 100%;
-              margin: 0.5rem;
+              margin: 0.5rem 1rem;
               border-radius: 0.5rem;
               overflow: hidden;
             }
