@@ -62,14 +62,12 @@ export default function ColaboraPage() {
               <h2>Redes Sociales</h2>
             </header>
             <main>
-              <ul>
-                <li>
-                  <InstagramVetusta text={true} />
-                </li>
-                <li>
-                  <TwitterVetusta text={true} />
-                </li>
-              </ul>
+              <div>
+                <InstagramVetusta text={true} />
+              </div>
+              <div>
+                <TwitterVetusta text={true} />
+              </div>
             </main>
           </article>
 
@@ -78,10 +76,6 @@ export default function ColaboraPage() {
               <h2>Asistir a los partidos</h2>
             </header>
             <main>
-              <div className="member-card">
-                <AbonoCarnet memberName="Contamos Contigo" />
-              </div>
-
               <p>
                 La información más actualizada de los partidos siempre estará en
                 la web de la Real Federación Española de Balonmano, en el{" "}
@@ -93,38 +87,46 @@ export default function ColaboraPage() {
                 </a>
                 .
               </p>
-
               {/* <p>
                 También actualizamos los enlaces en la parte de equipos para que
                 acceda directamente a la competición que debe ver para saber
                 cuando es el siguiente partido.
               </p> */}
-
               <p>
-                Tenga en cuenta que el acceso a los partidos es gratis salvo los
-                encuentros del equipo de Primera Nacional que tienen coste{" "}
-                <sup>*</sup>. Precios para la temporada 2022/23:
-              </p>
-
+                Tenga en cuenta que el acceso a <strong>los partidos</strong> es
+                gratis salvo los encuentros del equipo{" "}
+                <strong>de Primera Nacional</strong>
+                <sup>*</sup> que <strong>tienen coste</strong>.
+              </p>{" "}
+              <p>Precios para la temporada 2022/23:</p>
               <div>
                 {/* TODO: Update prices */}
                 <ul>
-                  <li>Adultos (mayores de 15 años): 10 €</li>
                   <li>
-                    <sup>**</sup> Abono de adultos: 40 € (+5 € con bufanda)
+                    Adultos (mayores de 15 años): <strong>10 €</strong>
                   </li>
-                  <li>Niños: 5€</li>
                   <li>
-                    <sup>**</sup> Abono de menores de 15 años: 15 €
+                    Abono<sup>**</sup> de adultos:{" "}
+                    <strong>40 € (+5 € con bufanda)</strong>
+                  </li>
+                  <li>
+                    Niños: <strong>5 €</strong>
+                  </li>
+                  <li>
+                    Abono<sup>**</sup> de menores de 15 años:{" "}
+                    <strong>15 €</strong>
                   </li>
                 </ul>
               </div>
-
+              <div className="row-center">
+                <div className="member-card">
+                  <AbonoCarnet memberName="Contamos Contigo" />
+                </div>
+              </div>
               <p>
                 Los abonos se podrán comprar cuando abramos la campaña de
                 abonados 2022/23.
               </p>
-
               <p>
                 <small>
                   <sup>*</sup> Todas las temporadas hay un partido de acceso
@@ -132,7 +134,6 @@ export default function ColaboraPage() {
                   partido. En cualquier caso{" "}
                 </small>
               </p>
-
               <p>
                 <small>
                   <sup>**</sup> Los abonos incluyen todos los partidos de liga
@@ -151,7 +152,8 @@ export default function ColaboraPage() {
             <main>
               <p>
                 Para ser entrenador del club usa la página de contacto y
-                envianos tu CV deportivo.
+                envianos tu CV deportivo, es necesario contar al menos con la
+                titulación de monitor de balonmano o equivalente.
               </p>
             </main>
           </article>
@@ -192,27 +194,32 @@ export default function ColaboraPage() {
               bottom: 5rem;
               right: 2rem;
             }
-            article#social-networks main ul {
-              list-style: none;
-              display: flex;
-              flex-direction: row;
-              justify-content: space-around;
-              align-items: center;
-            }
-            article#social-networks main ul li {
+            div.row-center {
               display: flex;
               flex-direction: column;
-              justify-content: center;
+              align-items: center;
+              margin: 0.5rem;
+            }
+            article#social-networks main {
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: center;
+              margin: 0 3rem;
+            }
+            article#social-networks main div {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
               width: 50%;
               max-width: 10rem;
             }
             div.member-card {
-              float: right;
-              width: 22rem;
               max-width: 100%;
               margin: 0.5rem 1rem;
               border-radius: 0.5rem;
               overflow: hidden;
+              width: 22rem;
             }
           `}
         </style>
