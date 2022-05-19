@@ -82,7 +82,10 @@ export function Footer() {
               Oviedo con CIF G74174277, puede consultar todos los datos legales
               así como el acuerdo de uso y otros datos legales en la página
               <Link href="/aviso-legal">
-                <a title="Información legal"> Aviso Legal</a>
+                <a title="Información legal">
+                  {" "}
+                  Aviso Legal, condiciones de uso y política de cookies
+                </a>
               </Link>
               .
             </p>

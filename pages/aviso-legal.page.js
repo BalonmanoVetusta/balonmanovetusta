@@ -484,11 +484,10 @@ export default function AvisoLegalPage({
   );
 }
 
-export async function getServerSideProps({ req }) {
-  const url = new URL(req.headers.host ?? "vetusta.club");
+export async function getStaticProps(context) {
   return {
     props: {
-      domain: url.hostname || "vetusta.club",
+      domain: process.env.DOMAIN,
       socialName: "Balonmano Vetusta",
       legalName: "Club Balonmano Vetusta",
       cif: "G74174277",

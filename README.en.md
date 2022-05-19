@@ -10,13 +10,13 @@ This is the source code for the website of Club Balonmano Vetusta from Oviedo (V
 
 - [x] Complete the design layout and elemental styles like menu, header, footer and regular text.
 - [ ] Add static content to the pages: Who we are, Legal content, Train handball, Under construction page for "members" and "shop".
-  - [ ] 404 Error Page
+  - [x] 404 Error Page (Probably add an image in the future is a good idea)
   - [x] Legal content
   - [x] Who we are
   - [ ] Train handball with us
   - [ ] Under construction page
   - [ ] Collaboration
-  - [ ] Contact
+  - [x] Contact
 - [ ] Teams pages.
   - [ ] First Team
   - [ ] Second Team

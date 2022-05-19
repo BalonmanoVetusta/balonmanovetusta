@@ -189,10 +189,17 @@ footer > * {
   display: flex;
 }
 
+footer section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  width: 100%;
+  margin: 0 20% 0 5%;
+  padding: 0;
+}
+
 footer section:last-child {
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-size: 0.8rem;
 }
 
@@ -213,19 +220,15 @@ footer section:last-child main {
 footer section article {
   display: flex;
   flex-direction: column;
+  margin: 1rem 0;
 }
 
 footer section article header,
 footer section article main {
-  margin: 0;
+  margin: 0.5rem 0 0;
   padding: 0;
   width: 100%;
   display: flex;
-}
-
-footer section article.social-networks main {
-  flex-direction: column;
-  align-items: center;
 }
 
 footer section article.social-networks main * {
@@ -252,32 +255,10 @@ footer ol {
 
 footer ul.social-networks li,
 footer ol.social-networks li {
-  margin: auto auto;
+  margin: 0;
   padding: 0;
 }
 
 footer li svg {
   width: var(--footer-icon-size, 1.5rem);
-}
-
-footer section {
-  flex-direction: row;
-  justify-content: space-around;
-  display: flex;
-  width: 100%;
-  margin: 0 20% 0 0;
-  padding: 0;
-}
-
-@media only screen and (max-width: 960px) {
-  li {
-    word-wrap: break-word;
-  }
-  footer section {
-    flex-direction: column;
-  }
-
-  footer section article main {
-    margin-left: 2rem;
-  }
 }
