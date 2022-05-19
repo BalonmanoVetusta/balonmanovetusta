@@ -1,6 +1,8 @@
 /** Default values **/
 :root {
   --footer-icon-size: 2rem;
+  --vetusta-yellow: #fede58;
+  --vetusta-black: #151111;
 }
 
 /** Dark Theme **/

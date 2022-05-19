@@ -1,5 +1,9 @@
 import PageLayout from "components/PageLayout";
-import { InstagramVetusta, TwitterVetusta } from "components/Vetusta";
+import {
+  AbonoCarnet,
+  InstagramVetusta,
+  TwitterVetusta,
+} from "components/Vetusta";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -47,6 +51,9 @@ export default function ColaboraPage() {
                   </a>
                 </li>
               </ol>
+              <div className="top">
+                <a href="#index">Volver al Indice</a>
+              </div>
             </main>
           </article>
 
@@ -57,10 +64,10 @@ export default function ColaboraPage() {
             <main>
               <ul>
                 <li>
-                  <InstagramVetusta width="2rem" text={true} />
+                  <InstagramVetusta text={true} />
                 </li>
                 <li>
-                  <TwitterVetusta width="2rem" text={true} />
+                  <TwitterVetusta text={true} />
                 </li>
               </ul>
             </main>
@@ -71,6 +78,9 @@ export default function ColaboraPage() {
               <h2>Asistir a los partidos</h2>
             </header>
             <main>
+              <div className="member-card">
+                <AbonoCarnet memberName="Contamos Contigo" />
+              </div>
               <p>
                 La información más actualizada de los partidos siempre estará en
                 la web de la Real Federación Española de Balonmano, en el{" "}
@@ -82,11 +92,11 @@ export default function ColaboraPage() {
                 </a>
                 .
               </p>
-              <p>
+              {/* <p>
                 También actualizamos los enlaces en la parte de equipos para que
                 acceda directamente a la competición que debe ver para saber
                 cuando es el siguiente partido.
-              </p>
+              </p> */}
               <p>
                 Tenga en cuenta que el acceso a los partidos es gratis salvo los
                 encuentros del equipo de Primera Nacional que tienen coste{" "}
@@ -94,6 +104,7 @@ export default function ColaboraPage() {
               </p>
 
               <div>
+                {/* TODO: Actualizar precios */}
                 <ul>
                   <li>Adultos (mayores de 15 años): 10 €</li>
                   <li>
@@ -127,7 +138,6 @@ export default function ColaboraPage() {
                   tal clasificación y jugar dicha fase en Oviedo.
                 </small>
               </p>
-              {/* TODO: Imagen del abono para la siguiente campaña 2022/23 */}
             </main>
           </article>
 
@@ -171,14 +181,35 @@ export default function ColaboraPage() {
         </section>
         <style jsx>
           {`
-            div {
-              width: 100%;
-              height: 20%;
-              margin: 0 auto;
-              background-image: @url ("/assets/images/202122PNJ30.jpeg");
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center center;
+            div ul {
+              margin-left: 2rem;
+            }
+            div.top {
+              position: sticky;
+              bottom: 5rem;
+              right: 2rem;
+            }
+            article#social-networks main ul {
+              list-style: none;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-around;
+              align-items: center;
+            }
+            article#social-networks main ul li {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              width: 50%;
+              max-width: 10rem;
+            }
+            div.member-card {
+              float: right;
+              width: 22rem;
+              max-width: 100%;
+              margin: 0.5rem;
+              border-radius: 0.5rem;
+              overflow: hidden;
             }
           `}
         </style>
