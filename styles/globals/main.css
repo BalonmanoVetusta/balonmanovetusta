@@ -14,51 +14,53 @@
     format("truetype-variations");
 }
 
-html,
+:root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+html {
+  max-width: calc(100% - var(--scrollbar-width, 17px));
+  overflow: clip auto;
+}
+
 body {
   padding: 0;
-  margin: 0;
+  margin: 0.5rem;
 
   color: var(--text-color-primary);
   background-color: var(--background-color);
   background-image: var(--background-image, none);
+  max-width: calc(100% - var(--scrollbar-width, 17px));
 }
 
 div {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  width: fit-content;
-  padding: 0 0.5rem;
-
-  /*
-    Dirty patch  because due to any div added by nextjs
-    or framer motion it exceed some little pixels the
-    screen width
-  */
-  min-width: 99%;
-  max-width: 99%;
-  overflow-x: hidden;
+  display: inline-block;
 }
 
 header,
 footer,
 main,
-section {
+section,
+div {
   margin: 0;
   padding: 0;
+  max-width: 100%;
 }
 
-header {
-  margin-bottom: 1rem;
+body > div > div > header,
+body > div > div > footer,
+body > div > div > main {
+  padding: 1rem 0;
+  background: var(--secondary-background-color, transparent);
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 100%;
 }
 
-footer,
-main,
-section {
-  margin-top: 1rem;
+article main {
+  border-radius: 0;
 }
 
 table,
@@ -132,9 +134,10 @@ h6 {
 }
 
 p {
-  padding: 0;
-  margin: 0.5rem 1.5rem;
-  max-width: max-content;
+  position: relative;
+  margin: 0 1rem;
+  padding: 0.5rem 1.5rem;
+  max-width: calc(100% - var(--scrollbar-width, 17px));
   word-break: keep-all;
   word-wrap: normal;
   text-anchor: start;
@@ -178,23 +181,26 @@ footer {
   border-top: none;
   border-bottom: none;
   border-radius: 2rem;
-  border: 1pt solid var(--footer-border-color, #ccc);
-  margin-top: 2rem;
-  padding: 0.5rem;
-  width: 100%;
+  /* border: 1pt solid var(--footer-border-color, #ccc); */
+  margin-top: 1rem;
+  padding: 1rem;
+  max-width: calc(100% - var(--scrollbar-width, 17px));
   flex-direction: column;
   flex-flow: column;
 }
-footer > * {
-  display: flex;
-}
 
-footer section {
+footer > section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  width: 100%;
-  margin: 0 20% 0 5%;
+  max-width: 100%;
+  margin: 0 1rem;
   padding: 0;
+  border-radius: 0%;
+}
+
+footer > section > main,
+footer > section > article > main {
+  border-radius: 0%;
 }
 
 footer section:last-child {
@@ -261,4 +267,9 @@ footer ol.social-networks li {
 
 footer li svg {
   width: var(--footer-icon-size, 1.5rem);
+}
+
+footer p {
+  margin: 0.5rem 0.5rem;
+  padding: 0;
 }

@@ -1,13 +1,14 @@
 import Head from "next/head";
-import { Fragment } from "react";
-import { motion } from "framer-motion";
+import { Fragment, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import MenuWrapper from "./MenuWrapper";
 import Header from "components/Header";
 import Footer from "components/Footer";
+import { ScrollTapOutsideElementContext } from "components/Menu";
 
 const variants = {
   hidden: {
-    x: "200",
+    x: "100",
     opacity: 0,
   },
   show: {
@@ -16,13 +17,22 @@ const variants = {
     transition: { duration: 1 },
   },
   exit: {
-    x: "-200",
+    x: "-100",
     opacity: 0,
     transition: { duration: 1 },
   },
 };
 
 export function PageLayout({ children }) {
+  useEffect(() => {
+    const { document, innerWidth } = globalThis || window || {};
+    const scrollbarWidth = innerWidth - document.body.clientWidth;
+    document.documentElement.style.setProperty(
+      "--scrollbar-width",
+      `${scrollbarWidth}px`
+    );
+  }, []);
+
   return (
     <Fragment>
       <Head>
@@ -63,18 +73,22 @@ export function PageLayout({ children }) {
         <meta name="theme-color" content="#151111" />
         <link rel="manifest" href="site.webmanifest" />
       </Head>
-      <Header key="header" />
-      <MenuWrapper key="menuwrapper" />
-      <motion.main
-        variants={variants}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-        key="main-content"
-      >
-        {children}
-      </motion.main>
-      <Footer key="footer" />
+      <ScrollTapOutsideElementContext>
+        <AnimatePresence>
+          <Header key="header" />
+          <MenuWrapper key="menuwrapper" />
+          <motion.main
+            variants={variants}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            key="main-content"
+          >
+            {children}
+          </motion.main>
+          <Footer key="footer" />
+        </AnimatePresence>
+      </ScrollTapOutsideElementContext>
     </Fragment>
   );
 }

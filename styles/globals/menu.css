@@ -185,12 +185,12 @@ nav#menu input[type="checkbox"]:checked ~ label .close {
 Large sizes screens */
 @media only screen and (min-width: 961px) {
   nav#menu {
-    width: 100%;
+    max-width: calc(100% - var(--scrollbar-width, 17px));
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     border-radius: var(--menu-external-border-radius, 0.5rem);
-    margin: 0;
+    margin: 1rem 0;
     padding: 0;
   }
 

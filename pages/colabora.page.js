@@ -1,3 +1,4 @@
+import { ArrowUp } from "components/Icons";
 import PageLayout from "components/PageLayout";
 import {
   AbonoCarnet,
@@ -52,7 +53,17 @@ export default function ColaboraPage() {
                 </li>
               </ol>
               <div className="top">
-                <a href="#index">Volver al Indice</a>
+                <a href="#index">
+                  <div className="icon">
+                    <ArrowUp
+                      width="100%"
+                      title="Volver al indice"
+                      aria-hidden="true"
+                      fill="var(--text-color-primary)"
+                    />
+                  </div>
+                  Volver al Indice
+                </a>
               </div>
             </main>
           </article>
@@ -147,13 +158,17 @@ export default function ColaboraPage() {
 
           <article id="coach">
             <header>
-              <h2>Ser entrenador del club</h2>
+              <h2>Ser parte del club</h2>
             </header>
             <main>
               <p>
-                Para ser entrenador del club usa la página de contacto y
-                envianos tu CV deportivo, es necesario contar al menos con la
-                titulación de monitor de balonmano o equivalente.
+                Puedes colaborar formando parte del club de diversas formas ya
+                que a veces necesitamos personas voluntarias.
+              </p>
+              <p>
+                También puedes ser entrenador del club, usa la página de
+                contacto y envianos tu CV deportivo, es necesario contar al
+                menos con la titulación de monitor de balonmano o equivalente.
               </p>
             </main>
           </article>
@@ -186,6 +201,11 @@ export default function ColaboraPage() {
         </section>
         <style jsx>
           {`
+            div.icon {
+              display: inline-block;
+              width: 2rem;
+            }
+
             div ul {
               margin-left: 2rem;
             }
@@ -194,12 +214,14 @@ export default function ColaboraPage() {
               bottom: 5rem;
               right: 2rem;
             }
+
             div.row-center {
               display: flex;
               flex-direction: column;
               align-items: center;
               margin: 0.5rem;
             }
+
             article#social-networks main {
               display: flex;
               flex-direction: row;

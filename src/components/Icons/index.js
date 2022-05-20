@@ -11,3 +11,4 @@ export { HandShake } from "./components/HandShake";
 export { Pencil } from "./components/Pencil";
 export { AccountSearch } from "./components/AccountSearch";
 export { Store } from "./components/Store";
+export { ArrowUp } from "./components/ArrowUp";

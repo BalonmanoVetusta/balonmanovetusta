@@ -94,7 +94,7 @@ export function Menu({
         opacity: 1,
         zIndex: 1,
         transition: {
-          duration: 0.5,
+          duration: 1,
         },
       },
     },
