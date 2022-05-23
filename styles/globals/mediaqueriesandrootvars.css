@@ -3,7 +3,7 @@
   --footer-icon-size: 2rem;
   --vetusta-yellow: #fede58;
   --vetusta-black: #151111;
-  --scrollbar-width: max(calc(100vw - 100%), 17px);
+  --scrollbar-width: calc(100vw - 100%);
 }
 
 /** Dark Theme **/
@@ -125,12 +125,14 @@
 }
 
 @media only screen and (any-hover: hover) {
-  html,
-  body,
+  body {
+    max-width: calc(100% - var(--scrollbar-width, 17px));
+  }
+
   body > div > div > header,
   body > div > div > footer,
   body > div > div > main {
-    max-width: calc(100% - var(--scrollbar-width, 17px));
+    max-width: 100%;
   }
 }
 
@@ -155,6 +157,4 @@
 
   /** Other stuff **/
   font-size: 16px;
-  min-height: 100vh;
-  min-width: 100vw;
 }

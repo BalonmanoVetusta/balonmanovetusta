@@ -21,7 +21,6 @@
 }
 
 html {
-  max-width: calc(100% - var(--scrollbar-width, 17px));
   overflow: clip auto;
 }
 
@@ -32,7 +31,6 @@ body {
   color: var(--text-color-primary);
   background-color: var(--background-color);
   background-image: var(--background-image, none);
-  max-width: calc(100% - var(--scrollbar-width, 17px));
 }
 
 div {
@@ -137,7 +135,6 @@ p {
   position: relative;
   margin: 0 1rem;
   padding: 0.5rem 1.5rem;
-  max-width: calc(100% - var(--scrollbar-width, 17px));
   word-break: keep-all;
   word-wrap: normal;
   text-anchor: start;
@@ -184,7 +181,6 @@ footer {
   /* border: 1pt solid var(--footer-border-color, #ccc); */
   margin-top: 1rem;
   padding: 1rem;
-  max-width: calc(100% - var(--scrollbar-width, 17px));
   flex-direction: column;
   flex-flow: column;
 }

@@ -16,7 +16,7 @@ export default function ColaboraPage() {
           <h3>Contamos contigo</h3>
         </div>
         <section>
-          <article>
+          <article id="index">
             <header>
               <h1>Formas de colaborar</h1>
               <h2>Índice</h2>
@@ -52,19 +52,6 @@ export default function ColaboraPage() {
                   </a>
                 </li>
               </ol>
-              <div className="top">
-                <a href="#index">
-                  <div className="icon">
-                    <ArrowUp
-                      width="100%"
-                      title="Volver al indice"
-                      aria-hidden="true"
-                      fill="var(--text-color-primary)"
-                    />
-                  </div>
-                  Volver al Indice
-                </a>
-              </div>
             </main>
           </article>
 
@@ -198,6 +185,20 @@ export default function ColaboraPage() {
               </p>
             </main>
           </article>
+
+          <div className="top">
+            <a href="#index">
+              <div className="icon">
+                <ArrowUp
+                  width="100%"
+                  title="Volver al indice"
+                  aria-hidden="true"
+                  fill="var(--text-color-primary)"
+                />
+              </div>
+              Volver al Indice
+            </a>
+          </div>
         </section>
         <style jsx>
           {`
@@ -211,8 +212,6 @@ export default function ColaboraPage() {
             }
             div.top {
               position: sticky;
-              bottom: 5rem;
-              right: 2rem;
             }
 
             div.row-center {
@@ -238,10 +237,11 @@ export default function ColaboraPage() {
             }
             div.member-card {
               max-width: 100%;
-              margin: 0.5rem 1rem;
-              border-radius: 0.5rem;
+              padding: 0;
+              margin: 0.5rem auto;
               overflow: hidden;
               width: 22rem;
+              height: auto;
             }
           `}
         </style>

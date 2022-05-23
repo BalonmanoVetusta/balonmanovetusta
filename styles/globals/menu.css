@@ -185,7 +185,7 @@ nav#menu input[type="checkbox"]:checked ~ label .close {
 Large sizes screens */
 @media only screen and (min-width: 961px) {
   nav#menu {
-    max-width: calc(100% - var(--scrollbar-width, 17px));
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
