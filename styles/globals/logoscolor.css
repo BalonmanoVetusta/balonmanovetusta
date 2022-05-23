@@ -5,6 +5,8 @@
     --facebook-fill-color: #1778f2;
     --twitter-fill-color: #1da1f2;
     --instagram-fill-color: #c13584;
+    --top-button-background: var(--text-color-primary);
+    --top-button-color: var(--background-color);
   }
 }
 [data-theme="dark"] {
@@ -13,6 +15,8 @@
   --facebook-stroke-color: #1778f2;
   --twitter-fill-color: #1da1f2;
   --instagram-fill-color: #c13584;
+  --top-button-background: var(--text-color-primary);
+  --top-button-color: var(--background-color);
 }
 
 /** Light Theme **/
@@ -22,6 +26,8 @@
     --facebook-fill-color: #1778f2;
     --twitter-fill-color: #1da1f2;
     --instagram-fill-color: #e1306c;
+    --top-button-background: #daa520; /* rgb(255, 239, 213); */
+    --top-button-color: var(--background-color);
   }
 }
 [data-theme="light"] {
@@ -29,4 +35,6 @@
   --facebook-fill-color: #1778f2;
   --twitter-fill-color: #1da1f2;
   --instagram-fill-color: #e1306c;
+  --top-button-background: #daa520;
+  --top-button-color: var(--background-color);
 }

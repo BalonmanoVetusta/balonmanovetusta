@@ -20,9 +20,9 @@
   align-items: center;
 }
 
-html {
+/* html {
   overflow: clip auto;
-}
+} */
 
 body {
   padding: 0;
@@ -51,9 +51,8 @@ body > div > div > header,
 body > div > div > footer,
 body > div > div > main {
   padding: 1rem 0;
-  background: var(--secondary-background-color, transparent);
+  background: var(--background-color-secondary, transparent);
   border-radius: 1rem;
-  overflow: hidden;
   max-width: 100%;
 }
 

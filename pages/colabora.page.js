@@ -1,4 +1,5 @@
 import { ArrowUp } from "components/Icons";
+import { MotionLink } from "components/MyLink";
 import PageLayout from "components/PageLayout";
 import {
   AbonoCarnet,
@@ -7,6 +8,62 @@ import {
 } from "components/Vetusta";
 import Link from "next/link";
 import { Fragment } from "react";
+import { motion } from "framer-motion";
+import styled from "styled-components";
+
+const variants = {
+  tap: {
+    scale: 0.9,
+  },
+  hover: {
+    scale: 1.1,
+  },
+};
+
+const GoTop = styled.div`
+  padding: 0.25rem;
+  margin: 1rem 1rem;
+  border-radius: 10rem;
+  background-color: var(--top-button-background);
+  color: var(--top-button-color);
+  max-width: 3rem;
+`;
+
+function TopIndex() {
+  return (
+    <Fragment>
+      <div className="row-right">
+        <GoTop
+          as={motion.div}
+          variants={variants}
+          whileHover="hover"
+          whileTap="tap"
+        >
+          <MotionLink href="#index" title="Volver al índice">
+            <motion.div className="icon">
+              <ArrowUp
+                width="100%"
+                title="Volver al indice"
+                aria-hidden="true"
+                fill="var(--top-button-color)"
+              />
+            </motion.div>
+          </MotionLink>
+        </GoTop>
+      </div>
+      <style global jsx>
+        {`
+          div.row-right {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: right;
+          }
+        `}
+      </style>
+    </Fragment>
+  );
+}
 
 export default function ColaboraPage() {
   return (
@@ -44,7 +101,7 @@ export default function ColaboraPage() {
                   </a>
                 </li>
                 <li>
-                  <a href="#coach">Ser entrenador del club</a>
+                  <a href="#staff">Ser parte del club</a>
                 </li>
                 <li>
                   <a href="#sponsor">
@@ -60,12 +117,16 @@ export default function ColaboraPage() {
               <h2>Redes Sociales</h2>
             </header>
             <main>
-              <div>
-                <InstagramVetusta text={true} />
+              <div className="cards">
+                <div className="card">
+                  <InstagramVetusta text={true} />
+                </div>
+                <div className="card">
+                  <TwitterVetusta text={true} />
+                </div>
               </div>
-              <div>
-                <TwitterVetusta text={true} />
-              </div>
+
+              <TopIndex />
             </main>
           </article>
 
@@ -140,10 +201,11 @@ export default function ColaboraPage() {
                   tal clasificación y jugar dicha fase en Oviedo.
                 </small>
               </p>
+              <TopIndex />
             </main>
           </article>
 
-          <article id="coach">
+          <article id="staff">
             <header>
               <h2>Ser parte del club</h2>
             </header>
@@ -157,10 +219,12 @@ export default function ColaboraPage() {
                 contacto y envianos tu CV deportivo, es necesario contar al
                 menos con la titulación de monitor de balonmano o equivalente.
               </p>
+
+              <TopIndex />
             </main>
           </article>
 
-          <article>
+          <article id="sponsor">
             <header>
               <h2>Ser patrocinador o colaborador (económico)</h2>
             </header>
@@ -183,22 +247,10 @@ export default function ColaboraPage() {
                 </a>
                 .
               </p>
+
+              <TopIndex />
             </main>
           </article>
-
-          <div className="top">
-            <a href="#index">
-              <div className="icon">
-                <ArrowUp
-                  width="100%"
-                  title="Volver al indice"
-                  aria-hidden="true"
-                  fill="var(--text-color-primary)"
-                />
-              </div>
-              Volver al Indice
-            </a>
-          </div>
         </section>
         <style jsx>
           {`
@@ -210,9 +262,6 @@ export default function ColaboraPage() {
             div ul {
               margin-left: 2rem;
             }
-            div.top {
-              position: sticky;
-            }
 
             div.row-center {
               display: flex;
@@ -221,14 +270,14 @@ export default function ColaboraPage() {
               margin: 0.5rem;
             }
 
-            article#social-networks main {
+            article#social-networks main div.cards {
               display: flex;
               flex-direction: row;
               justify-content: flex-start;
               align-items: center;
               margin: 0 3rem;
             }
-            article#social-networks main div {
+            article#social-networks main div.card {
               display: flex;
               flex-direction: row;
               align-items: center;
