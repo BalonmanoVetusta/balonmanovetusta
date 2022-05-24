@@ -7,7 +7,8 @@ export default function IndexPage({ latestTwits = {} } = {}) {
       <section>
         <h1>Últimos Twitts</h1>
         <div>
-          <pre>{JSON.stringify(latestTwits, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(latestTwits, null, 2)}</pre> */} Por ahora
+          aquí no se cargará nada hasta que esté listo
         </div>
       </section>
     </PageLayout>
