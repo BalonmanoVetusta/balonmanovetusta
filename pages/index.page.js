@@ -1,21 +1,25 @@
 import PageLayout from "components/PageLayout";
+import { getLatestTimelineTwitts } from "lib/twitter/getLatestsTimelineTwitts";
 
-export default function IndexPage() {
+export default function IndexPage({ latestTwits = {} } = {}) {
   return (
     <PageLayout>
       <section>
-        <a
-          className="twitter-timeline"
-          href="https://twitter.com/BM_Vetusta?ref_src=twsrc%5Etfw"
-        >
-          Tweets by BM_Vetusta
-        </a>{" "}
-        <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charSet="utf-8"
-        ></script>
+        <h1>Últimos Twitts</h1>
+        <div>
+          <pre>{JSON.stringify(latestTwits, null, 2)}</pre>
+        </div>
       </section>
     </PageLayout>
   );
+}
+
+export async function getStaticProps(context) {
+  const latestTwits = await getLatestTimelineTwitts();
+  return {
+    props: {
+      latestTwits,
+    },
+    revalidate: 300,
+  };
 }

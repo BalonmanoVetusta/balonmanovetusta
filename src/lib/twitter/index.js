@@ -1,0 +1,1 @@
+export { getLatestsTimelineTwitts } from "./getLatestsTimelineTwitts";

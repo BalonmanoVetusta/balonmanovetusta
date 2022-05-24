@@ -15,6 +15,7 @@
       "styles/*": ["../styles/*"],
       "tests/*": ["../__tests__/*"],
       "mocks/*": ["../__mocks__/*"],
+      "mockData/*": ["../mockData/*"],
       "config/*": ["../config/*"],
       "next.config": ["../next.config.js"]
     }
