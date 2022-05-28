@@ -20,16 +20,18 @@ export async function twitterFetch(url, options) {
   headers.authorization ??= `Bearer ${TWITTER_BEARER_TOKEN}`;
   headers["Content-Type"] ??= "application/json";
 
-  // TODO: Uncomment when ready to generate in realtime
-  // if (process.env.NODE_ENV === "development") {
   if (
-    url.includes(`${TWITTER_BASE_API_URL}/2/users/${TWITTER_USERID}/tweets`)
+    process.env.NODE_ENV !== "production" &&
+    process.env.NODE_ENV !== "preview"
   ) {
-    const mockData = require("mockData/timelineResponse.json");
+    if (
+      url.includes(`${TWITTER_BASE_API_URL}/2/users/${TWITTER_USERID}/tweets`)
+    ) {
+      const mockData = require("mockData/timelineResponse.json");
 
-    return mockData;
+      return mockData;
+    }
   }
-  // }
 
   try {
     const response = await fetch(url, options);

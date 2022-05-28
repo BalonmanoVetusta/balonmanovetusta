@@ -36,7 +36,6 @@ export async function getLatestTimelineTwitts() {
 
     const twitts = await twitterFetch(apiUrl);
     const resolvedMediaTwits = twitsObjectMapMedia(twitts);
-    console.log(resolvedMediaTwits[0]);
 
     return resolvedMediaTwits;
   } catch (error) {
