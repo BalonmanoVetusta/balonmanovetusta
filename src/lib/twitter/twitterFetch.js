@@ -20,13 +20,13 @@ export async function twitterFetch(url, options) {
   headers.authorization ??= `Bearer ${TWITTER_BEARER_TOKEN}`;
   headers["Content-Type"] ??= "application/json";
 
-  if (
-    process.env.NODE_ENV !== "production" &&
-    process.env.NODE_ENV !== "preview"
-  ) {
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === "development") {
     if (
       url.includes(`${TWITTER_BASE_API_URL}/2/users/${TWITTER_USERID}/tweets`)
     ) {
+      console.log(
+        `Fetch is not running because it is in develoment mode so it has mocked data`
+      );
       const mockData = require("mockData/timelineResponse.json");
 
       return mockData;
